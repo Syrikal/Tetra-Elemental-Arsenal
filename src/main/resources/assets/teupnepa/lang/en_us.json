@@ -1,0 +1,12 @@
+{
+  "tetra/schematic/sword/netherite_enhancement.name": "Enhance Netherite",
+  "tetra/schematic/sword/netherite_enhancement.description": "Add enhanced netherite to the sword's blade. Has various effects depending on upgrade type.",
+  "tetra/schematic/sword/netherite_enhancement.slot1": "Netherite Ingot",
+  "tetra.module.sword/netherite_enhancement.name": "Enhancement",
+  "tetra.module.sword/netherite_enhancement.description": "An enhancement that adds powerful effects to a netherite blade.",
+  "tetra.module.sword/netherite_enhancement.material_name": "%s enhancement",
+
+
+  "tetra.material.magmatic_netherite": "Magmatic Netherite",
+  "tetra.material.magmatic_netherite.prefix": "Magmatic Netherite"
+}
