@@ -4,10 +4,13 @@
     "sword/fuller"
   ],
   "type":"tetra:basic_module",
+  "improvements":[
+    "upgradednetherite/fire"
+  ],
   "variants":[
     {
       "materials":[
-        "tetra:wood/"
+        "tetra:netherite_upgrades/"
       ],
       "key":"netherite_enhancement/",
       "attributes":{
@@ -15,6 +18,9 @@
       },
       "durability":100,
       "durabilityMultiplier":1.1,
+      "improvements": {
+        "upgradednetherite/fire": 0
+      },
       "extract":{
         "secondaryAttributes":{
           "generic.attack_speed":-0.1

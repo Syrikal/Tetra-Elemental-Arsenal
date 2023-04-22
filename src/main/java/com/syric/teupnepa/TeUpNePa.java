@@ -1,5 +1,6 @@
 package com.syric.teupnepa;
 
+import com.syric.teupnepa.effects.FireEffect;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,6 +38,9 @@ public class TeUpNePa
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new FireEffect());
+
+
     }
 
     private void setup(final FMLCommonSetupEvent event)

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.syric.teupnepa.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinFireUtil"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "teupnepa.mixin-refmap.json"
+}

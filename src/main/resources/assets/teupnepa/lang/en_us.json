@@ -7,6 +7,24 @@
   "tetra.module.sword/netherite_enhancement.material_name": "%s enhancement",
 
 
+  "tetra.material.abyssal_netherite": "Abyssal Netherite",
+  "tetra.material.abyssal_netherite.prefix": "Abyssal Netherite",
+  "tetra.material.blighted_netherite": "Blighted Netherite",
+  "tetra.material.blighted_netherite.prefix": "Blighted Netherite",
+  "tetra.material.corrupted_netherite": "Corrupted Netherite",
+  "tetra.material.corrupted_netherite.prefix": "Corrupted Netherite",
+  "tetra.material.gilded_netherite": "Gilded Netherite",
+  "tetra.material.gilded_netherite.prefix": "Gilded Netherite",
   "tetra.material.magmatic_netherite": "Magmatic Netherite",
-  "tetra.material.magmatic_netherite.prefix": "Magmatic Netherite"
+  "tetra.material.magmatic_netherite.prefix": "Magmatic Netherite",
+  "tetra.material.paragon_netherite": "Paragon Netherite",
+  "tetra.material.paragon_netherite.prefix": "Paragon Netherite",
+  "tetra.material.phantasmal_netherite": "Phantasmal Netherite",
+  "tetra.material.phantasmal_netherite.prefix": "Phantasmal Netherite",
+  "tetra.material.skyseeker_netherite": "Skyseeker Netherite",
+  "tetra.material.skyseeker_netherite.prefix": "Skyseeker Netherite",
+  "tetra.material.vile_netherite": "Vile Netherite",
+  "tetra.material.vile_netherite.prefix": "Vile Netherite",
+  "tetra.material.voidwalker_netherite": "Voidwalker Netherite",
+  "tetra.material.voidwalker_netherite.prefix": "Voidwalker Netherite"
 }

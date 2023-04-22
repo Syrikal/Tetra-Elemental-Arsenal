@@ -4,14 +4,14 @@
     "sword/fuller"
   ],
   "materialSlotCount": 1,
-  "displayType": "minor",
+  "displayType": "major",
   "glyph": {
     "textureX": 72,
     "textureY": 16
   },
   "outcomes": [
     {
-      "materials": ["tetra:wood/"],
+      "materials": ["tetra:netherite_upgrades/"],
       "moduleKey": "sword/netherite_enhancement",
       "moduleVariant": "netherite_enhancement/"
     }

@@ -59,6 +59,8 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            arg "-mixin.config=teupnepa.mixin.json"
+
             mods {
                 examplemod {
                     source sourceSets.main
@@ -80,6 +82,9 @@ minecraft {
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
+
+            arg "-mixin.config=teupnepa.mixin.json"
+
 
             mods {
                 examplemod {
@@ -128,6 +133,10 @@ repositories {
     mavenCentral()
 }
 
+mixin {
+    add sourceSets.main, "teupnepa.mixin-refmap.json"
+}
+
 dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
@@ -142,7 +151,12 @@ dependencies {
 
     //Upgraded Netherite
     implementation fg.deobf("curse.maven:upgraded-netherite-400085:3973166")
+    implementation fg.deobf("curse.maven:upgraded-netherite-ultimerite-566868:3973167")
     implementation fg.deobf("curse.maven:upgraded-core-566700:3969615")
+
+
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
@@ -174,7 +188,10 @@ jar {
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"Syric",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            "TweakClass": "org.spongepowered.asm.launch.MixinTweaker",
+            "TweakOrder": 0,
+            "MixinConfigs": "teupnepa.mixin.json"
         ])
     }
 }

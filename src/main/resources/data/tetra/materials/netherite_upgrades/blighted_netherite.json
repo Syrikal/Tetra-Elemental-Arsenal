@@ -1,5 +1,5 @@
 {
-  "key": "magmatic_netherite",
+  "key": "blighted_netherite",
   "category": "metal",
   "primary": "7.24",
   "secondary": "2.9",
@@ -10,19 +10,19 @@
   "magicCapacity": "90",
   "toolLevel": "5",
   "toolEfficiency": "9",
-  "improvements": {
-    "upgradednetherite/fire": 0
-  },
   "tints": {
-    "glyph": "d17800",
-    "texture": "d17800"
+    "glyph": "806164",
+    "texture": "695e5f"
   },
   "textures": [
     "heavy",
     "metal"
   ],
   "material": {
-    "item": "upgradednetherite:fire_upgraded_netherite_ingot"
+    "item": "upgradednetherite:wither_upgraded_netherite_ingot"
+  },
+  "effects": {
+    "stabilizing": 15
   },
   "requiredTools": {
     "hammer": 5
