@@ -1,6 +1,7 @@
 package com.syric.teupnepa;
 
 import com.syric.teupnepa.effects.FireEffect;
+import com.syric.teupnepa.mixin.MixinFireUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -24,7 +25,7 @@ import java.util.stream.Collectors;
 public class TeUpNePa
 {
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     public TeUpNePa() {
         // Register the setup method for modloading
@@ -45,6 +46,9 @@ public class TeUpNePa
 
     private void setup(final FMLCommonSetupEvent event)
     {
+
+        ItemListUtil.initFire();
+
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
