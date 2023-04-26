@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/corrupt",
+        "level": 1,
+        "integrity": -1,
+        "effects": {
+            "upgradednetherite:corrupt_weapon": 1
+        },
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/heavy_blade/corrupt"
+        }]
+    }
+]

@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/wither",
+        "level": 1,
+        "integrity": -1,
+        "effects": {
+            "upgradednetherite:wither_weapon": 1
+        },
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/short_blade/wither"
+        }]
+    }
+]

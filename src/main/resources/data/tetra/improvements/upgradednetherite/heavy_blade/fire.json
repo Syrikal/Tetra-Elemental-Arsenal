@@ -4,7 +4,7 @@
         "level": 1,
         "integrity": -1,
         "effects": {
-            "upgradednetherite:fire": 1
+            "upgradednetherite:fire_weapon": 1
         },
         "models": [{
             "location": "tetra:items/module/upgradednetherite/heavy_blade/fire"

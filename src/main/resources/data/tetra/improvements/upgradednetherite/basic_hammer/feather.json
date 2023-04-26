@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/feather",
+        "level": 1,
+        "integrity": -1,
+        "effects": {
+            "upgradednetherite:feather_tool": 1
+        },
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/basic_hammer/feather"
+        }]
+    }
+]

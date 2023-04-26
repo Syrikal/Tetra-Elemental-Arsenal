@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/corrupt",
+        "level": 1,
+        "integrity": -1,
+        "effects": {
+            "upgradednetherite:corrupt_tool": 1
+        },
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/sickle/corrupt"
+        }]
+    }
+]

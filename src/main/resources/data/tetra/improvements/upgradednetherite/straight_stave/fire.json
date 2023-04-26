@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/fire",
+        "level": 1,
+        "integrity": -1,
+        "effects": {
+            "upgradednetherite:fire": 1
+        },
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/straight_stave/fire"
+        }]
+    }
+]

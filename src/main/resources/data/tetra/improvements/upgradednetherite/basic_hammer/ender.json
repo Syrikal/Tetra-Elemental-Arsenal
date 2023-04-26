@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/ender",
+        "level": 1,
+        "integrity": -1,
+        "effects": {
+            "upgradednetherite:ender_tool": 1
+        },
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/basic_hammer/ender"
+        }]
+    }
+]

@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/gold",
+        "level": 1,
+        "integrity": -1,
+        "effects": {
+            "upgradednetherite:gold_both": 1
+        },
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/basic_axe/gold"
+        }]
+    }
+]

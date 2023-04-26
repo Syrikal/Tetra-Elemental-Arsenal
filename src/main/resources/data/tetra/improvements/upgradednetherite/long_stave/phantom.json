@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/phantom",
+        "level": 1,
+        "integrity": -1,
+        "effects": {
+            "upgradednetherite:phantom": 1
+        },
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/long_stave/phantom"
+        }]
+    }
+]

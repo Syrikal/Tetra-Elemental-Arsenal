@@ -4,8 +4,10 @@ import com.rolfmao.upgradednetherite.config.UpgradedNetheriteConfig;
 import com.rolfmao.upgradednetherite.utils.tool.FireUtil;
 import com.syric.teupnepa.ModularUtil;
 import com.syric.teupnepa.TeUpNePa;
+import com.syric.teupnepa.effects.Effects;
 import com.syric.teupnepa.effects.FireEffect;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import se.mickelus.tetra.items.modular.ModularItem;
@@ -46,14 +48,14 @@ public abstract class MixinFireUtil {
 
         if (itemStack.getItem() instanceof ModularItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
-            if (modularItem.getEffectData(itemStack).contains(FireEffect.fire)) {
+            if (modularItem.getEffectData(itemStack).contains(Effects.fire_weapon)) {
                 TeUpNePa.LOGGER.info("Detected fire effect");
             }
-            if(ModularUtil.isModularMeleeWeapon(itemStack)) {
-                TeUpNePa.LOGGER.info("Detected modular melee weapon");
-            }
+//            if(ModularUtil.isModularMeleeWeapon(itemStack)) {
+//                TeUpNePa.LOGGER.info("Detected modular melee weapon");
+//            }
 
-            return modularItem.getEffectData(itemStack).contains(FireEffect.fire) && ModularUtil.isModularMeleeWeapon(itemStack);
+            return modularItem.getEffectData(itemStack).contains(Effects.fire_weapon) || modularItem.getEffectData(itemStack).contains(Effects.fire_both);
         }
 
         return false;
@@ -72,7 +74,7 @@ public abstract class MixinFireUtil {
 
         if (itemStack.getItem() instanceof ModularItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
-            return modularItem.getEffectData(itemStack).contains(FireEffect.fire) && ModularUtil.isModularRangedWeapon(itemStack);
+            return modularItem.getEffectData(itemStack).contains(Effects.fire) && ModularUtil.isModularRangedWeapon(itemStack);
         }
 
         return false;
@@ -91,7 +93,7 @@ public abstract class MixinFireUtil {
 
         if (itemStack.getItem() instanceof ModularItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
-            return modularItem.getEffectData(itemStack).contains(FireEffect.fire) && ModularUtil.isModularTool(itemStack);
+            return modularItem.getEffectData(itemStack).contains(Effects.fire_tool) || modularItem.getEffectData(itemStack).contains(Effects.fire_both);
         }
 
         return false;
