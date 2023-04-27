@@ -1,7 +1,6 @@
 [
     {
         "key": "upgradednetherite/poison",
-        "level": 1,
         "integrity": -1,
         "effects": {
             "upgradednetherite:poison_tool": 1

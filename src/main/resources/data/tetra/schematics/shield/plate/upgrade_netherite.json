@@ -33,7 +33,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/gold": 1
+                "upgradednetherite/gold": 0
             }
         },
         {
@@ -44,7 +44,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/fire": 1
+                "upgradednetherite/fire": 0
             }
         },
         {
@@ -55,7 +55,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/ender": 1
+                "upgradednetherite/ender": 0
             }
         },
         {
@@ -66,7 +66,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/water": 1
+                "upgradednetherite/water": 0
             }
         },
         {
@@ -77,7 +77,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/wither": 1
+                "upgradednetherite/wither": 0
             }
         },
         {
@@ -88,7 +88,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/poison": 1
+                "upgradednetherite/poison": 0
             }
         },
         {
@@ -99,7 +99,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/phantom": 1
+                "upgradednetherite/phantom": 0
             }
         },
         {
@@ -110,7 +110,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/feather": 1
+                "upgradednetherite/feather": 0
             }
         },
         {
@@ -121,7 +121,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/corrupt": 1
+                "upgradednetherite/corrupt": 0
             }
         },
         {
@@ -132,7 +132,7 @@
                 "hammer": 5
             },
             "improvements": {
-                "upgradednetherite/ultimate": 1
+                "upgradednetherite/ultimate": 0
             }
         }
     ]

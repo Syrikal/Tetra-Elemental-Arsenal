@@ -1,7 +1,6 @@
 [
     {
         "key": "upgradednetherite/fire",
-        "level": 1,
         "integrity": -1,
         "effects": {
             "upgradednetherite:fire_weapon": 1

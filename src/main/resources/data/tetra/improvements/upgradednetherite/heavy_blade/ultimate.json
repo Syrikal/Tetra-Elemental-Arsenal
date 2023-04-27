@@ -1,7 +1,6 @@
 [
     {
         "key": "upgradednetherite/ultimate",
-        "level": 1,
         "integrity": -1,
         "effects": {
             "upgradednetherite:ultimate_weapon": 1

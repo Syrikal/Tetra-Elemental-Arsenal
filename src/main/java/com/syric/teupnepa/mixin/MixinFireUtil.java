@@ -7,7 +7,6 @@ import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.effects.Effects;
 import com.syric.teupnepa.effects.FireEffect;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import se.mickelus.tetra.items.modular.ModularItem;
@@ -44,13 +43,15 @@ public abstract class MixinFireUtil {
 
         if (!UpgradedNetheriteConfig.EnableFireTool) { return false; }
 
-        if (fire_netherite_weapons.contains(itemStack.getItem())) { return true; }
+        if (fire_netherite_weapons.contains(itemStack.getItem())) {
+            TeUpNePa.LOGGER.debug("Detected Upgraded Netherite fire weapon: " + itemStack.getItem());
+            return true; }
 
         if (itemStack.getItem() instanceof ModularItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
-            if (modularItem.getEffectData(itemStack).contains(Effects.fire_weapon)) {
-                TeUpNePa.LOGGER.info("Detected fire effect");
-            }
+//            if (modularItem.getEffectData(itemStack).contains(Effects.fire_weapon)) {
+//                TeUpNePa.LOGGER.info("Detected fire effect");
+//            }
 //            if(ModularUtil.isModularMeleeWeapon(itemStack)) {
 //                TeUpNePa.LOGGER.info("Detected modular melee weapon");
 //            }

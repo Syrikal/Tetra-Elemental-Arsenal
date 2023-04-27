@@ -1,7 +1,6 @@
 [
     {
         "key": "upgradednetherite/water",
-        "level": 1,
         "integrity": -1,
         "effects": {
             "upgradednetherite:water_tool": 1

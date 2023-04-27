@@ -1,7 +1,6 @@
 [
     {
         "key": "upgradednetherite/wither",
-        "level": 1,
         "integrity": -1,
         "effects": {
             "upgradednetherite:wither_tool": 1

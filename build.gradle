@@ -154,8 +154,9 @@ dependencies {
     implementation fg.deobf("curse.maven:upgraded-netherite-ultimerite-566868:3973167")
     implementation fg.deobf("curse.maven:upgraded-core-566700:3969615")
 
-    //Target Dummy for testing
+    //Target Dummy and Damage Numbers for testing
     implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:4382716")
+    implementation fg.deobf("curse.maven:text-damage-indicators-407673:3072831")
 
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
