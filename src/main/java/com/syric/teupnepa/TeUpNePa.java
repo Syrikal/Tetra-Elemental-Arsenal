@@ -45,7 +45,16 @@ public class TeUpNePa
     private void setup(final FMLCommonSetupEvent event)
     {
 
+        ItemListUtil.initGold();
         ItemListUtil.initFire();
+        ItemListUtil.initEnder();
+        ItemListUtil.initWater();
+        ItemListUtil.initWither();
+        ItemListUtil.initPoison();
+        ItemListUtil.initPhantom();
+        ItemListUtil.initFeather();
+        ItemListUtil.initCorrupt();
+        ItemListUtil.initUltimate();
 
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
