@@ -1,0 +1,8 @@
+[
+    {
+        "key": "upgradednetherite/water_aesthetic",
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/adze/water"
+        }]
+    }
+]

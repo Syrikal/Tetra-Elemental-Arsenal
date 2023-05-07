@@ -3,9 +3,7 @@ package com.syric.teupnepa.mixin;
 import com.rolfmao.upgradednetherite.config.UpgradedNetheriteConfig;
 import com.rolfmao.upgradednetherite.utils.tool.FireUtil;
 import com.syric.teupnepa.ModularUtil;
-import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.effects.Effects;
-import com.syric.teupnepa.effects.FireEffect;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -43,9 +41,7 @@ public abstract class MixinFireUtil {
 
         if (!UpgradedNetheriteConfig.EnableFireTool) { return false; }
 
-        if (fire_netherite_weapons.contains(itemStack.getItem())) {
-            TeUpNePa.LOGGER.debug("Detected Upgraded Netherite fire weapon: " + itemStack.getItem());
-            return true; }
+        if (fire_netherite_weapons.contains(itemStack.getItem()) || ultimate_netherite_weapons.contains(itemStack.getItem())) {return true; }
 
         if (itemStack.getItem() instanceof ModularItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
@@ -56,7 +52,7 @@ public abstract class MixinFireUtil {
 //                TeUpNePa.LOGGER.info("Detected modular melee weapon");
 //            }
 
-            return modularItem.getEffectData(itemStack).contains(Effects.fire_weapon) || modularItem.getEffectData(itemStack).contains(Effects.fire_both);
+            return modularItem.getEffectData(itemStack).contains(Effects.fire_weapon) || modularItem.getEffectData(itemStack).contains(Effects.fire_both) || modularItem.getEffectData(itemStack).contains(Effects.ultimate_weapon) || modularItem.getEffectData(itemStack).contains(Effects.ultimate_both);
         }
 
         return false;
@@ -71,11 +67,11 @@ public abstract class MixinFireUtil {
 
         if (!UpgradedNetheriteConfig.EnableFireTool) { return false; }
 
-        if (fire_netherite_ranged.contains(itemStack.getItem())) { return true; }
+        if (fire_netherite_ranged.contains(itemStack.getItem()) || ultimate_netherite_ranged.contains(itemStack.getItem())) { return true; }
 
         if (itemStack.getItem() instanceof ModularItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
-            return modularItem.getEffectData(itemStack).contains(Effects.fire) && ModularUtil.isModularRangedWeapon(itemStack);
+            return (modularItem.getEffectData(itemStack).contains(Effects.fire) || modularItem.getEffectData(itemStack).contains(Effects.ultimate)) && ModularUtil.isModularRangedWeapon(itemStack);
         }
 
         return false;
@@ -90,11 +86,11 @@ public abstract class MixinFireUtil {
 
         if (!UpgradedNetheriteConfig.EnableFireTool) { return false; }
 
-        if (fire_netherite_tools.contains(itemStack.getItem())) { return true; }
+        if (fire_netherite_tools.contains(itemStack.getItem()) || ultimate_netherite_tools.contains(itemStack.getItem())) { return true; }
 
         if (itemStack.getItem() instanceof ModularItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
-            return modularItem.getEffectData(itemStack).contains(Effects.fire_tool) || modularItem.getEffectData(itemStack).contains(Effects.fire_both);
+            return modularItem.getEffectData(itemStack).contains(Effects.fire_tool) || modularItem.getEffectData(itemStack).contains(Effects.fire_both) || modularItem.getEffectData(itemStack).contains(Effects.ultimate_tool) || modularItem.getEffectData(itemStack).contains(Effects.ultimate_both);
         }
 
         return false;
@@ -108,11 +104,11 @@ public abstract class MixinFireUtil {
     @Overwrite
     public static boolean isFireShield(ItemStack itemStack) {
 
-        if (fire_netherite_shield.contains(itemStack.getItem())) { return true; }
+        if (fire_netherite_shield.contains(itemStack.getItem()) || ultimate_netherite_shield.contains(itemStack.getItem())) { return true; }
 
         if (itemStack.getItem() instanceof ModularItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
-            return modularItem.getEffectData(itemStack).contains(FireEffect.fire) && ModularUtil.isModularShield(itemStack);
+            return (modularItem.getEffectData(itemStack).contains(Effects.fire) || modularItem.getEffectData(itemStack).contains(Effects.ultimate)) && ModularUtil.isModularShield(itemStack);
         }
 
         return false;

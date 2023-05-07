@@ -1,0 +1,8 @@
+[
+    {
+        "key": "upgradednetherite/poison_aesthetic",
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/claw/poison"
+        }]
+    }
+]

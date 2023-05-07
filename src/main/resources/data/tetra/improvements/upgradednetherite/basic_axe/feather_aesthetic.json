@@ -1,0 +1,8 @@
+[
+    {
+        "key": "upgradednetherite/feather_aesthetic",
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/basic_axe/feather"
+        }]
+    }
+]

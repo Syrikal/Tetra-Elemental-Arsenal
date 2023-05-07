@@ -1,0 +1,8 @@
+[
+    {
+        "key": "upgradednetherite/ender_aesthetic",
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/basic_axe/ender"
+        }]
+    }
+]

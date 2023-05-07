@@ -1,0 +1,8 @@
+[
+    {
+        "key": "upgradednetherite/ultimate_aesthetic",
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/basic_pickaxe/ultimate"
+        }]
+    }
+]

@@ -1,0 +1,8 @@
+[
+    {
+        "key": "upgradednetherite/phantom_aesthetic",
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/basic_axe/phantom"
+        }]
+    }
+]

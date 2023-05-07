@@ -1,0 +1,8 @@
+[
+    {
+        "key": "upgradednetherite/wither_aesthetic",
+        "models": [{
+            "location": "tetra:items/module/upgradednetherite/basic_hammer/wither"
+        }]
+    }
+]
