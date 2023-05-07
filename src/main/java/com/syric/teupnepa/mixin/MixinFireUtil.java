@@ -3,6 +3,7 @@ package com.syric.teupnepa.mixin;
 import com.rolfmao.upgradednetherite.config.UpgradedNetheriteConfig;
 import com.rolfmao.upgradednetherite.utils.tool.FireUtil;
 import com.syric.teupnepa.ModularUtil;
+import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.effects.Effects;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -65,12 +66,22 @@ public abstract class MixinFireUtil {
     @Overwrite
     public static boolean isFireRangedWeapon(ItemStack itemStack) {
 
+        TeUpNePa.LOGGER.debug("running isFireRangedWeapon");
+
         if (!UpgradedNetheriteConfig.EnableFireTool) { return false; }
 
         if (fire_netherite_ranged.contains(itemStack.getItem()) || ultimate_netherite_ranged.contains(itemStack.getItem())) { return true; }
 
         if (itemStack.getItem() instanceof ModularItem) {
+
+            TeUpNePa.LOGGER.debug("isFireRangedWeapon detected modular item");
+
             ModularItem modularItem = (ModularItem) itemStack.getItem();
+
+            if (modularItem.getEffectData(itemStack).contains(Effects.fire)) { TeUpNePa.LOGGER.debug("Detected fire effect"); }
+            if (modularItem.getEffectData(itemStack).contains(Effects.ultimate)) { TeUpNePa.LOGGER.debug("Detected ultimate effect"); }
+            if (ModularUtil.isModularRangedWeapon(itemStack)) { TeUpNePa.LOGGER.debug("Item is a ranged weapon"); }
+
             return (modularItem.getEffectData(itemStack).contains(Effects.fire) || modularItem.getEffectData(itemStack).contains(Effects.ultimate)) && ModularUtil.isModularRangedWeapon(itemStack);
         }
 
