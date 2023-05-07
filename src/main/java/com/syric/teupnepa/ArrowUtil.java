@@ -19,7 +19,6 @@ public class ArrowUtil {
         }
 
         if (FireUtil.isFireRangedWeapon(bowStack)) {
-            TeUpNePa.LOGGER.debug("Detected modular fire bow");
             arrow.addTag("FireUpgradedNetheriteBow");
             if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FLAMING_ARROWS, bowStack) > 0) {
                 arrow.addTag("FlameFireUpgradedNetheriteBow");
