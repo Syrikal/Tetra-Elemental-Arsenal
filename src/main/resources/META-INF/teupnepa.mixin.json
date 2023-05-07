@@ -4,7 +4,8 @@
   "package": "com.syric.teupnepa.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MixinFireUtil"
+    "MixinFireUtil",
+    "MixinModularBowItem"
   ],
   "injectors": {
     "defaultRequire": 1
