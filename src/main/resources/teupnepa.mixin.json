@@ -4,9 +4,17 @@
   "package": "com.syric.teupnepa.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MixinCorruptUtil",
+    "MixinEnderUtil",
+    "MixinFeatherUtil",
     "MixinFireUtil",
+    "MixinGoldUtil",
     "MixinModularBowItem",
-    "MixinModularCrossbowItem"
+    "MixinModularCrossbowItem",
+    "MixinPhantomUtil",
+    "MixinPoisonUtil",
+    "MixinWaterUtil",
+    "MixinWitherUtil"
   ],
   "injectors": {
     "defaultRequire": 1
