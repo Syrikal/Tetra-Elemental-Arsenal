@@ -1,7 +1,8 @@
 {
     "replace": true,
     "slots": [
-        "double/head_left"
+        "double/head_left",
+        "double/head_right"
     ],
     "materialSlotCount": 1,
     "displayType": "major",

@@ -1,0 +1,46 @@
+{
+  "replace": true,
+  "slots": [
+    "sword/blade"
+  ],
+  "materialSlotCount": 0,
+  "displayType": "major",
+  "glyph": {
+    "textureX": 32,
+    "textureY": 240
+  },
+  "requirement": {
+    "type": "tetra:modular_item",
+    "improvements": {
+      "upgradednetherite/gold": 0,
+      "upgradednetherite/fire": 0,
+      "upgradednetherite/ender": 0,
+      "upgradednetherite/water": 0,
+      "upgradednetherite/wither": 0,
+      "upgradednetherite/poison": 0,
+      "upgradednetherite/phantom": 0,
+      "upgradednetherite/feather": 0,
+      "upgradednetherite/corrupt": 0,
+      "upgradednetherite/ultimate": 0
+    }
+  },
+  "outcomes": [
+    {
+      "requiredTools": {
+        "hammer": 5
+      },
+      "improvements": {
+        "upgradednetherite/gold": -1,
+        "upgradednetherite/fire": -1,
+        "upgradednetherite/ender": -1,
+        "upgradednetherite/water": -1,
+        "upgradednetherite/wither": -1,
+        "upgradednetherite/poison": -1,
+        "upgradednetherite/phantom": -1,
+        "upgradednetherite/feather": -1,
+        "upgradednetherite/corrupt": -1,
+        "upgradednetherite/ultimate": -1
+      }
+    }
+  ]
+}
