@@ -5,8 +5,22 @@
         "effects": {
             "upgradednetherite:gold": 1
         },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/recurve_stave/gold"
-        }]
+        "models": [
+            {
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/gold"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/gold_0"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/gold_1"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/gold_2"
+            }
+        ]
     }
 ]

@@ -5,8 +5,22 @@
         "effects": {
             "upgradednetherite:ultimate": 1
         },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/long_stave/ultimate"
-        }]
+        "models": [
+            {
+                "location": "tetra:items/module/upgradednetherite/long_stave/ultimate"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:items/module/upgradednetherite/long_stave/ultimate_0"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:items/module/upgradednetherite/long_stave/ultimate_1"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:items/module/upgradednetherite/long_stave/ultimate_2"
+            }
+        ]
     }
 ]

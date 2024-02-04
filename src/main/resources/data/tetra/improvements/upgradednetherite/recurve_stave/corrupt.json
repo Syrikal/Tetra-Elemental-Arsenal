@@ -5,8 +5,22 @@
         "effects": {
             "upgradednetherite:corrupt": 1
         },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/recurve_stave/corrupt"
-        }]
+        "models": [
+            {
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/corrupt"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/corrupt_0"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/corrupt_1"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/corrupt_2"
+            }
+        ]
     }
 ]

@@ -5,8 +5,22 @@
         "effects": {
             "upgradednetherite:feather": 1
         },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/recurve_stave/feather"
-        }]
+        "models": [
+            {
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/feather"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/feather_0"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/feather_1"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/feather_2"
+            }
+        ]
     }
 ]

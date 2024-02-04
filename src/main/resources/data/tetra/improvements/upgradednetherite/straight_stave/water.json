@@ -5,8 +5,22 @@
         "effects": {
             "upgradednetherite:water": 1
         },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/straight_stave/water"
-        }]
+        "models": [
+            {
+                "location": "tetra:items/module/upgradednetherite/straight_stave/water"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:items/module/upgradednetherite/straight_stave/water_0"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:items/module/upgradednetherite/straight_stave/water_1"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:items/module/upgradednetherite/straight_stave/water_2"
+            }
+        ]
     }
 ]

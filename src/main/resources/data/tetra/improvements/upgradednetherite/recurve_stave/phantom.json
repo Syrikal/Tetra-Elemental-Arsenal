@@ -5,8 +5,22 @@
         "effects": {
             "upgradednetherite:phantom": 1
         },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/recurve_stave/phantom"
-        }]
+        "models": [
+            {
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/phantom"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/phantom_0"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/phantom_1"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/phantom_2"
+            }
+        ]
     }
 ]

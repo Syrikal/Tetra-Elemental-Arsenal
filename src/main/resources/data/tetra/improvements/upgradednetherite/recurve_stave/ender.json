@@ -5,8 +5,22 @@
         "effects": {
             "upgradednetherite:ender": 1
         },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/recurve_stave/ender"
-        }]
+        "models": [
+            {
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/ender"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/ender_0"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/ender_1"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/ender_2"
+            }
+        ]
     }
 ]
