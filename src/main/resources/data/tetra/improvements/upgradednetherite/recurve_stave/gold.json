@@ -11,7 +11,7 @@
             },
             {
                 "type": "draw_0",
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/gold_0"
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/gold"
             },
             {
                 "type": "draw_1",
@@ -19,7 +19,7 @@
             },
             {
                 "type": "draw_2",
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/gold_2"
+                "location": "tetra:items/module/upgradednetherite/recurve_stave/gold_1"
             }
         ]
     }
