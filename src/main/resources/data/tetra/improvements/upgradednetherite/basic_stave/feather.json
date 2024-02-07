@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/feather",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:feather": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/feather"
-        }]
-    }
+  {
+    "key": "upgradednetherite/feather",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:feather": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/feather"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/feather"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/feather"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/feather"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/feather"
+      }
+    ]
+  }
 ]

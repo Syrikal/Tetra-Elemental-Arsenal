@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/water",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:water": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/water"
-        }]
-    }
+  {
+    "key": "upgradednetherite/water",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:water": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/water"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/water"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/water"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/water"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/water"
+      }
+    ]
+  }
 ]

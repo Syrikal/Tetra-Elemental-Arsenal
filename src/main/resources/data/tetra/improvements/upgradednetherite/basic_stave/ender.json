@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/ender",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:ender": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/ender"
-        }]
-    }
+  {
+    "key": "upgradednetherite/ender",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:ender": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ender"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ender"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ender"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ender"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ender"
+      }
+    ]
+  }
 ]

@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/corrupt",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:corrupt": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/corrupt"
-        }]
-    }
+  {
+    "key": "upgradednetherite/corrupt",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:corrupt": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/corrupt"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/corrupt"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/corrupt"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/corrupt"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/corrupt"
+      }
+    ]
+  }
 ]

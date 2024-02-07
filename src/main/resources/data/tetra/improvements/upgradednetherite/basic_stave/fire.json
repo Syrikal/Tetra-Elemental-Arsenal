@@ -5,8 +5,26 @@
         "effects": {
             "upgradednetherite:fire": 1
         },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/fire"
-        }]
+        "models": [
+            {
+                "location": "tetra:items/module/upgradednetherite/basic_stave/fire"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:items/module/upgradednetherite/basic_stave/fire"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:items/module/upgradednetherite/basic_stave/fire"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:items/module/upgradednetherite/basic_stave/fire"
+            },
+            {
+                "type": "loaded",
+                "location": "tetra:items/module/upgradednetherite/basic_stave/fire"
+            }
+        ]
     }
 ]

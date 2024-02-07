@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/poison",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:poison": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/poison"
-        }]
-    }
+  {
+    "key": "upgradednetherite/poison",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:poison": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/poison"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/poison"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/poison"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/poison"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/poison"
+      }
+    ]
+  }
 ]

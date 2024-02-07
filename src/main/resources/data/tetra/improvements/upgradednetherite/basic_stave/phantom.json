@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/phantom",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:phantom": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/phantom"
-        }]
-    }
+  {
+    "key": "upgradednetherite/phantom",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:phantom": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/phantom"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/phantom"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/phantom"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/phantom"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/phantom"
+      }
+    ]
+  }
 ]

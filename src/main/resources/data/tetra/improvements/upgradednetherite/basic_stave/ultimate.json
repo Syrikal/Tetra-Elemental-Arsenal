@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/ultimate",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:ultimate": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/ultimate"
-        }]
-    }
+  {
+    "key": "upgradednetherite/ultimate",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:ultimate": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ultimate"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ultimate"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ultimate"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ultimate"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/ultimate"
+      }
+    ]
+  }
 ]

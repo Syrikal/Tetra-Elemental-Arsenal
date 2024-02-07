@@ -6,6 +6,7 @@
             "upgradednetherite:ender": 1
         },
         "models": [{
+            "type": "shield_buckler",
             "location": "tetra:items/module/upgradednetherite/buckler/ender"
         }]
     }

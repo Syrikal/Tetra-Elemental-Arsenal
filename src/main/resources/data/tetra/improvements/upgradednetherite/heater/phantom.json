@@ -6,6 +6,7 @@
             "upgradednetherite:phantom": 1
         },
         "models": [{
+            "type": "shield_heater",
             "location": "tetra:items/module/upgradednetherite/heater/phantom"
         }]
     }

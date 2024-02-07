@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/gold",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:gold": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/gold"
-        }]
-    }
+  {
+    "key": "upgradednetherite/gold",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:gold": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/gold"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/gold"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/gold"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/gold"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/gold"
+      }
+    ]
+  }
 ]

@@ -6,6 +6,7 @@
             "upgradednetherite:fire": 1
         },
         "models": [{
+            "type": "shield_tower",
             "location": "tetra:items/module/upgradednetherite/tower/fire"
         }]
     }

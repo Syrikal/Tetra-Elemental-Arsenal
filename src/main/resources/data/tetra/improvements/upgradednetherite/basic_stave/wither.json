@@ -1,12 +1,30 @@
 [
-    {
-        "key": "upgradednetherite/wither",
-        "integrity": -1,
-        "effects": {
-            "upgradednetherite:wither": 1
-        },
-        "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_stave/wither"
-        }]
-    }
+  {
+    "key": "upgradednetherite/wither",
+    "integrity": -1,
+    "effects": {
+      "upgradednetherite:wither": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stave/wither"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/wither"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/wither"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/wither"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stave/wither"
+      }
+    ]
+  }
 ]

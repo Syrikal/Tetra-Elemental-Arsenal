@@ -6,6 +6,7 @@
             "upgradednetherite:ultimate": 1
         },
         "models": [{
+            "type": "shield_buckler",
             "location": "tetra:items/module/upgradednetherite/buckler/ultimate"
         }]
     }
