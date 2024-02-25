@@ -2,6 +2,7 @@
     {
         "key": "upgradednetherite/fire",
         "integrity": -1,
+        "group": "netherite_runes",
         "effects": {
             "upgradednetherite:fire_tool": 1
         },

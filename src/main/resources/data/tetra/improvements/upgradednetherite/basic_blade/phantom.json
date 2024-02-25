@@ -2,6 +2,7 @@
     {
         "key": "upgradednetherite/phantom",
         "integrity": -1,
+        "group": "netherite_runes",
         "effects": {
             "upgradednetherite:phantom_weapon": 1
         },

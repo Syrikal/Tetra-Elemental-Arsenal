@@ -2,6 +2,7 @@
   {
     "key": "upgradednetherite/gold",
     "integrity": -1,
+        "group": "netherite_runes",
     "effects": {
       "upgradednetherite:gold": 1
     },

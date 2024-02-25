@@ -2,6 +2,7 @@
     {
         "key": "upgradednetherite/ender",
         "integrity": -1,
+        "group": "netherite_runes",
         "effects": {
             "upgradednetherite:ender_weapon": 1
         },

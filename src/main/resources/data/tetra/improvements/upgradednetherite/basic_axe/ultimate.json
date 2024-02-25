@@ -2,6 +2,7 @@
     {
         "key": "upgradednetherite/ultimate",
         "integrity": -1,
+        "group": "netherite_runes",
         "effects": {
             "upgradednetherite:ultimate_both": 1
         },

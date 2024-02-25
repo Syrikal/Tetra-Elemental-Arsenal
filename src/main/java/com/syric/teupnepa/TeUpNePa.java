@@ -1,6 +1,7 @@
 package com.syric.teupnepa;
 
 import com.syric.teupnepa.effects.Effects;
+import com.syric.teupnepa.events.SetEnderTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -39,6 +40,8 @@ public class TeUpNePa
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new Effects());
+        MinecraftForge.EVENT_BUS.register(new SetEnderTags());
+        MinecraftForge.EVENT_BUS.register(new ArrowUtil());
 
     }
 

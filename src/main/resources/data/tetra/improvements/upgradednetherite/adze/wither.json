@@ -2,6 +2,7 @@
     {
         "key": "upgradednetherite/wither",
         "integrity": -1,
+        "group": "netherite_runes",
         "effects": {
             "upgradednetherite:wither_tool": 1
         },

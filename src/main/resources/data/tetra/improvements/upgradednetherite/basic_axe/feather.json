@@ -2,6 +2,7 @@
     {
         "key": "upgradednetherite/feather",
         "integrity": -1,
+        "group": "netherite_runes",
         "effects": {
             "upgradednetherite:feather_both": 1
         },

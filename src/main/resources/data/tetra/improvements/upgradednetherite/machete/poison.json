@@ -2,6 +2,7 @@
     {
         "key": "upgradednetherite/poison",
         "integrity": -1,
+        "group": "netherite_runes",
         "effects": {
             "upgradednetherite:poison_tool": 1
         },

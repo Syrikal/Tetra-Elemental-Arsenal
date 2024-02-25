@@ -2,6 +2,7 @@
     {
         "key": "upgradednetherite/corrupt",
         "integrity": -1,
+        "group": "netherite_runes",
         "effects": {
             "upgradednetherite:corrupt_both": 1
         },

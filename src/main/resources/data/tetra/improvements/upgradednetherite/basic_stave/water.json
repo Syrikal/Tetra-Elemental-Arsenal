@@ -2,6 +2,7 @@
   {
     "key": "upgradednetherite/water",
     "integrity": -1,
+        "group": "netherite_runes",
     "effects": {
       "upgradednetherite:water": 1
     },
