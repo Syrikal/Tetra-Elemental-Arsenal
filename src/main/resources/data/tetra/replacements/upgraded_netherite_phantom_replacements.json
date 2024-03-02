@@ -1,0 +1,208 @@
+[
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:phantom_upgraded_netherite_axe"
+        },
+        "item": "tetra:modular_double",
+        "modules": {
+            "double/head_left": [
+                "double/basic_axe_left",
+                "basic_axe/netherite"
+            ],
+            "double/head_right": [
+                "double/butt_right",
+                "butt/netherite"
+            ],
+            "double/handle": [
+                "double/basic_handle",
+                "basic_handle/stick"
+            ]
+        },
+        "improvements": {
+            "double/basic_handle:basic_handle/soot": 0,
+            "double/head_left:upgradednetherite/phantom": 0,
+            "double/head_right:upgradednetherite/aesthetic_phantom": 0
+        }
+    },
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:phantom_upgraded_netherite_bow"
+        },
+        "item": "tetra:modular_bow",
+        "modules": {
+            "bow/stave": [
+                "bow/straight_stave",
+                "straight_stave/netherite"
+            ],
+            "bow/string": [
+                "bow/basic_string",
+                "basic_string/string"
+            ]
+        },
+        "improvements": {
+            "bow/stave:upgradednetherite/phantom": 0
+        }
+    },
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:phantom_upgraded_netherite_crossbow"
+        },
+        "item": "tetra:modular_crossbow",
+        "modules": {
+            "crossbow/stave": [
+                "crossbow/basic_stave",
+                "basic_stave/netherite"
+            ],
+            "crossbow/stock": [
+                "crossbow/basic_stock",
+                "basic_stock/netherite"
+            ],
+            "crossbow/string": [
+                "crossbow/basic_string",
+                "basic_string/stick"
+            ],
+            "crossbow/attachment_1": [
+                "crossbow/stirrup",
+                "stirrup/iron"
+            ]
+        },
+        "improvements": {
+            "crossbow/stock:upgradednetherite/phantom": 0,
+            "crossbow/stock:trigger/simple": 1
+        }
+    },
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:phantom_upgraded_netherite_pickaxe"
+        },
+        "item": "tetra:modular_double",
+        "modules": {
+            "double/head_left": [
+                "double/basic_pickaxe_left",
+                "basic_pickaxe/netherite"
+            ],
+            "double/head_right": [
+                "double/basic_pickaxe_right",
+                "basic_pickaxe/netherite"
+            ],
+            "double/handle": [
+                "double/basic_handle",
+                "basic_handle/stick"
+            ]
+        },
+        "improvements": {
+            "double/basic_handle:basic_handle/soot": 0,
+            "double/head_left:upgradednetherite/phantom": 0,
+            "double/head_right:upgradednetherite/_phantom": 0
+        }
+    },
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:phantom_upgraded_netherite_shield"
+        },
+        "item": "tetra:modular_shield",
+        "modules": {
+            "shield/plate": [
+                "shield/tower",
+                "tower/netherite"
+            ],
+            "shield/grip": [
+                "shield/basic_grip",
+                "basic_grip/stick"
+            ]
+        },
+        "improvements": {
+            "shield/plate:upgradednetherite/phantom": 0
+        }
+    },
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:phantom_upgraded_netherite_shovel"
+        },
+        "item": "tetra:modular_single",
+        "modules": {
+            "single/head": [
+                "single/basic_shovel",
+                "basic_shovel/netherite"
+            ],
+            "single/handle": [
+                "single/basic_handle",
+                "basic_handle/stick"
+            ]
+        },
+        "improvements": {
+            "single/basic_handle:basic_handle/soot": 0,
+            "single/head:upgradednetherite/phantom": 0
+        }
+    },
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:phantom_upgraded_netherite_sword"
+        },
+        "item": "tetra:modular_sword",
+        "modules": {
+            "sword/blade": [
+                "sword/basic_blade",
+                "basic_blade/netherite"
+            ],
+            "sword/hilt": [
+                "sword/basic_hilt",
+                "basic_hilt/stick"
+            ],
+            "sword/pommel": [
+                "sword/decorative_pommel",
+                "decorative_pommel/netherite"
+            ],
+            "sword/guard": [
+                "sword/makeshift_guard",
+                "makeshift_guard/netherite"
+            ]
+        },
+        "improvements": {
+            "sword/hilt:basic_hilt/soot": 0,
+            "sword/blade:upgradednetherite/phantom": 0
+        }
+    }
+]

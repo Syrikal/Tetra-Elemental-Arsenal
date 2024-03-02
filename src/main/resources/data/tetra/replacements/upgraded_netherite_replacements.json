@@ -1,0 +1,79 @@
+[
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:netherite_bow"
+        },
+        "item": "tetra:modular_bow",
+        "modules": {
+            "bow/stave": [
+                "bow/straight_stave",
+                "straight_stave/netherite"
+            ],
+            "bow/string": [
+                "bow/basic_string",
+                "basic_string/string"
+            ]
+        }
+    },
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:netherite_crossbow"
+        },
+        "item": "tetra:modular_crossbow",
+        "modules": {
+            "crossbow/stave": [
+                "crossbow/basic_stave",
+                "basic_stave/netherite"
+            ],
+            "crossbow/stock": [
+                "crossbow/basic_stock",
+                "basic_stock/netherite"
+            ],
+            "crossbow/string": [
+                "crossbow/basic_string",
+                "basic_string/stick"
+            ],
+            "crossbow/attachment_1": [
+                "crossbow/stirrup",
+                "stirrup/iron"
+            ]
+        },
+        "improvements": {
+            "crossbow/stock:trigger/simple": 1
+        }
+    },
+    {
+        "conditions": [
+            {
+                "type": "forge:mod_loaded",
+                "modid": "upgradednetherite"
+            }
+        ],
+        "predicate": {
+            "item": "upgradednetherite:netherite_shield"
+        },
+        "item": "tetra:modular_shield",
+        "modules": {
+            "shield/plate": [
+                "shield/tower",
+                "tower/netherite"
+            ],
+            "shield/grip": [
+                "shield/basic_grip",
+                "basic_grip/stick"
+            ]
+        }
+    }
+]
