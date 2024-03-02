@@ -1,6 +1,7 @@
 [
     {
-        "key": "upgradednetherite/ultimate_aesthetic",
+        "key": "upgradednetherite/aesthetic_ultimate",
+        "group": "netherite_runes",
         "models": [{
             "location": "tetra:items/module/upgradednetherite/butt/ultimate"
         }]

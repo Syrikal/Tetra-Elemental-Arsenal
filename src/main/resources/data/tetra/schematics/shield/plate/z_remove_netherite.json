@@ -1,0 +1,25 @@
+{
+    "replace": true,
+    "slots": [
+        "shield/plate"
+    ],
+    "rarity": "hone",
+    "displayType": "major",
+    "glyph": {
+        "textureX": 32,
+        "textureY": 240
+    },
+    "requirement": {
+        "type": "tetra:upgraded_netherite"
+    },
+    "outcomes": [
+        {
+            "requiredTools": {
+                "hammer": 5
+            },
+            "improvements": {
+                "upgradednetherite/removed": 0
+            }
+        }
+    ]
+}

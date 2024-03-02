@@ -1,0 +1,31 @@
+[
+  {
+    "key": "upgradednetherite/poison",
+    "integrity": -1,
+        "group": "netherite_runes",
+    "effects": {
+      "upgradednetherite:poison": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stock/poison"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/poison"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/poison"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/poison"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/poison"
+      }
+    ]
+  }
+]

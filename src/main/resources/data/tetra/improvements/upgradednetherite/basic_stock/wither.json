@@ -1,0 +1,31 @@
+[
+  {
+    "key": "upgradednetherite/wither",
+    "integrity": -1,
+        "group": "netherite_runes",
+    "effects": {
+      "upgradednetherite:wither": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+      }
+    ]
+  }
+]

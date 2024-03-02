@@ -1,0 +1,36 @@
+{
+    "replace": true,
+    "slots": [
+        "double/handle"
+    ],
+    "materialSlotCount": 1,
+    "displayType": "improvement",
+    "glyph": {
+        "textureX": 16,
+        "textureY": 240
+    },
+    "requirement": {
+        "type": "tetra:modular_item",
+        "improvements": {
+            "!basic_handle/soot": -1
+        }
+    },
+    "outcomes": [
+        {
+            "material": {
+                "item": "minecraft:coal"
+            },
+            "improvements": {
+                "basic_handle/soot": 0
+            }
+        },
+        {
+            "material": {
+                "item": "minecraft:charcoal"
+            },
+            "improvements": {
+                "basic_handle/soot": 0
+            }
+        }
+    ]
+}

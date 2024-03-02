@@ -1,0 +1,31 @@
+[
+  {
+    "key": "upgradednetherite/feather",
+    "integrity": -1,
+        "group": "netherite_runes",
+    "effects": {
+      "upgradednetherite:feather": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+      }
+    ]
+  }
+]

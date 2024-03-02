@@ -1,0 +1,31 @@
+[
+  {
+    "key": "upgradednetherite/ultimate",
+    "integrity": -1,
+        "group": "netherite_runes",
+    "effects": {
+      "upgradednetherite:ultimate": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stock/ultimate"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/ultimate"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/ultimate"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/ultimate"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/ultimate"
+      }
+    ]
+  }
+]

@@ -1,6 +1,7 @@
 [
     {
-        "key": "upgradednetherite/ender_aesthetic",
+        "key": "upgradednetherite/aesthetic_ender",
+        "group": "netherite_runes",
         "models": [{
             "location": "tetra:items/module/upgradednetherite/butt/ender"
         }]

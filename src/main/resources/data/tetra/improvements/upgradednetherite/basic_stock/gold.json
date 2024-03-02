@@ -1,0 +1,31 @@
+[
+  {
+    "key": "upgradednetherite/gold",
+    "integrity": -1,
+        "group": "netherite_runes",
+    "effects": {
+      "upgradednetherite:gold": 1
+    },
+    "models": [
+      {
+        "location": "tetra:items/module/upgradednetherite/basic_stock/gold"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/gold"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/gold"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/gold"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:items/module/upgradednetherite/basic_stock/gold"
+      }
+    ]
+  }
+]
