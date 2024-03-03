@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import se.mickelus.tetra.items.modular.impl.crossbow.ModularCrossbowItem;
 
-@Mixin(value = ModularCrossbowItem.class, remap = false)
+@Mixin(value = ModularCrossbowItem.class)
 public class MixinModularCrossbowItem {
 
     @Inject(method = "fireProjectile", at = @At(

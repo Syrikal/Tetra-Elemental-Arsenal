@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import se.mickelus.tetra.items.modular.impl.bow.ModularBowItem;
 
-@Mixin(value = ModularBowItem.class, remap = false)
+@Mixin(value = ModularBowItem.class)
 public class MixinModularBowItem {
 
     @Inject(method = "fireArrow", at = @At(

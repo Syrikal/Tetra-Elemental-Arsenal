@@ -4,6 +4,7 @@ import com.rolfmao.upgradednetherite.config.UpgradedNetheriteConfig;
 import com.rolfmao.upgradednetherite.utils.ToolUtil;
 import com.rolfmao.upgradednetherite.utils.tool.*;
 import com.rolfmao.upgradednetherite_ultimate.config.UpgradedNetheriteUltimateConfig;
+import com.syric.teupnepa.TeUpNePa;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.enchantment.Enchantment;
@@ -1226,24 +1227,24 @@ public class AddTooltips {
         IFormattableTextComponent[] text = new TextComponent[args.length];
         int count = 0;
 
-//        TeUpNePa.LOGGER.debug("Attempting to add a line with arguments");
+        TeUpNePa.LOGGER.debug("Attempting to add a line with arguments");
 
         for (String arg : args) {
-//            TeUpNePa.LOGGER.debug("Managing argument '" + arg + "'");
+            TeUpNePa.LOGGER.debug("Managing argument '" + arg + "'");
             arg = arg.replace("•", "\u2022");
             if (arg.startsWith("§")) {
-                TextFormatting format = TextFormatting.getByCode(arg.charAt(2));
-                arg = arg.substring(3);
+                TextFormatting format = TextFormatting.getByCode(arg.charAt(1));
+                arg = arg.substring(2);
                 text[count] = format == null ? new StringTextComponent(arg) : new StringTextComponent(arg).withStyle(format).withStyle();
 
-//                TeUpNePa.LOGGER.debug("Detected section sign. Applying format " + (format == null ? "null" : format.getName()));
+                TeUpNePa.LOGGER.debug("Detected section sign. Applying format " + (format == null ? "null" : format.getName()));
             } else {
                 text[count] = new StringTextComponent(arg);
             }
             ++count;
         }
 
-//        TeUpNePa.LOGGER.debug("Adding translation text component " + new TranslationTextComponent(line, (Object[]) text));
+        TeUpNePa.LOGGER.debug("Adding translation text component " + new TranslationTextComponent(line, (Object[]) text));
         tooltip.add(new TranslationTextComponent(line, (Object[]) text));
     }
 
