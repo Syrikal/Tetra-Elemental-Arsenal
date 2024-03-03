@@ -1,4 +1,4 @@
-package com.syric.teupnepa;
+package com.syric.teupnepa.util;
 
 import com.rolfmao.upgradednetherite.config.UpgradedNetheriteConfig;
 import com.rolfmao.upgradednetherite.utils.tool.*;
@@ -30,8 +30,10 @@ public class ArrowUtil {
         }
 
         if (FireUtil.isFireRangedWeapon(bowStack)) {
+//            TeUpNePa.LOGGER.debug("Adding 'FireUpgradedNetheriteBow' to arrow");
             arrow.addTag("FireUpgradedNetheriteBow");
             if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FLAMING_ARROWS, bowStack) > 0) {
+//                TeUpNePa.LOGGER.debug("Adding 'FlameFireUpgradedNetheriteBow' to arrow");
                 arrow.addTag("FlameFireUpgradedNetheriteBow");
                 if (bowStack.getItem() instanceof ModularCrossbowItem) {
                     arrow.setSecondsOnFire(100);
@@ -76,39 +78,39 @@ public class ArrowUtil {
 
     @SubscribeEvent
     public void arrowHitEvent(LivingHurtEvent event) {
-        TeUpNePa.LOGGER.debug("Triggered arrowHitEvent");
+//        TeUpNePa.LOGGER.debug("Triggered arrowHitEvent");
         if (event.getSource().getEntity() instanceof PlayerEntity) {
-            TeUpNePa.LOGGER.debug("Source is a player");
+//            TeUpNePa.LOGGER.debug("Source is a player");
             if (event.getEntityLiving().level.isClientSide) {
-                TeUpNePa.LOGGER.debug("source is client, terminating");
+//                TeUpNePa.LOGGER.debug("source is client, terminating");
                 return;
             }
-            TeUpNePa.LOGGER.debug("Triggering arrowHitEvent, entity is a player not on client");
+//            TeUpNePa.LOGGER.debug("Triggering arrowHitEvent, entity is a player not on client");
             Entity directEntity = event.getSource().getDirectEntity();
             if (directEntity instanceof AbstractArrowEntity) {
                 AbstractArrowEntity arrow = (AbstractArrowEntity) directEntity;
 
                 if (PoisonUtil.isPoisonProjectile(arrow)) {
-                    TeUpNePa.LOGGER.debug("Poison arrow detected");
+//                    TeUpNePa.LOGGER.debug("Poison arrow detected");
                     boolean poisonEnabled = UpgradedNetheriteConfig.EnablePoisonEffect;
                     boolean crit = arrow.isCritArrow();
 
-                    TeUpNePa.LOGGER.debug("Poison enabled: " + poisonEnabled + ", crit: " + crit);
+//                    TeUpNePa.LOGGER.debug("Poison enabled: " + poisonEnabled + ", crit: " + crit);
 
                     if (crit && poisonEnabled) {
-                        TeUpNePa.LOGGER.debug("Applying poison");
+//                        TeUpNePa.LOGGER.debug("Applying poison");
                         event.getEntityLiving().addEffect(new EffectInstance(Effects.POISON, 140, 0, false, true, true));
                     }
                 }
                 if (WitherUtil.isWitherProjectile(arrow)) {
-                    TeUpNePa.LOGGER.debug("Wither arrow detected");
+//                    TeUpNePa.LOGGER.debug("Wither arrow detected");
                     boolean witherEnabled = UpgradedNetheriteConfig.EnableWitherEffect;
                     boolean crit = arrow.isCritArrow();
 
-                    TeUpNePa.LOGGER.debug("Wither enabled: " + witherEnabled + ", crit: " + crit);
+//                    TeUpNePa.LOGGER.debug("Wither enabled: " + witherEnabled + ", crit: " + crit);
 
                     if (crit && witherEnabled) {
-                        TeUpNePa.LOGGER.debug("Applying wither");
+//                        TeUpNePa.LOGGER.debug("Applying wither");
                         event.getEntityLiving().addEffect(new EffectInstance(Effects.WITHER, 200, 0, false, true, true));
                     }
                 }

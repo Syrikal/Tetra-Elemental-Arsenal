@@ -111,6 +111,12 @@
             }
         },
         {
+            "conditions": [
+                {
+                    "type": "forge:mod_loaded",
+                    "modid": "upgradednetherite_ultimate"
+                }
+            ],
             "material": {
                 "item": "upgradednetherite_ultimate:ultimate_upgraded_netherite_ingot"
             },

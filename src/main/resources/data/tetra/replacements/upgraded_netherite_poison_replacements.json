@@ -52,7 +52,8 @@
             ]
         },
         "improvements": {
-            "bow/stave:upgradednetherite/poison": 0
+            "bow/stave:upgradednetherite/poison": 0,
+            "bow/stave:stave/wrap/string": 0
         }
     },
     {

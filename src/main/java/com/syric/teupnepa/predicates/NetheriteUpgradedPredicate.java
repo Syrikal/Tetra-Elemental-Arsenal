@@ -1,7 +1,6 @@
 package com.syric.teupnepa.predicates;
 
 import com.google.gson.JsonObject;
-import com.syric.teupnepa.TeUpNePa;
 import net.minecraft.item.ItemStack;
 import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.ItemPredicateModular;
@@ -56,13 +55,13 @@ public class NetheriteUpgradedPredicate extends ItemPredicateModular {
 
     private boolean checkNetheriteImprovements(ItemStack itemStack, String slot) {
         IModularItem item = (IModularItem) itemStack.getItem();
-        TeUpNePa.LOGGER.debug("Testing slot " + slot);
+//        TeUpNePa.LOGGER.debug("Testing slot " + slot);
         if (slot != null) {
             ItemModuleMajor module = (ItemModuleMajor) item.getModuleFromSlot(itemStack, slot);
-            TeUpNePa.LOGGER.debug("Checking slot " + slot + " for netherite improvements");
+//            TeUpNePa.LOGGER.debug("Checking slot " + slot + " for netherite improvements");
             return hasImprovements(module, itemStack);
         }
-        TeUpNePa.LOGGER.debug("Slot was null");
+//        TeUpNePa.LOGGER.debug("Slot was null");
         {
             return Arrays.stream(item.getMajorModules(itemStack))
                 .filter(Objects::nonNull)

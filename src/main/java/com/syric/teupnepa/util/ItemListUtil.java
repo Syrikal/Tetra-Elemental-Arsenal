@@ -1,4 +1,4 @@
-package com.syric.teupnepa;
+package com.syric.teupnepa.util;
 
 import com.rolfmao.upgradednetherite.init.ModItems;
 import net.minecraft.item.Item;
@@ -104,8 +104,6 @@ public class ItemListUtil {
 
     public static void initWither() {
         wither_netherite_tools.add(ModItems.WITHER_UPGRADED_NETHERITE_AXE.get());
-//        wither_netherite_tools.add(ModItems.WITHER_UPGRADED_NETHERITE_PICKAXE.get());
-//        wither_netherite_tools.add(ModItems.WITHER_UPGRADED_NETHERITE_SHOVEL.get());
         wither_netherite_weapons.add(ModItems.WITHER_UPGRADED_NETHERITE_AXE.get());
         wither_netherite_weapons.add(ModItems.WITHER_UPGRADED_NETHERITE_SWORD.get());
         wither_netherite_ranged.add(ModItems.WITHER_UPGRADED_NETHERITE_CROSSBOW.get());
@@ -115,8 +113,6 @@ public class ItemListUtil {
 
     public static void initPoison() {
         poison_netherite_tools.add(ModItems.POISON_UPGRADED_NETHERITE_AXE.get());
-//        poison_netherite_tools.add(ModItems.POISON_UPGRADED_NETHERITE_PICKAXE.get());
-//        poison_netherite_tools.add(ModItems.POISON_UPGRADED_NETHERITE_SHOVEL.get());
         poison_netherite_weapons.add(ModItems.POISON_UPGRADED_NETHERITE_AXE.get());
         poison_netherite_weapons.add(ModItems.POISON_UPGRADED_NETHERITE_SWORD.get());
         poison_netherite_ranged.add(ModItems.POISON_UPGRADED_NETHERITE_CROSSBOW.get());

@@ -52,7 +52,8 @@
             ]
         },
         "improvements": {
-            "bow/stave:upgradednetherite/water": 0
+            "bow/stave:upgradednetherite/water": 0,
+            "bow/stave:stave/wrap/string": 0
         }
     },
     {

@@ -1,6 +1,6 @@
 package com.syric.teupnepa.mixin;
 
-import com.syric.teupnepa.ArrowUtil;
+import com.syric.teupnepa.util.ArrowUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;

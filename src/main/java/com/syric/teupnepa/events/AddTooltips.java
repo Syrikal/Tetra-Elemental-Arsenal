@@ -4,7 +4,6 @@ import com.rolfmao.upgradednetherite.config.UpgradedNetheriteConfig;
 import com.rolfmao.upgradednetherite.utils.ToolUtil;
 import com.rolfmao.upgradednetherite.utils.tool.*;
 import com.rolfmao.upgradednetherite_ultimate.config.UpgradedNetheriteUltimateConfig;
-import com.syric.teupnepa.TeUpNePa;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.enchantment.Enchantment;
@@ -16,8 +15,13 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import se.mickelus.tetra.effect.ItemEffect;
 import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.impl.bow.ModularBowItem;
+import se.mickelus.tetra.items.modular.impl.crossbow.ModularCrossbowItem;
+import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 import se.mickelus.tetra.module.data.EffectData;
 
 import java.util.ArrayList;
@@ -58,92 +62,30 @@ public class AddTooltips {
 
                 boolean ultimate = effectData.levelMap.entrySet().stream().anyMatch((effect) -> ultimateEffects.contains(effect.getKey().getKey()));
 
-                boolean both = addBothLines(event, event.getItemStack(), ultimate);
+                if (ultimate) {
+                    addUltimateLines(event, event.getItemStack(), effectData);
+                    return;
+                }
+
+                boolean both = addBothLines(event, event.getItemStack());
                 if (both) {
                     return;
                 }
-                addWeaponLines(event, event.getItemStack(), ultimate);
-                addToolLines(event, event.getItemStack(), ultimate);
-                addRangedWeaponLines(event, event.getItemStack(), ultimate);
-                addShieldLines(event, event.getItemStack(), ultimate);
+                addWeaponLines(event, event.getItemStack());
+                addToolLines(event, event.getItemStack());
+                addRangedWeaponLines(event, event.getItemStack());
+                addShieldLines(event, event.getItemStack());
             }
         }
 //        TeUpNePa.LOGGER.debug("TooltipEvent did not fire. ModularItem? " + (event.getItemStack().getItem() instanceof ModularItem) + ", tooltips enabled? " + (!UpgradedNetheriteConfig.DisableTooltips) + ", shift down? " + Screen.hasShiftDown() + ", player not null? " + (event.getPlayer() != null) );
     }
 
-    public boolean addBothLines(ItemTooltipEvent event, ItemStack stack, boolean ultimate) {
+    public boolean addBothLines(ItemTooltipEvent event, ItemStack stack) {
         List<ITextComponent> tooltip = event.getToolTip();
         float EnchantBonus;
         Map<Enchantment, Integer> enchantments;
         int EnchantLevel;
-        if (ultimate && GoldUtil.isGoldTool(stack) && GoldUtil.isGoldMeleeWeapon(stack)) {
-            if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Witherite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Spiderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
-                }
-
-                if (stack.getTag() != null && stack.getTag().contains("UpgradedNetherite_Tagged") && stack.getTag().getBoolean("UpgradedNetherite_Tagged") && (!stack.hasTag() || !stack.getTag().contains("UpgradedNetherite_DisableEnder"))) {
-                    String world = Objects.requireNonNull(event.getPlayer()).level.dimension().location().getPath();
-                    if (!world.equals(stack.getTag().getString("UpgradedNetherite_Dimension"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Ender_Dim.TT"));
-                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
-                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.RED))
-                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
-                    } else {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
-                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
-                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.BLUE))
-                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
-                    }
-                }
-            }
-        }
-        else if (GoldUtil.isGoldTool(stack) && GoldUtil.isGoldMeleeWeapon(stack) && (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon || UpgradedNetheriteConfig.EnableFortuneBonus || UpgradedNetheriteConfig.EnableLootingBonus)) {
+        if (GoldUtil.isGoldTool(stack) && GoldUtil.isGoldMeleeWeapon(stack) && (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon || UpgradedNetheriteConfig.EnableFortuneBonus || UpgradedNetheriteConfig.EnableLootingBonus)) {
             tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
             tooltip.add(new TranslationTextComponent("upgradednetherite.Bonus.TT"));
             if (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon) {
@@ -396,81 +338,12 @@ public class AddTooltips {
         return true;
     }
 
-    public void addWeaponLines(ItemTooltipEvent event, ItemStack stack, boolean ultimate) {
+    public void addWeaponLines(ItemTooltipEvent event, ItemStack stack) {
         List<ITextComponent> tooltip = event.getToolTip();
         Map<Enchantment, Integer> enchantments;
         int EnchantLevel;
         float EnchantBonus;
-        if (ultimate && GoldUtil.isGoldMeleeWeapon(stack)) {
-            TeUpNePa.LOGGER.debug("Detected ultimate melee weapon");
-            if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                TeUpNePa.LOGGER.debug("Adding to ultimate melee weapon's tooltip");
-                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Witherite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Spiderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
-                }
-
-                if (stack.getTag() != null && stack.getTag().contains("UpgradedNetherite_Tagged") && stack.getTag().getBoolean("UpgradedNetherite_Tagged") && (!stack.hasTag() || !stack.getTag().contains("UpgradedNetherite_DisableEnder"))) {
-                    String world = Objects.requireNonNull(event.getPlayer()).level.dimension().location().getPath();
-                    if (!world.equals(stack.getTag().getString("UpgradedNetherite_Dimension"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Ender_Dim.TT"));
-                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
-                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.RED))
-                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
-                    } else {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
-                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
-                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.BLUE))
-                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
-                    }
-                }
-            }
-        }
-        else if (GoldUtil.isGoldMeleeWeapon(stack) && (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon || UpgradedNetheriteConfig.EnableLootingBonus)) {
+        if (GoldUtil.isGoldMeleeWeapon(stack) && (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon || UpgradedNetheriteConfig.EnableLootingBonus)) {
             tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
             tooltip.add(new TranslationTextComponent("upgradednetherite.Bonus.TT"));
             if (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon) {
@@ -674,69 +547,9 @@ public class AddTooltips {
         }
     }
 
-    public void addToolLines(ItemTooltipEvent event, ItemStack stack, boolean ultimate) {
+    public void addToolLines(ItemTooltipEvent event, ItemStack stack) {
         List<ITextComponent> tooltip = event.getToolTip();
-
-        if (ultimate && GoldUtil.isGoldTool(stack)) {
-            tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-            if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
-                }
-
-                if (stack.getTag() != null && stack.getTag().contains("UpgradedNetherite_Tagged") && stack.getTag().getBoolean("UpgradedNetherite_Tagged") && (!stack.hasTag() || !stack.getTag().contains("UpgradedNetherite_DisableEnder"))) {
-                    String world = Objects.requireNonNull(event.getPlayer()).level.dimension().location().getPath();
-                    if (!world.equals(stack.getTag().getString("UpgradedNetherite_Dimension"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Ender_Dim.TT"));
-                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
-                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.RED))
-                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
-                    } else {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
-                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
-                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.BLUE))
-                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
-                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
-                    }
-                }
-            }
-        }
-        else if (GoldUtil.isGoldTool(stack) && UpgradedNetheriteConfig.EnableFortuneBonus) {
+        if (GoldUtil.isGoldTool(stack) && UpgradedNetheriteConfig.EnableFortuneBonus) {
             tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
             tooltip.add(new TranslationTextComponent("upgradednetherite.Bonus.TT"));
             float EnchantBonus = 0.0F;
@@ -845,79 +658,12 @@ public class AddTooltips {
         }
     }
 
-    public void addRangedWeaponLines(ItemTooltipEvent event, ItemStack stack, boolean ultimate) {
+    public void addRangedWeaponLines(ItemTooltipEvent event, ItemStack stack) {
         List<ITextComponent> tooltip = event.getToolTip();
             float EnchantBonus;
             Map<Enchantment, Integer> enchantments;
             int EnchantLevel;
-            if (ultimate && GoldUtil.isGoldRangedWeapon(stack)) {
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
-                    if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
-                    }
-
-                    if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
-                    }
-
-                    if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
-                    }
-
-                    if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
-                    }
-
-                    if (UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Witherite.TT"));
-                    }
-
-                    if (UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Spiderite.TT"));
-                    }
-
-                    if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
-                    }
-
-                    if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                        tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
-                    }
-
-                    if (stack.getTag() != null && stack.getTag().contains("UpgradedNetherite_Tagged") && stack.getTag().getBoolean("UpgradedNetherite_Tagged") && (!stack.hasTag() || !stack.getTag().contains("UpgradedNetherite_DisableEnder"))) {
-                        String world = Objects.requireNonNull(event.getPlayer()).level.dimension().location().getPath();
-                        if (!world.equals(stack.getTag().getString("UpgradedNetherite_Dimension"))) {
-                            tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                            tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
-                            tooltip.add(new TranslationTextComponent("upgradednetherite.Ender_Dim.TT"));
-                            tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
-                                    .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.RED))
-                                    .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
-                                    .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
-                                    .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                    .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
-                                    .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                    .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
-                                    .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
-                        } else {
-                            tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                            tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
-                            tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
-                                    .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.BLUE))
-                                    .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
-                                    .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
-                                    .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                    .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
-                                    .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
-                                    .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
-                                    .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
-                        }
-                    }
-                }
-            }
-            else if (GoldUtil.isGoldRangedWeapon(stack) && (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon || UpgradedNetheriteConfig.EnableLootingBonus)) {
+            if (GoldUtil.isGoldRangedWeapon(stack) && (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon || UpgradedNetheriteConfig.EnableLootingBonus)) {
                 tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
                 tooltip.add(new TranslationTextComponent("upgradednetherite.Bonus.TT"));
                 if (UpgradedNetheriteConfig.EnableDamageBonusGoldWeapon) {
@@ -1108,46 +854,9 @@ public class AddTooltips {
             }
         }
 
-    public void addShieldLines(ItemTooltipEvent event, ItemStack stack, boolean ultimate) {
+    public void addShieldLines(ItemTooltipEvent event, ItemStack stack) {
         List<ITextComponent> tooltip = event.getToolTip();
-        if (ultimate && GoldUtil.isGoldShield(stack) && UpgradedNetheriteUltimateConfig.EnableUltimateShield) {
-            if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
-                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Witherite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Spiderite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
-                }
-
-                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
-                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
-                }
-            }
-        }
-        else if (GoldUtil.isGoldShield(stack) && UpgradedNetheriteConfig.EnableGoldShield) {
+        if (GoldUtil.isGoldShield(stack) && UpgradedNetheriteConfig.EnableGoldShield) {
             tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
             tooltip.add(new TranslationTextComponent("upgradednetherite.WhenBlocking.TT"));
             addWithArguments(tooltip, "upgradednetherite.Gold_Shield.TT", "§6" + (float) UpgradedNetheriteConfig.DamageBonusGoldWeapon / 20.0F + "%", "§6" + (float) UpgradedNetheriteConfig.DamageBonusGoldWeapon / 2.0F + "%");
@@ -1193,29 +902,348 @@ public class AddTooltips {
             addWithArguments(tooltip, "upgradednetherite.Corrupt_Shield.TT", "§6" + (float) UpgradedNetheriteConfig.DamageBonusCorruptWeapon / 20.0F + "%", "§6" + (float) UpgradedNetheriteConfig.DamageBonusCorruptWeapon / 2.0F + "%");
         }
     }
+
+    public void addUltimateLines(ItemTooltipEvent event, ItemStack stack, EffectData effectData) {
+        List<ITextComponent> tooltip = event.getToolTip();
+        if (!ModList.get().isLoaded("upgradednetherite_ultimate")) {
+            tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+            tooltip.add(new TranslationTextComponent("upgradednetherite.Ultimate_Not_Installed.TT"));
+        }
+        else if (effectData.contains(ItemEffect.get("upgradednetherite:ultimate_both"))) {
+             if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Witherite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Spiderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
+                }
+
+                if (stack.getTag() != null && stack.getTag().contains("UpgradedNetherite_Tagged") && stack.getTag().getBoolean("UpgradedNetherite_Tagged") && (!stack.hasTag() || !stack.getTag().contains("UpgradedNetherite_DisableEnder"))) {
+                    String world = Objects.requireNonNull(event.getPlayer()).level.dimension().location().getPath();
+                    if (!world.equals(stack.getTag().getString("UpgradedNetherite_Dimension"))) {
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Ender_Dim.TT"));
+                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
+                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.RED))
+                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
+                    } else {
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
+                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
+                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.BLUE))
+                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
+                    }
+                }
+            } else {
+                 tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                 tooltip.add(new TranslationTextComponent("upgradednetherite.Disabled.TT"));
+             }
+        }
+        else if (effectData.contains(ItemEffect.get("upgradednetherite:ultimate_weapon"))) {
+            if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Witherite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Spiderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
+                }
+
+                if (stack.getTag() != null && stack.getTag().contains("UpgradedNetherite_Tagged") && stack.getTag().getBoolean("UpgradedNetherite_Tagged") && (!stack.hasTag() || !stack.getTag().contains("UpgradedNetherite_DisableEnder"))) {
+                    String world = Objects.requireNonNull(event.getPlayer()).level.dimension().location().getPath();
+                    if (!world.equals(stack.getTag().getString("UpgradedNetherite_Dimension"))) {
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Ender_Dim.TT"));
+                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
+                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.RED))
+                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
+                    } else {
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
+                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
+                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.BLUE))
+                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
+                    }
+                }
+            } else {
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Disabled.TT"));
+            }
+        }
+        else if (effectData.contains(ItemEffect.get("upgradednetherite:ultimate_tool"))) {
+            if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
+                }
+
+                if (stack.getTag() != null && stack.getTag().contains("UpgradedNetherite_Tagged") && stack.getTag().getBoolean("UpgradedNetherite_Tagged") && (!stack.hasTag() || !stack.getTag().contains("UpgradedNetherite_DisableEnder"))) {
+                    String world = Objects.requireNonNull(event.getPlayer()).level.dimension().location().getPath();
+                    if (!world.equals(stack.getTag().getString("UpgradedNetherite_Dimension"))) {
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Ender_Dim.TT"));
+                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
+                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.RED))
+                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
+                    } else {
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
+                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
+                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.BLUE))
+                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
+                    }
+                }
+            } else {
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Disabled.TT"));
+            }
+        }
+        else if (effectData.contains(ItemEffect.get("upgradednetherite:ultimate")) && (stack.getItem() instanceof ModularBowItem || stack.getItem() instanceof ModularCrossbowItem)) {
+            if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Witherite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Spiderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
+                }
+
+                if (stack.getTag() != null && stack.getTag().contains("UpgradedNetherite_Tagged") && stack.getTag().getBoolean("UpgradedNetherite_Tagged") && (!stack.hasTag() || !stack.getTag().contains("UpgradedNetherite_DisableEnder"))) {
+                    String world = Objects.requireNonNull(event.getPlayer()).level.dimension().location().getPath();
+                    if (!world.equals(stack.getTag().getString("UpgradedNetherite_Dimension"))) {
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Ender_Dim.TT"));
+                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
+                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.RED))
+                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
+                    } else {
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                        tooltip.add(new TranslationTextComponent("upgradednetherite.Target.TT"));
+                        tooltip.add(new StringTextComponent("\u2022").withStyle(TextFormatting.GRAY)
+                                .append(new StringTextComponent(stack.getTag().getString("UpgradedNetherite_Dimension")).withStyle(TextFormatting.BLUE))
+                                .append(new StringTextComponent(" : ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[0])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[1])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(", ").withStyle(TextFormatting.GRAY))
+                                .append(new StringTextComponent(Integer.toString(stack.getTag().getIntArray("UpgradedNetherite_Position")[2])).withStyle(TextFormatting.DARK_AQUA))
+                                .append(new StringTextComponent(".").withStyle(TextFormatting.GRAY)));
+                    }
+                }
+            } else {
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Disabled.TT"));
+            }
+        }
+        else if (effectData.contains(ItemEffect.get("upgradednetherite:ultimate")) && stack.getItem() instanceof ModularShieldItem) {
+            if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold")) || UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire")) || UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder")) || UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater")) || UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither")) || UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison")) || UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom")) || UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.BonusFrom.TT"));
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateGoldToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableGold"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Golderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFireToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFire"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Blazerite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateEnderToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableEnder"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Enderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWaterToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWater"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Prismarite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateWitherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableWither"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Witherite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePoisonToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePoison"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Spiderite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimatePhantomToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisablePhantom"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Phanterite.TT"));
+                }
+
+                if (UpgradedNetheriteUltimateConfig.EnableUltimateFeatherToolEffect && (!stack.hasTag() || !Objects.requireNonNull(stack.getTag()).contains("UpgradedNetherite_DisableFeather"))) {
+                    tooltip.add(new TranslationTextComponent("upgradednetherite_ultimate.Featherite.TT"));
+                }
+            } else {
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Blank.TT"));
+                tooltip.add(new TranslationTextComponent("upgradednetherite.Disabled.TT"));
+            }
+        }
+    }
     
     private void addWithArguments(List<ITextComponent> tooltip, String line, String... args) {
         IFormattableTextComponent[] text = new TextComponent[args.length];
         int count = 0;
 
-        TeUpNePa.LOGGER.debug("Attempting to add a line with arguments");
+//        TeUpNePa.LOGGER.debug("Attempting to add a line with arguments");
 
         for (String arg : args) {
-            TeUpNePa.LOGGER.debug("Managing argument '" + arg + "'");
+//            TeUpNePa.LOGGER.debug("Managing argument '" + arg + "'");
             arg = arg.replace("•", "\u2022");
             if (arg.startsWith("§")) {
                 TextFormatting format = TextFormatting.getByCode(arg.charAt(2));
                 arg = arg.substring(3);
                 text[count] = format == null ? new StringTextComponent(arg) : new StringTextComponent(arg).withStyle(format).withStyle();
 
-                TeUpNePa.LOGGER.debug("Detected section sign. Applying format " + (format == null ? "null" : format.getName()));
+//                TeUpNePa.LOGGER.debug("Detected section sign. Applying format " + (format == null ? "null" : format.getName()));
             } else {
                 text[count] = new StringTextComponent(arg);
             }
             ++count;
         }
 
-        TeUpNePa.LOGGER.debug("Adding translation text component " + new TranslationTextComponent(line, (Object[]) text));
+//        TeUpNePa.LOGGER.debug("Adding translation text component " + new TranslationTextComponent(line, (Object[]) text));
         tooltip.add(new TranslationTextComponent(line, (Object[]) text));
     }
 

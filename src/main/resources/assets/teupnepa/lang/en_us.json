@@ -4,7 +4,7 @@
   "tetra.improvement.upgradednetherite/fire.name": "Magmatic Netherite Runes",
   "tetra.improvement.upgradednetherite/fire.description": "• Increased damage to burning targets\\n• Fire Aspect or Flame increases damage bonus\\n• Auto-smelting\\n• Shield stores burning targets' damage for retaliation",
   "tetra.improvement.upgradednetherite/ender.name": "Voidwalker Netherite Runes",
-  "tetra.improvement.upgradednetherite/ender.description": "• Increased damage and Looting against Endermen\\n• Prevents target teleportation\\n• Teleports loot to target chest (sneak-right-click to select chest)\\n• Shield stores endermen's damage for retaliation",
+  "tetra.improvement.upgradednetherite/ender.description": "• Increased damage and Looting against Endermen\\n• Prevents target teleportation\\n• Teleports loot to target chest (sneak-right-click to select chest)\\n• Shield stores Endermen's damage for retaliation",
   "tetra.improvement.upgradednetherite/water.name": "Abyssal Netherite Runes",
   "tetra.improvement.upgradednetherite/water.description": "• Increased damage to fire-immune creatures and Endermen\\n• Increased swim speed\\n• Shield stores fire-immune creatures' and Endermen's damage for retaliation",
   "tetra.improvement.upgradednetherite/wither.name": "Blighted Netherite Runes",
@@ -91,5 +91,7 @@
   "tetra/schematic/single/basic_handle/soot.slot1": "Soot",
   "tetra/schematic/sword/basic_hilt/soot.name": "Soot",
   "tetra/schematic/sword/basic_hilt/soot.description": "Apply coal or charcoal to the hilt for aesthetic effect.",
-  "tetra/schematic/sword/basic_hilt/soot.slot1": "Soot"
+  "tetra/schematic/sword/basic_hilt/soot.slot1": "Soot",
+
+  "upgradednetherite.Ultimate_Not_Installed.TT": "§c§lUltimate Netherite Not Installed"
 }

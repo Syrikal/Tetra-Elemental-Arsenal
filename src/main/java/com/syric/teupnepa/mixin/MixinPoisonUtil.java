@@ -4,6 +4,7 @@ import com.rolfmao.upgradednetherite.config.UpgradedNetheriteConfig;
 import com.rolfmao.upgradednetherite.utils.tool.PoisonUtil;
 import com.syric.teupnepa.effects.Effects;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.ModList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import se.mickelus.tetra.effect.ItemEffect;
@@ -17,9 +18,10 @@ import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 import se.mickelus.tetra.module.data.EffectData;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-import static com.syric.teupnepa.ItemListUtil.*;
+import static com.syric.teupnepa.util.ItemListUtil.*;
 
 @Mixin(value = PoisonUtil.class, remap = false)
 public abstract class MixinPoisonUtil {
@@ -56,7 +58,7 @@ public abstract class MixinPoisonUtil {
         if (itemStack.getItem() instanceof ModularBladedItem || itemStack.getItem() instanceof ModularDoubleHeadedItem || itemStack.getItem() instanceof ModularSingleHeadedItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
             EffectData effectData = modularItem.getEffectData(itemStack);
-            List<ItemEffect> validEffects = Arrays.asList(Effects.poison_weapon, Effects.poison_both, Effects.ultimate_weapon, Effects.ultimate_both);
+            List<ItemEffect> validEffects = ModList.get().isLoaded("upgradednetherite_ultimate") ? Arrays.asList(Effects.poison_weapon, Effects.poison_both, Effects.ultimate_weapon, Effects.ultimate_both) : Arrays.asList(Effects.poison_weapon, Effects.poison_both);
             return effectData.levelMap.entrySet().stream().anyMatch(entry -> validEffects.contains(entry.getKey()));
         }
 
@@ -77,7 +79,7 @@ public abstract class MixinPoisonUtil {
         if (itemStack.getItem() instanceof ModularBowItem || itemStack.getItem() instanceof ModularCrossbowItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
             EffectData effectData = modularItem.getEffectData(itemStack);
-            List<ItemEffect> validEffects = Arrays.asList(Effects.poison, Effects.ultimate);
+            List<ItemEffect> validEffects = ModList.get().isLoaded("upgradednetherite_ultimate") ? Arrays.asList(Effects.poison, Effects.ultimate) : Collections.singletonList(Effects.poison);
             return effectData.levelMap.entrySet().stream().anyMatch(entry -> validEffects.contains(entry.getKey()));
         }
 
@@ -98,7 +100,7 @@ public abstract class MixinPoisonUtil {
         if (itemStack.getItem() instanceof ModularBladedItem || itemStack.getItem() instanceof ModularDoubleHeadedItem || itemStack.getItem() instanceof ModularSingleHeadedItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
             EffectData effectData = modularItem.getEffectData(itemStack);
-            List<ItemEffect> validEffects = Arrays.asList(Effects.poison_tool, Effects.poison_both, Effects.ultimate_tool, Effects.ultimate_both);
+            List<ItemEffect> validEffects = ModList.get().isLoaded("upgradednetherite_ultimate") ? Arrays.asList(Effects.poison_tool, Effects.poison_both, Effects.ultimate_tool, Effects.ultimate_both) : Arrays.asList(Effects.poison_tool, Effects.poison_both);
             return effectData.levelMap.entrySet().stream().anyMatch(entry -> validEffects.contains(entry.getKey()));
         }
 
@@ -118,7 +120,7 @@ public abstract class MixinPoisonUtil {
         if (itemStack.getItem() instanceof ModularShieldItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
             EffectData effectData = modularItem.getEffectData(itemStack);
-            List<ItemEffect> validEffects = Arrays.asList(Effects.poison, Effects.ultimate);
+            List<ItemEffect> validEffects = ModList.get().isLoaded("upgradednetherite_ultimate") ? Arrays.asList(Effects.poison, Effects.ultimate) : Collections.singletonList(Effects.poison);
             return effectData.levelMap.entrySet().stream().anyMatch(entry -> validEffects.contains(entry.getKey()));
         }
 
