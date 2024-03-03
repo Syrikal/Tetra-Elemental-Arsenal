@@ -15,6 +15,9 @@
         "modules": [
             [
                 "double/butt_right"
+            ],
+            [
+                "double/basic_pickaxe_right"
             ]
         ]
     },

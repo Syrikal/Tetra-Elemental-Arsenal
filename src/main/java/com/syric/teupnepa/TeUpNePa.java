@@ -1,6 +1,7 @@
 package com.syric.teupnepa;
 
 import com.syric.teupnepa.effects.Effects;
+import com.syric.teupnepa.events.AddTooltips;
 import com.syric.teupnepa.events.SetEnderTags;
 import com.syric.teupnepa.predicates.NetheriteUpgradedPredicate;
 import net.minecraft.advancements.criterion.ItemPredicate;
@@ -44,6 +45,7 @@ public class TeUpNePa
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new Effects());
         MinecraftForge.EVENT_BUS.register(new SetEnderTags());
+        MinecraftForge.EVENT_BUS.register(new AddTooltips());
         MinecraftForge.EVENT_BUS.register(new ArrowUtil());
 
         ItemPredicate.register(new ResourceLocation("tetra:upgraded_netherite"), NetheriteUpgradedPredicate::new);

@@ -1,6 +1,7 @@
 [
     {
-        "key": "upgradednetherite/phantom_aesthetic",
+        "key": "upgradednetherite/aesthetic_phantom",
+        "group": "netherite_runes",
         "models": [{
             "location": "tetra:items/module/upgradednetherite/basic_pickaxe/phantom"
         }]

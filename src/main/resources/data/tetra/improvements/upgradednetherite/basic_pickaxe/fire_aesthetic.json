@@ -1,6 +1,7 @@
 [
     {
-        "key": "upgradednetherite/fire_aesthetic",
+        "key": "upgradednetherite/aesthetic_fire",
+        "group": "netherite_runes",
         "models": [{
             "location": "tetra:items/module/upgradednetherite/basic_pickaxe/fire"
         }]

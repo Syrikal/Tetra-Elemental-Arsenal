@@ -1,6 +1,7 @@
 [
     {
-        "key": "upgradednetherite/corrupt_aesthetic",
+        "key": "upgradednetherite/aesthetic_corrupt",
+        "group": "netherite_runes",
         "models": [{
             "location": "tetra:items/module/upgradednetherite/basic_pickaxe/corrupt"
         }]

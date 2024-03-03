@@ -1,6 +1,7 @@
 [
     {
-        "key": "upgradednetherite/poison_aesthetic",
+        "key": "upgradednetherite/aesthetic_poison",
+        "group": "netherite_runes",
         "models": [{
             "location": "tetra:items/module/upgradednetherite/basic_pickaxe/poison"
         }]

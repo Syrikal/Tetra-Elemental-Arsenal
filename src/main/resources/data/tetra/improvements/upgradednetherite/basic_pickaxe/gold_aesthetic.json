@@ -1,6 +1,7 @@
 [
     {
-        "key": "upgradednetherite/gold_aesthetic",
+        "key": "upgradednetherite/aesthetic_gold",
+        "group": "netherite_runes",
         "models": [{
             "location": "tetra:items/module/upgradednetherite/basic_pickaxe/gold"
         }]

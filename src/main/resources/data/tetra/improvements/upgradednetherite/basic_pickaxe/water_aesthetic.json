@@ -1,6 +1,7 @@
 [
     {
-        "key": "upgradednetherite/water_aesthetic",
+        "key": "upgradednetherite/aesthetic_water",
+        "group": "netherite_runes",
         "models": [{
             "location": "tetra:items/module/upgradednetherite/basic_pickaxe/water"
         }]
