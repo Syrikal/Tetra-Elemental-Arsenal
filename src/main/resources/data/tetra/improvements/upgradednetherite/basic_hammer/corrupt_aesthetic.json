@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/corrupt_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_hammer/corrupt"
+            "location": "tetra:item/module/upgradednetherite/basic_hammer/corrupt"
         }]
     }
 ]

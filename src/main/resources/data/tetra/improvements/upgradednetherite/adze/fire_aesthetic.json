@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/fire_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/adze/fire"
+            "location": "tetra:item/module/upgradednetherite/adze/fire"
         }]
     }
 ]

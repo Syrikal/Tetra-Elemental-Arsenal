@@ -7,7 +7,7 @@
             "upgradednetherite:gold_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/spearhead/gold"
+            "location": "tetra:item/module/upgradednetherite/spearhead/gold"
         }]
     }
 ]

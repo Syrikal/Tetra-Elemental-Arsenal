@@ -3,7 +3,7 @@
         "key": "upgradednetherite/aesthetic_feather",
         "group": "netherite_runes",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/butt/feather"
+            "location": "tetra:item/module/upgradednetherite/butt/feather"
         }]
     }
 ]

@@ -15,36 +15,21 @@ authors = "${mod_authors}" #optional
 description = '''${mod_description}'''
 
 [[dependencies.teupnepa]] #optional
-    # the modid of the dependency
-    modId = "forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory = true #mandatory
-    # The version range of the dependency
-    versionRange = "${forge_version_range}" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the dependency is not mandatory
-    # BEFORE - This mod is loaded BEFORE the dependency
-    # AFTER - This mod is loaded AFTER the dependency
-    ordering = "NONE"
-    # Side this dependency is applied on - BOTH, CLIENT, or SERVER
-    side = "BOTH"
+modId = "forge" #mandatory
+mandatory = true #mandatory
+versionRange = "${forge_version_range}" #mandatory
+ordering = "NONE"
+side = "BOTH"
 # Here's another dependency
 [[dependencies.teupnepa]]
-    modId = "minecraft"
-    mandatory = true
-    # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange = "${minecraft_version_range}"
-    ordering = "NONE"
-    side = "BOTH"
+modId = "minecraft"
+mandatory = true
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"
 [[dependencies.teupnepa]]
-    modId = "tetra"
-    mandatory = true
-    # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange = "[3.3.0,)"
-    ordering = "AFTER"
-    side = "BOTH"
-[[dependencies.teupnepa]]
-    modId="upgradednetherite"
-    mandatory=true
-    versionRange="[1.16.5-2.1.0.1,)"
-    ordering="BEFORE"
-    side="BOTH"
+modId = "tetra"
+mandatory = true
+versionRange = "[6.0.0,)"
+ordering = "AFTER"
+side = "BOTH"

@@ -8,23 +8,23 @@
     },
     "models": [
       {
-        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/feather"
       },
       {
         "type": "draw_0",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/feather"
       },
       {
         "type": "draw_1",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/feather"
       },
       {
         "type": "draw_2",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/feather"
       },
       {
         "type": "loaded",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/feather"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/feather"
       }
     ]
   }

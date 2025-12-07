@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/corrupt_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/sickle/corrupt"
+            "location": "tetra:item/module/upgradednetherite/sickle/corrupt"
         }]
     }
 ]

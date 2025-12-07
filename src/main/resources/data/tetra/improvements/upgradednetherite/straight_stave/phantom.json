@@ -8,19 +8,19 @@
         },
         "models": [
             {
-                "location": "tetra:items/module/upgradednetherite/straight_stave/phantom"
+                "location": "tetra:item/module/upgradednetherite/straight_stave/phantom"
             },
             {
                 "type": "draw_0",
-                "location": "tetra:items/module/upgradednetherite/straight_stave/phantom_0"
+                "location": "tetra:item/module/upgradednetherite/straight_stave/phantom_0"
             },
             {
                 "type": "draw_1",
-                "location": "tetra:items/module/upgradednetherite/straight_stave/phantom_1"
+                "location": "tetra:item/module/upgradednetherite/straight_stave/phantom_1"
             },
             {
                 "type": "draw_2",
-                "location": "tetra:items/module/upgradednetherite/straight_stave/phantom_2"
+                "location": "tetra:item/module/upgradednetherite/straight_stave/phantom_2"
             }
         ]
     }

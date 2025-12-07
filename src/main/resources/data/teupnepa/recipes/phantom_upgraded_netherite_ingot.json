@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "phantom_upgraded_netherite_ingot",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "minecraft:phantom_membrane"
+    },
+    {
+      "item": "minecraft:phantom_membrane"
+    }
+  ],
+  "result": {
+    "item": "upgradednetherite:phantom_upgraded_netherite_ingot"
+  }
+}

@@ -8,23 +8,23 @@
     },
     "models": [
       {
-        "location": "tetra:items/module/upgradednetherite/basic_stock/water"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/water"
       },
       {
         "type": "draw_0",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/water"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/water"
       },
       {
         "type": "draw_1",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/water"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/water"
       },
       {
         "type": "draw_2",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/water"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/water"
       },
       {
         "type": "loaded",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/water"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/water"
       }
     ]
   }

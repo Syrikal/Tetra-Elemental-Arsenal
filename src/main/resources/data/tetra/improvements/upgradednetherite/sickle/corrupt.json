@@ -7,7 +7,7 @@
             "upgradednetherite:corrupt_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/sickle/corrupt"
+            "location": "tetra:item/module/upgradednetherite/sickle/corrupt"
         }]
     }
 ]

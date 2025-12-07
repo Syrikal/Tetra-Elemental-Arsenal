@@ -29,7 +29,8 @@ base {
     archivesName = mod_id
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(8) // Mojang ships Java 8 to end users, so your mod should target Java 8.
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
@@ -101,6 +102,18 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+//    exclusiveContent {
+//        forRepository {
+//            maven {
+//                name = "Modrinth"
+//                url = "https://api.modrinth.com/maven"
+//            }
+//        }
+//        forRepositories(fg.repository) // Only add this if you're using ForgeGradle, otherwise remove this line
+//        filter {
+//            includeGroup "maven.modrinth"
+//        }
+//    }
     mavenCentral()
 }
 
@@ -109,29 +122,28 @@ mixin {
 }
 
 dependencies {
-    // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-
-    //Tetra
-    implementation fg.deobf("curse.maven:tetra-289712:3585032")
-    implementation fg.deobf("curse.maven:mutil-351914:3456505")
-
-
-    //Upgraded Netherite
-    implementation fg.deobf("curse.maven:upgraded-netherite-400085:3973166")
-    implementation fg.deobf("curse.maven:upgraded-netherite-ultimerite-566868:3973167")
-    implementation fg.deobf("curse.maven:upgraded-core-566700:3969615")
+    //Tetra (requires mutil)
+    implementation fg.deobf("curse.maven:tetra-289712:6912921")
+    implementation fg.deobf("curse.maven:mutil-351914:6418901")
 
     //Target Dummy and Damage Numbers for testing
-    implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:4382716")
-    implementation fg.deobf("curse.maven:text-damage-indicators-407673:3072831")
+    implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:6860192")
+    implementation fg.deobf("curse.maven:selene-499980:7191950")
+//    implementation fg.deobf("maven.modrinth:immersive-damage-indicators:forge-1.20.1-1.0.0")
+//    implementation fg.deobf("maven.modrinth:immersive-messages-api:forge-1.20.1-1.0.18")
+//    implementation fg.deobf("maven.modrinth:txnilib:forge-1.20.1-1.0.24")
 
+    //Upgraded Netherite
+    compileOnly fg.deobf("curse.maven:upgraded-netherite-400085:3973166")
+    compileOnly fg.deobf("curse.maven:upgraded-netherite-ultimerite-566868:3973167")
+    compileOnly fg.deobf("curse.maven:upgraded-core-566700:3969615")
+
+    //JEI
+    implementation fg.deobf("curse.maven:jei-238222:4712868")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

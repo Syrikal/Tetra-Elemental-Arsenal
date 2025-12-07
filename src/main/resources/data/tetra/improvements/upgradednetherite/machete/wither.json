@@ -7,7 +7,7 @@
             "upgradednetherite:wither_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/machete/wither"
+            "location": "tetra:item/module/upgradednetherite/machete/wither"
         }]
     }
 ]

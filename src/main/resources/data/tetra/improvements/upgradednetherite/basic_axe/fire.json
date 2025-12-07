@@ -7,7 +7,7 @@
             "upgradednetherite:fire_both": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_axe/fire"
+            "location": "tetra:item/module/upgradednetherite/basic_axe/fire"
         }]
     }
 ]

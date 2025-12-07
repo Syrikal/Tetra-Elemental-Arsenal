@@ -13,10 +13,10 @@
     "outcomes": [
         {
             "material": {
-                "item": "upgradednetherite:gold_upgraded_netherite_ingot"
+                "items": ["teupnepa:gold_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/gold": 0
@@ -24,10 +24,10 @@
         },
         {
             "material": {
-                "item": "upgradednetherite:fire_upgraded_netherite_ingot"
+                "items": ["teupnepa:fire_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/fire": 0
@@ -35,10 +35,10 @@
         },
         {
             "material": {
-                "item": "upgradednetherite:ender_upgraded_netherite_ingot"
+                "items": ["teupnepa:ender_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/ender": 0
@@ -46,10 +46,10 @@
         },
         {
             "material": {
-                "item": "upgradednetherite:water_upgraded_netherite_ingot"
+                "items": ["teupnepa:water_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/water": 0
@@ -57,10 +57,10 @@
         },
         {
             "material": {
-                "item": "upgradednetherite:wither_upgraded_netherite_ingot"
+                "items": ["teupnepa:wither_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/wither": 0
@@ -68,10 +68,10 @@
         },
         {
             "material": {
-                "item": "upgradednetherite:poison_upgraded_netherite_ingot"
+                "items": ["teupnepa:poison_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/poison": 0
@@ -79,10 +79,10 @@
         },
         {
             "material": {
-                "item": "upgradednetherite:phantom_upgraded_netherite_ingot"
+                "items": ["teupnepa:phantom_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/phantom": 0
@@ -90,10 +90,10 @@
         },
         {
             "material": {
-                "item": "upgradednetherite:feather_upgraded_netherite_ingot"
+                "items": ["teupnepa:feather_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/feather": 0
@@ -101,27 +101,21 @@
         },
         {
             "material": {
-                "item": "upgradednetherite:corrupt_upgraded_netherite_ingot"
+                "items": ["teupnepa:corrupt_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/corrupt": 0
             }
         },
         {
-            "conditions": [
-                {
-                    "type": "forge:mod_loaded",
-                    "modid": "upgradednetherite_ultimate"
-                }
-            ],
             "material": {
-                "item": "upgradednetherite_ultimate:ultimate_upgraded_netherite_ingot"
+                "items": ["teupnepa:ultimate_upgraded_netherite_ingot"]
             },
             "requiredTools": {
-                "hammer": 5
+                "hammer_dig": "minecraft:diamond"
             },
             "improvements": {
                 "upgradednetherite/ultimate": 0

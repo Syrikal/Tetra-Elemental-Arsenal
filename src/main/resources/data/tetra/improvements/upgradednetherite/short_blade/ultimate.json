@@ -7,7 +7,7 @@
             "upgradednetherite:ultimate_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/short_blade/ultimate"
+            "location": "tetra:item/module/upgradednetherite/short_blade/ultimate"
         }]
     }
 ]

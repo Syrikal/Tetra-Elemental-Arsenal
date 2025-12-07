@@ -7,7 +7,7 @@
             "upgradednetherite:ultimate_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/claw/ultimate"
+            "location": "tetra:item/module/upgradednetherite/claw/ultimate"
         }]
     }
 ]

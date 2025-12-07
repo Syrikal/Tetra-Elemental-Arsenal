@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/water_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/claw/water"
+            "location": "tetra:item/module/upgradednetherite/claw/water"
         }]
     }
 ]

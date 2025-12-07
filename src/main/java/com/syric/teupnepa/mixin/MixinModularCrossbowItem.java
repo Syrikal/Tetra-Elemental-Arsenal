@@ -1,11 +1,10 @@
 package com.syric.teupnepa.mixin;
 
 import com.syric.teupnepa.util.ArrowUtil;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.ArrowItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -18,10 +17,10 @@ public class MixinModularCrossbowItem {
 
     @Inject(method = "fireProjectile", at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/entity/projectile/AbstractArrowEntity;setCritArrow(Z)V",
+            target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;setCritArrow(Z)V",
             shift = At.Shift.AFTER),
             locals = LocalCapture.CAPTURE_FAILSOFT)
-    private void applyTags(World world, ItemStack crossbowStack, ItemStack ammoStack, PlayerEntity player, double yaw, CallbackInfo ci, double strength, float velocityBonus, float projectileVelocity, ArrowItem ammoItem, AbstractArrowEntity projectile) {
+    private void applyTags(Level world, net.minecraft.world.item.ItemStack crossbowStack, net.minecraft.world.item.ItemStack ammoStack, Player player, double yaw, boolean isDupe, CallbackInfo ci, double strength, float velocityBonus, float projectileVelocity, net.minecraft.world.item.ArrowItem ammoItem, AbstractArrow projectile) {
         ArrowUtil.addTags(crossbowStack, projectile, player);
     }
 

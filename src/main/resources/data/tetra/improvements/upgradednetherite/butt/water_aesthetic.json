@@ -3,7 +3,7 @@
         "key": "upgradednetherite/aesthetic_water",
         "group": "netherite_runes",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/butt/water"
+            "location": "tetra:item/module/upgradednetherite/butt/water"
         }]
     }
 ]

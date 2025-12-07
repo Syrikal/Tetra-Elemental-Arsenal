@@ -3,7 +3,7 @@
         "key": "upgradednetherite/aesthetic_ultimate",
         "group": "netherite_runes",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_pickaxe/ultimate"
+            "location": "tetra:item/module/upgradednetherite/basic_pickaxe/ultimate"
         }]
     }
 ]

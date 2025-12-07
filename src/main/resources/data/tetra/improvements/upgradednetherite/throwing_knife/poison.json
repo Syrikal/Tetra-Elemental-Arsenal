@@ -7,7 +7,7 @@
             "upgradednetherite:poison_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/throwing_knife/poison"
+            "location": "tetra:item/module/upgradednetherite/throwing_knife/poison"
         }]
     }
 ]

@@ -1,7 +1,7 @@
 package com.syric.teupnepa.predicates;
 
 import com.google.gson.JsonObject;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.items.modular.ItemPredicateModular;
 import se.mickelus.tetra.module.ItemModuleMajor;

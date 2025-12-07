@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/ultimate_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/adze/ultimate"
+            "location": "tetra:item/module/upgradednetherite/adze/ultimate"
         }]
     }
 ]

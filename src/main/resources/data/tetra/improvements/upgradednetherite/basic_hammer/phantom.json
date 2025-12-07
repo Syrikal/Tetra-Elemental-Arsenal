@@ -7,7 +7,7 @@
             "upgradednetherite:phantom_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_hammer/phantom"
+            "location": "tetra:item/module/upgradednetherite/basic_hammer/phantom"
         }]
     }
 ]

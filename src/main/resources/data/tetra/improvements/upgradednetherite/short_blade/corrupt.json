@@ -7,7 +7,7 @@
             "upgradednetherite:corrupt_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/short_blade/corrupt"
+            "location": "tetra:item/module/upgradednetherite/short_blade/corrupt"
         }]
     }
 ]

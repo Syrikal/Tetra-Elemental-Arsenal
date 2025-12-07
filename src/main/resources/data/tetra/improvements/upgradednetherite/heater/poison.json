@@ -8,7 +8,7 @@
         },
         "models": [{
             "type": "shield_heater",
-            "location": "tetra:items/module/upgradednetherite/heater/poison"
+            "location": "tetra:item/module/upgradednetherite/heater/poison"
         }]
     }
 ]

@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/phantom_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/sickle/phantom"
+            "location": "tetra:item/module/upgradednetherite/sickle/phantom"
         }]
     }
 ]

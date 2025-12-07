@@ -8,19 +8,19 @@
         },
         "models": [
             {
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/poison"
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/poison"
             },
             {
                 "type": "draw_0",
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/poison"
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/poison"
             },
             {
                 "type": "draw_1",
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/poison_1"
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/poison_1"
             },
             {
                 "type": "draw_2",
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/poison_1"
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/poison_1"
             }
         ]
     }

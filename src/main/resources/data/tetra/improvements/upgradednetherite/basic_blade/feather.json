@@ -7,7 +7,7 @@
             "upgradednetherite:feather_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_blade/feather"
+            "location": "tetra:item/module/upgradednetherite/basic_blade/feather"
         }]
     }
 ]

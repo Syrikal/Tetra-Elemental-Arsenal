@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/poison_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_axe/poison"
+            "location": "tetra:item/module/upgradednetherite/basic_axe/poison"
         }]
     }
 ]

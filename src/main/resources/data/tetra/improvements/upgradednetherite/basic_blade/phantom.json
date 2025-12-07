@@ -7,7 +7,7 @@
             "upgradednetherite:phantom_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_blade/phantom"
+            "location": "tetra:item/module/upgradednetherite/basic_blade/phantom"
         }]
     }
 ]

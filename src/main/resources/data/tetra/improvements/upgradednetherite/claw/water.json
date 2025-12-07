@@ -7,7 +7,7 @@
             "upgradednetherite:water_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/claw/water"
+            "location": "tetra:item/module/upgradednetherite/claw/water"
         }]
     }
 ]

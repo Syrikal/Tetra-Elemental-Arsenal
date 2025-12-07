@@ -1,10 +1,9 @@
 package com.syric.teupnepa.events;
 
-import com.rolfmao.upgradednetherite.utils.tool.EnderUtil;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.ActionResultType;
+import com.syric.teupnepa.UpgradeType;
+import com.syric.teupnepa.util.ItemIdentificationUtil;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,18 +17,18 @@ public class SetEnderTags {
     @SubscribeEvent
     public void RightClickEvent(PlayerInteractEvent.RightClickBlock event) {
 //        TeUpNePa.LOGGER.debug("RightClickEvent Detected");
-        PlayerEntity player = event.getPlayer();
+        Player player = event.getEntity();
         ItemStack itemStack = player.getItemInHand(event.getHand());
 
         boolean crouching = player.isCrouching();
-        boolean isEnderItem = EnderUtil.isEnderToolOrWeapon(itemStack);
+        boolean isEnderItem = ItemIdentificationUtil.isUpgradedToolOrWeapon(itemStack, UpgradeType.ENDER);
         boolean notOnCooldown = !player.getCooldowns().isOnCooldown(itemStack.getItem());
 
         if (crouching && isEnderItem && notOnCooldown) {
 
 //            TeUpNePa.LOGGER.debug("Attempting to set ender tags");
-            ItemUseContext context = new ItemUseContext(player, event.getHand(), event.getHitVec());
-            ActionResultType actionResultType = EnderUtil.EnderSetTag(context);
+//            ItemUseContext context = new ItemUseContext(player, event.getHand(), event.getHitVec());
+//            ActionResultType actionResultType = EnderUtil.EnderSetTag(context);
 //            TeUpNePa.LOGGER.debug("Action result type: " + actionResultType);
         }
 

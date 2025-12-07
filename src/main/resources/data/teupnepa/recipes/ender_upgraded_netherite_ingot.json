@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "ender_upgraded_netherite_ingot",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    },
+    {
+      "item": "minecraft:ender_pearl"
+    }
+  ],
+  "result": {
+    "item": "upgradednetherite:ender_upgraded_netherite_ingot"
+  }
+}

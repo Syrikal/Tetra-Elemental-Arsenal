@@ -7,7 +7,7 @@
             "upgradednetherite:gold_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/machete/gold"
+            "location": "tetra:item/module/upgradednetherite/machete/gold"
         }]
     }
 ]

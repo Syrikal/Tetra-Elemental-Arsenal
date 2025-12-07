@@ -7,7 +7,7 @@
             "upgradednetherite:gold_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/claw/gold"
+            "location": "tetra:item/module/upgradednetherite/claw/gold"
         }]
     }
 ]

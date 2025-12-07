@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/gold_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/claw/gold"
+            "location": "tetra:item/module/upgradednetherite/claw/gold"
         }]
     }
 ]

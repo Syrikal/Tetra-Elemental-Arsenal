@@ -7,7 +7,7 @@
             "upgradednetherite:water_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/throwing_knife/water"
+            "location": "tetra:item/module/upgradednetherite/throwing_knife/water"
         }]
     }
 ]

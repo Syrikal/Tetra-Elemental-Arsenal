@@ -1,15 +1,14 @@
 package com.syric.teupnepa.util;
 
-import com.rolfmao.upgradednetherite.config.UpgradedNetheriteConfig;
-import com.rolfmao.upgradednetherite.utils.tool.*;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
+
+import com.syric.teupnepa.UpgradeType;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -21,18 +20,18 @@ import se.mickelus.tetra.items.modular.impl.crossbow.ModularCrossbowItem;
 )
 public class ArrowUtil {
 
-    public static void addTags(ItemStack bowStack, AbstractArrowEntity arrow, PlayerEntity player) {
-        if (GoldUtil.isGoldRangedWeapon(bowStack)) {
+    public static void addTags(ItemStack bowStack, AbstractArrow arrow, Player player) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.GOLD)) {
             arrow.addTag("GoldUpgradedNetheriteBow");
-            if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MOB_LOOTING, bowStack) > 0) {
-                arrow.getPersistentData().putInt("LootingGoldUpgradedNetheriteBow", EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MOB_LOOTING, bowStack));
+            if (bowStack.getEnchantmentLevel(Enchantments.MOB_LOOTING) > 0) {
+                arrow.getPersistentData().putInt("LootingGoldUpgradedNetheriteBow", bowStack.getEnchantmentLevel(Enchantments.MOB_LOOTING));
             }
         }
 
-        if (FireUtil.isFireRangedWeapon(bowStack)) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.FIRE)) {
 //            TeUpNePa.LOGGER.debug("Adding 'FireUpgradedNetheriteBow' to arrow");
             arrow.addTag("FireUpgradedNetheriteBow");
-            if (EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FLAMING_ARROWS, bowStack) > 0) {
+            if (bowStack.getEnchantmentLevel(Enchantments.FLAMING_ARROWS) > 0) {
 //                TeUpNePa.LOGGER.debug("Adding 'FlameFireUpgradedNetheriteBow' to arrow");
                 arrow.addTag("FlameFireUpgradedNetheriteBow");
                 if (bowStack.getItem() instanceof ModularCrossbowItem) {
@@ -41,7 +40,7 @@ public class ArrowUtil {
             }
         }
 
-        if (EnderUtil.isEnderRangedWeapon(bowStack)) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.ENDER)) {
             arrow.addTag("EnderUpgradedNetheriteBow");
             if (bowStack.getOrCreateTag().getBoolean("UpgradedNetherite_Tagged")) {
                 arrow.getPersistentData().putIntArray("UpgradedNetherite_Position", bowStack.getOrCreateTag().getIntArray("UpgradedNetherite_Position"));
@@ -50,68 +49,70 @@ public class ArrowUtil {
             }
         }
 
-        if (WaterUtil.isWaterRangedWeapon(bowStack)) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.WATER)) {
             arrow.addTag("WaterUpgradedNetheriteBow");
         }
 
-        if (WitherUtil.isWitherRangedWeapon(bowStack)) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.WITHER)) {
             arrow.addTag("WitherUpgradedNetheriteBow");
         }
 
-        if (PoisonUtil.isPoisonRangedWeapon(bowStack)) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.POISON)) {
             arrow.addTag("PoisonUpgradedNetheriteBow");
         }
 
-        if (PhantomUtil.isPhantomRangedWeapon(bowStack)) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.PHANTOM)) {
             arrow.addTag("PhantomUpgradedNetheriteBow");
         }
 
-        if (FeatherUtil.isFeatherRangedWeapon(bowStack)) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.FEATHER)) {
             arrow.addTag("FeatherUpgradedNetheriteBow");
         }
 
-        if (CorruptUtil.isCorruptRangedWeapon(bowStack)) {
+        if (ItemIdentificationUtil.isUpgradedRangedWeapon(bowStack, UpgradeType.CORRUPT)) {
             arrow.addTag("CorruptUpgradedNetheriteBow");
-            arrow.getPersistentData().putInt("LootingCorruptUpgradedNetheriteBow", CorruptUtil.intWearingCorruptArmor(player, true));
+            //TODO figure out some way of handling Corrupt stuff
+//            arrow.getPersistentData().putInt("LootingCorruptUpgradedNetheriteBow", CorruptUtil.intWearingCorruptArmor(player, true));
+            arrow.getPersistentData().putInt("LootingCorruptUpgradedNetheriteBow", 0);
         }
     }
 
     @SubscribeEvent
     public void arrowHitEvent(LivingHurtEvent event) {
 //        TeUpNePa.LOGGER.debug("Triggered arrowHitEvent");
-        if (event.getSource().getEntity() instanceof PlayerEntity) {
+        if (event.getSource().getEntity() instanceof Player) {
 //            TeUpNePa.LOGGER.debug("Source is a player");
-            if (event.getEntityLiving().level.isClientSide) {
+            if (event.getEntity().level().isClientSide) {
 //                TeUpNePa.LOGGER.debug("source is client, terminating");
                 return;
             }
 //            TeUpNePa.LOGGER.debug("Triggering arrowHitEvent, entity is a player not on client");
             Entity directEntity = event.getSource().getDirectEntity();
-            if (directEntity instanceof AbstractArrowEntity) {
-                AbstractArrowEntity arrow = (AbstractArrowEntity) directEntity;
+            if (directEntity instanceof AbstractArrow arrow) {
 
-                if (PoisonUtil.isPoisonProjectile(arrow)) {
+                if (ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.POISON)) {
 //                    TeUpNePa.LOGGER.debug("Poison arrow detected");
-                    boolean poisonEnabled = UpgradedNetheriteConfig.EnablePoisonEffect;
+//                    boolean poisonEnabled = UpgradedNetheriteConfig.EnablePoisonEffect;
                     boolean crit = arrow.isCritArrow();
 
 //                    TeUpNePa.LOGGER.debug("Poison enabled: " + poisonEnabled + ", crit: " + crit);
 
-                    if (crit && poisonEnabled) {
+                    if (crit) {
 //                        TeUpNePa.LOGGER.debug("Applying poison");
-                        event.getEntityLiving().addEffect(new EffectInstance(Effects.POISON, 140, 0, false, true, true));
+                        event.getEntity().addEffect(new MobEffectInstance(MobEffects.POISON, 140, 0, false, true, true));
                     }
                 }
-                if (WitherUtil.isWitherProjectile(arrow)) {
+                if (ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.WITHER)) {
 //                    TeUpNePa.LOGGER.debug("Wither arrow detected");
-                    boolean witherEnabled = UpgradedNetheriteConfig.EnableWitherEffect;
+//                    boolean witherEnabled = UpgradedNetheriteConfig.EnableWitherEffect;
+                    boolean witherEnabled = true;
                     boolean crit = arrow.isCritArrow();
 
 //                    TeUpNePa.LOGGER.debug("Wither enabled: " + witherEnabled + ", crit: " + crit);
 
-                    if (crit && witherEnabled) {
+                    if (crit) {
 //                        TeUpNePa.LOGGER.debug("Applying wither");
-                        event.getEntityLiving().addEffect(new EffectInstance(Effects.WITHER, 200, 0, false, true, true));
+                        event.getEntity().addEffect(new MobEffectInstance(MobEffects.WITHER, 200, 0, false, true, true));
                     }
                 }
             }

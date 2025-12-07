@@ -8,19 +8,19 @@
         },
         "models": [
             {
-                "location": "tetra:items/module/upgradednetherite/long_stave/wither"
+                "location": "tetra:item/module/upgradednetherite/long_stave/wither"
             },
             {
                 "type": "draw_0",
-                "location": "tetra:items/module/upgradednetherite/long_stave/wither_0"
+                "location": "tetra:item/module/upgradednetherite/long_stave/wither_0"
             },
             {
                 "type": "draw_1",
-                "location": "tetra:items/module/upgradednetherite/long_stave/wither_1"
+                "location": "tetra:item/module/upgradednetherite/long_stave/wither_1"
             },
             {
                 "type": "draw_2",
-                "location": "tetra:items/module/upgradednetherite/long_stave/wither_2"
+                "location": "tetra:item/module/upgradednetherite/long_stave/wither_2"
             }
         ]
     }

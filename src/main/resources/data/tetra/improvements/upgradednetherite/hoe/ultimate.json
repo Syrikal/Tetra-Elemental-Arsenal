@@ -7,7 +7,7 @@
             "upgradednetherite:ultimate_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/hoe/ultimate"
+            "location": "tetra:item/module/upgradednetherite/hoe/ultimate"
         }]
     }
 ]

@@ -7,7 +7,7 @@
             "upgradednetherite:feather_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/machete/feather"
+            "location": "tetra:item/module/upgradednetherite/machete/feather"
         }]
     }
 ]

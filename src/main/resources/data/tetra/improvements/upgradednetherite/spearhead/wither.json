@@ -7,7 +7,7 @@
             "upgradednetherite:wither_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/spearhead/wither"
+            "location": "tetra:item/module/upgradednetherite/spearhead/wither"
         }]
     }
 ]

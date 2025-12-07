@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/wither_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/sickle/wither"
+            "location": "tetra:item/module/upgradednetherite/sickle/wither"
         }]
     }
 ]

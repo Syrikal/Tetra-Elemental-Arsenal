@@ -8,19 +8,19 @@
         },
         "models": [
             {
-                "location": "tetra:items/module/upgradednetherite/straight_stave/water"
+                "location": "tetra:item/module/upgradednetherite/straight_stave/water"
             },
             {
                 "type": "draw_0",
-                "location": "tetra:items/module/upgradednetherite/straight_stave/water_0"
+                "location": "tetra:item/module/upgradednetherite/straight_stave/water_0"
             },
             {
                 "type": "draw_1",
-                "location": "tetra:items/module/upgradednetherite/straight_stave/water_1"
+                "location": "tetra:item/module/upgradednetherite/straight_stave/water_1"
             },
             {
                 "type": "draw_2",
-                "location": "tetra:items/module/upgradednetherite/straight_stave/water_2"
+                "location": "tetra:item/module/upgradednetherite/straight_stave/water_2"
             }
         ]
     }

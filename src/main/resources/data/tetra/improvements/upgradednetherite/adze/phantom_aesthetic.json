@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/phantom_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/adze/phantom"
+            "location": "tetra:item/module/upgradednetherite/adze/phantom"
         }]
     }
 ]

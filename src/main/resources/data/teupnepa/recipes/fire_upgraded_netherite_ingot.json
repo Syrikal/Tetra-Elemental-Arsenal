@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "fire_upgraded_netherite_ingot",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ],
+  "result": {
+    "item": "upgradednetherite:fire_upgraded_netherite_ingot"
+  }
+}

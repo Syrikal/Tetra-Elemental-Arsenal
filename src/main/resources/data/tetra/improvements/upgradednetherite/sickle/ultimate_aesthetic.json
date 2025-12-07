@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/ultimate_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/sickle/ultimate"
+            "location": "tetra:item/module/upgradednetherite/sickle/ultimate"
         }]
     }
 ]

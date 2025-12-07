@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/ender_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/hoe/ender"
+            "location": "tetra:item/module/upgradednetherite/hoe/ender"
         }]
     }
 ]

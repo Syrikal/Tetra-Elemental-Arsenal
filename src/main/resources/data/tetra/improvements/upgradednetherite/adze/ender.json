@@ -7,7 +7,7 @@
             "upgradednetherite:ender_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/adze/ender"
+            "location": "tetra:item/module/upgradednetherite/adze/ender"
         }]
     }
 ]

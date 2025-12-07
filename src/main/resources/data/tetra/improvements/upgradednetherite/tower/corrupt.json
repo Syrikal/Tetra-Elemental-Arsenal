@@ -8,7 +8,7 @@
         },
         "models": [{
             "type": "shield_tower",
-            "location": "tetra:items/module/upgradednetherite/tower/corrupt"
+            "location": "tetra:item/module/upgradednetherite/tower/corrupt"
         }]
     }
 ]

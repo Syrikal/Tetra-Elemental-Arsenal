@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/gold_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_axe/gold"
+            "location": "tetra:item/module/upgradednetherite/basic_axe/gold"
         }]
     }
 ]

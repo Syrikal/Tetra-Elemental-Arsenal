@@ -7,7 +7,7 @@
             "upgradednetherite:poison_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/machete/poison"
+            "location": "tetra:item/module/upgradednetherite/machete/poison"
         }]
     }
 ]

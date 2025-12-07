@@ -8,7 +8,7 @@
         },
         "models": [{
             "type": "shield_buckler",
-            "location": "tetra:items/module/upgradednetherite/buckler/phantom"
+            "location": "tetra:item/module/upgradednetherite/buckler/phantom"
         }]
     }
 ]

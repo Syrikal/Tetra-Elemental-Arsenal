@@ -7,7 +7,7 @@
             "upgradednetherite:gold_both": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_axe/gold"
+            "location": "tetra:item/module/upgradednetherite/basic_axe/gold"
         }]
     }
 ]

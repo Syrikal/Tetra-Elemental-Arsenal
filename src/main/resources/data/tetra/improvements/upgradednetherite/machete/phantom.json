@@ -7,7 +7,7 @@
             "upgradednetherite:phantom_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/machete/phantom"
+            "location": "tetra:item/module/upgradednetherite/machete/phantom"
         }]
     }
 ]

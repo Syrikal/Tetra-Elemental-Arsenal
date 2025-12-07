@@ -8,19 +8,19 @@
         },
         "models": [
             {
-                "location": "tetra:items/module/upgradednetherite/long_stave/fire"
+                "location": "tetra:item/module/upgradednetherite/long_stave/fire"
             },
             {
                 "type": "draw_0",
-                "location": "tetra:items/module/upgradednetherite/long_stave/fire_0"
+                "location": "tetra:item/module/upgradednetherite/long_stave/fire_0"
             },
             {
                 "type": "draw_1",
-                "location": "tetra:items/module/upgradednetherite/long_stave/fire_1"
+                "location": "tetra:item/module/upgradednetherite/long_stave/fire_1"
             },
             {
                 "type": "draw_2",
-                "location": "tetra:items/module/upgradednetherite/long_stave/fire_2"
+                "location": "tetra:item/module/upgradednetherite/long_stave/fire_2"
             }
         ]
     }

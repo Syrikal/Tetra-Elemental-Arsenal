@@ -7,7 +7,7 @@
             "upgradednetherite:phantom_both": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_axe/phantom"
+            "location": "tetra:item/module/upgradednetherite/basic_axe/phantom"
         }]
     }
 ]

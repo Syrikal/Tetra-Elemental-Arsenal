@@ -7,7 +7,7 @@
             "upgradednetherite:fire_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/hoe/fire"
+            "location": "tetra:item/module/upgradednetherite/hoe/fire"
         }]
     }
 ]

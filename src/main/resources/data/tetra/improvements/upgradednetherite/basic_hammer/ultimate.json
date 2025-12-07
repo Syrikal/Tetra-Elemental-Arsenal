@@ -7,7 +7,7 @@
             "upgradednetherite:ultimate_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_hammer/ultimate"
+            "location": "tetra:item/module/upgradednetherite/basic_hammer/ultimate"
         }]
     }
 ]

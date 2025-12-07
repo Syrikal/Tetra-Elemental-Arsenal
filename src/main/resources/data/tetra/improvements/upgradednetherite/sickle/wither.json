@@ -7,7 +7,7 @@
             "upgradednetherite:wither_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/sickle/wither"
+            "location": "tetra:item/module/upgradednetherite/sickle/wither"
         }]
     }
 ]

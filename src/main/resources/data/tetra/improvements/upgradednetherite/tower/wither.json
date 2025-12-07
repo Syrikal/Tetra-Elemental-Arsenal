@@ -8,7 +8,7 @@
         },
         "models": [{
             "type": "shield_tower",
-            "location": "tetra:items/module/upgradednetherite/tower/wither"
+            "location": "tetra:item/module/upgradednetherite/tower/wither"
         }]
     }
 ]

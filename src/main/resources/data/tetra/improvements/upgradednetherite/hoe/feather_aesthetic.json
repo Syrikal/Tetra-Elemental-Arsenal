@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/feather_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/hoe/feather"
+            "location": "tetra:item/module/upgradednetherite/hoe/feather"
         }]
     }
 ]

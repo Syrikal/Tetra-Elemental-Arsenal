@@ -7,7 +7,7 @@
             "upgradednetherite:ender_weapon": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/spearhead/ender"
+            "location": "tetra:item/module/upgradednetherite/spearhead/ender"
         }]
     }
 ]

@@ -8,23 +8,23 @@
     },
     "models": [
       {
-        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/wither"
       },
       {
         "type": "draw_0",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/wither"
       },
       {
         "type": "draw_1",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/wither"
       },
       {
         "type": "draw_2",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/wither"
       },
       {
         "type": "loaded",
-        "location": "tetra:items/module/upgradednetherite/basic_stock/wither"
+        "location": "tetra:item/module/upgradednetherite/basic_stock/wither"
       }
     ]
   }

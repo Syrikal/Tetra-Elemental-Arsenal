@@ -93,5 +93,15 @@
   "tetra/schematic/sword/basic_hilt/soot.description": "Apply coal or charcoal to the hilt for aesthetic effect.",
   "tetra/schematic/sword/basic_hilt/soot.slot1": "Soot",
 
-  "upgradednetherite.Ultimate_Not_Installed.TT": "§c§lUltimate Netherite Not Installed"
+  "upgradednetherite.Ultimate_Not_Installed.TT": "§c§lUltimate Netherite Not Installed",
+
+  "item.teupnepa.gold_upgraded_netherite_ingot": "Gilded Netherite Ingot",
+  "item.teupnepa.fire_upgraded_netherite_ingot": "Magmatic Netherite Ingot",
+  "item.teupnepa.ender_upgraded_netherite_ingot": "Voidwalker Netherite Ingot",
+  "item.teupnepa.water_upgraded_netherite_ingot": "Abyssal Netherite Ingot",
+  "item.teupnepa.wither_upgraded_netherite_ingot": "Blighted Netherite Ingot",
+  "item.teupnepa.ultimate_upgraded_netherite_ingot": "Paragon Netherite Ingot",
+  "item.teupnepa.phantom_upgraded_netherite_ingot": "Phantasmal Netherite Ingot",
+  "item.teupnepa.feather_upgraded_netherite_ingot": "Skyseeker Netherite Ingot",
+  "item.teupnepa.corrupt_upgraded_netherite_ingot": "Corrupted Netherite Ingot"
 }

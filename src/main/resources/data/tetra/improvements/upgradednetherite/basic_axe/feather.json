@@ -7,7 +7,7 @@
             "upgradednetherite:feather_both": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_axe/feather"
+            "location": "tetra:item/module/upgradednetherite/basic_axe/feather"
         }]
     }
 ]

@@ -7,7 +7,7 @@
             "upgradednetherite:corrupt_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_shovel/corrupt"
+            "location": "tetra:item/module/upgradednetherite/basic_shovel/corrupt"
         }]
     }
 ]

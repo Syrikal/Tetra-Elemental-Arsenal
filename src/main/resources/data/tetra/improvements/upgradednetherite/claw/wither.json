@@ -7,7 +7,7 @@
             "upgradednetherite:wither_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/claw/wither"
+            "location": "tetra:item/module/upgradednetherite/claw/wither"
         }]
     }
 ]

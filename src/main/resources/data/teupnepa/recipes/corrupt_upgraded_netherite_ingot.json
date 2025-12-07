@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "corrupt_upgraded_netherite_ingot",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    {
+      "item": "minecraft:fermented_spider_eye"
+    },
+    {
+      "item": "minecraft:ghast_tear"
+    },
+    {
+      "item": "minecraft:dragon_breath"
+    }
+  ],
+  "result": {
+    "item": "upgradednetherite:corrupt_upgraded_netherite_ingot"
+  }
+}

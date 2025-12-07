@@ -8,19 +8,19 @@
         },
         "models": [
             {
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/ultimate"
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/ultimate"
             },
             {
                 "type": "draw_0",
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/ultimate"
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/ultimate"
             },
             {
                 "type": "draw_1",
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/ultimate_1"
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/ultimate_1"
             },
             {
                 "type": "draw_2",
-                "location": "tetra:items/module/upgradednetherite/recurve_stave/ultimate_1"
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/ultimate_1"
             }
         ]
     }

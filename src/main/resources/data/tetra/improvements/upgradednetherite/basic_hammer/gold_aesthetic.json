@@ -2,7 +2,7 @@
     {
         "key": "upgradednetherite/gold_aesthetic",
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/basic_hammer/gold"
+            "location": "tetra:item/module/upgradednetherite/basic_hammer/gold"
         }]
     }
 ]

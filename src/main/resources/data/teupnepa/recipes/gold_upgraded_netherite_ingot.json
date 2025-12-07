@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "gold_upgraded_netherite_ingot",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "item": "upgradednetherite:gold_upgraded_netherite_ingot"
+  }
+}

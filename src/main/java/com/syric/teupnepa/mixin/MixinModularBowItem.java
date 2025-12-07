@@ -1,12 +1,12 @@
 package com.syric.teupnepa.mixin;
 
+import com.google.common.collect.ImmutableList;
 import com.syric.teupnepa.util.ArrowUtil;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.ArrowItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.item.ArrowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -14,15 +14,17 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import se.mickelus.tetra.items.modular.impl.bow.ModularBowItem;
 
+import java.util.function.Function;
+
 @Mixin(value = ModularBowItem.class)
 public class MixinModularBowItem {
 
-    @Inject(method = "fireArrow", at = @At(
+    @Inject(method = "fireProjectile", at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/entity/projectile/AbstractArrowEntity;shootFromRotation(Lnet/minecraft/entity/Entity;FFFFF)V",
+            target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;shootFromRotation(Lnet/minecraft/world/entity/Entity;FFFFF)V",
             shift = At.Shift.AFTER),
             locals = LocalCapture.CAPTURE_FAILSOFT)
-    private void applyTags(ItemStack itemStack, World world, LivingEntity entity, int timeLeft, CallbackInfo ci, PlayerEntity player, ItemStack ammoStack, boolean playerInfinite, int drawProgress, double strength, float velocityBonus, int suspendLevel, float projectileVelocity, ArrowItem ammoItem, boolean infiniteAmmo, int count, double spread, int powerLevel, int punchLevel, int flameLevel, int piercingLevel, int i, double yaw, AbstractArrowEntity projectile) {
+    private static void applyTags(ItemStack itemStack, Level world, ArrowItem ammoItem, ItemStack ammoStack, ImmutableList<Function<AbstractArrow, AbstractArrow>> projectileRemappers, Player player, float basePitch, float yaw, float projectileVelocity, float accuracy, int drawProgress, double strength, int powerLevel, int punchLevel, int flameLevel, int piercingLevel, boolean hasSuspend, boolean infiniteAmmo, CallbackInfo ci, AbstractArrow projectile) {
 
         ArrowUtil.addTags(itemStack, projectile, player);
 

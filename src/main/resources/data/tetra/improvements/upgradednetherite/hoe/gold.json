@@ -7,7 +7,7 @@
             "upgradednetherite:gold_tool": 1
         },
         "models": [{
-            "location": "tetra:items/module/upgradednetherite/hoe/gold"
+            "location": "tetra:item/module/upgradednetherite/hoe/gold"
         }]
     }
 ]
