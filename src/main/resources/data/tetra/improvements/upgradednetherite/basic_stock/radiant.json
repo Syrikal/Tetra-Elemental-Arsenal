@@ -1,0 +1,31 @@
+[
+  {
+    "key": "upgradednetherite/radiant",
+    "integrity": -1,
+        "group": "netherite_runes",
+    "effects": {
+      "upgradednetherite:radiant": 1
+    },
+    "models": [
+      {
+        "location": "tetra:item/module/upgradednetherite/basic_stock/radiant"
+      },
+      {
+        "type": "draw_0",
+        "location": "tetra:item/module/upgradednetherite/basic_stock/radiant"
+      },
+      {
+        "type": "draw_1",
+        "location": "tetra:item/module/upgradednetherite/basic_stock/radiant"
+      },
+      {
+        "type": "draw_2",
+        "location": "tetra:item/module/upgradednetherite/basic_stock/radiant"
+      },
+      {
+        "type": "loaded",
+        "location": "tetra:item/module/upgradednetherite/basic_stock/radiant"
+      }
+    ]
+  }
+]

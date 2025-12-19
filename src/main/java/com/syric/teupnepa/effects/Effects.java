@@ -58,6 +58,18 @@ public class Effects {
     public static final ItemEffect corrupt_both = ItemEffect.get("upgradednetherite:corrupt_both");
 
 
+    public static final ItemEffect echo = ItemEffect.get("upgradednetherite:echo");
+    public static final ItemEffect echo_tool = ItemEffect.get("upgradednetherite:echo_tool");
+    public static final ItemEffect echo_weapon = ItemEffect.get("upgradednetherite:echo_weapon");
+    public static final ItemEffect echo_both = ItemEffect.get("upgradednetherite:echo_both");
+
+
+    public static final ItemEffect radiant = ItemEffect.get("upgradednetherite:radiant");
+    public static final ItemEffect radiant_tool = ItemEffect.get("upgradednetherite:radiant_tool");
+    public static final ItemEffect radiant_weapon = ItemEffect.get("upgradednetherite:radiant_weapon");
+    public static final ItemEffect radiant_both = ItemEffect.get("upgradednetherite:radiant_both");
+
+
     public static final ItemEffect ultimate = ItemEffect.get("upgradednetherite:ultimate");
     public static final ItemEffect ultimate_tool = ItemEffect.get("upgradednetherite:ultimate_tool");
     public static final ItemEffect ultimate_weapon = ItemEffect.get("upgradednetherite:ultimate_weapon");

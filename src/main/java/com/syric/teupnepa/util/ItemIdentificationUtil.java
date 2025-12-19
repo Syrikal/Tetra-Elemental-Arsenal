@@ -23,8 +23,26 @@ public class ItemIdentificationUtil {
         return isUpgradedWeapon(itemStack, upgradeType) || isUpgradedTool(itemStack, upgradeType);
     }
 
+    public static boolean isUpgradedToolOrWeapon(ItemStack itemStack) {
+        for (UpgradeType upgradeType : UpgradeType.values()) {
+            if (isUpgradedToolOrWeapon(itemStack, upgradeType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean isUpgradedWeapon(ItemStack itemStack, UpgradeType upgradeType) {
         return isUpgradedMeleeWeapon(itemStack, upgradeType) || isUpgradedRangedWeapon(itemStack, upgradeType);
+    }
+
+    public static boolean isUpgradedWeapon(ItemStack itemStack) {
+        for (UpgradeType upgradeType : UpgradeType.values()) {
+            if (isUpgradedWeapon(itemStack, upgradeType)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean isUpgradedTool(ItemStack itemStack, UpgradeType upgradeType) {
@@ -37,12 +55,30 @@ public class ItemIdentificationUtil {
         return false;
     }
 
+    public static boolean isUpgradedTool(ItemStack itemStack) {
+        for (UpgradeType upgradeType : UpgradeType.values()) {
+            if (isUpgradedTool(itemStack, upgradeType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean isUpgradedMeleeWeapon(ItemStack itemStack, UpgradeType upgradeType) {
         if (itemStack.getItem() instanceof ModularBladedItem || itemStack.getItem() instanceof ModularDoubleHeadedItem || itemStack.getItem() instanceof ModularSingleHeadedItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
             EffectData effectData = modularItem.getEffectData(itemStack);
             List<ItemEffect> validEffects = Arrays.asList(upgradeType.weapon, upgradeType.both, Effects.ultimate_weapon, Effects.ultimate_both);
             return effectData.levelMap.entrySet().stream().anyMatch(entry -> validEffects.contains(entry.getKey()));
+        }
+        return false;
+    }
+
+    public static boolean isUpgradedMeleeWeapon(ItemStack itemStack) {
+        for (UpgradeType upgradeType : UpgradeType.values()) {
+            if (isUpgradedMeleeWeapon(itemStack, upgradeType)) {
+                return true;
+            }
         }
         return false;
     }
@@ -62,6 +98,16 @@ public class ItemIdentificationUtil {
             EffectData effectData = modularItem.getEffectData(itemStack);
             List<ItemEffect> validEffects = Arrays.asList(upgradeType.base, Effects.ultimate);
             return effectData.levelMap.entrySet().stream().anyMatch(entry -> validEffects.contains(entry.getKey()));
+        }
+        return false;
+    }
+
+
+    public static boolean isUpgradedShield(ItemStack itemStack) {
+        for (UpgradeType upgradeType : UpgradeType.values()) {
+            if (isUpgradedShield(itemStack, upgradeType)) {
+                return true;
+            }
         }
         return false;
     }
@@ -97,6 +143,12 @@ public class ItemIdentificationUtil {
             }
             case WITHER -> {
                 return arrow.getTags().contains("WitherUpgradedNetheriteBow");
+            }
+            case RADIANT -> {
+                return arrow.getTags().contains("RadiantUpgradedNetheriteBow");
+            }
+            case ECHO -> {
+                return arrow.getTags().contains("EchoUpgradedNetheriteBow");
             }
         }
         return false;

@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/echo",
+        "integrity": -1,
+        "group": "netherite_runes",
+        "effects": {
+            "upgradednetherite:echo_tool": 1
+        },
+        "models": [{
+            "location": "tetra:item/module/upgradednetherite/basic_hammer/echo"
+        }]
+    }
+]

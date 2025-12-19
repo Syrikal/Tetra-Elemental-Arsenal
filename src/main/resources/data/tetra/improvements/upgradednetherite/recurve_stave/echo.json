@@ -1,0 +1,27 @@
+[
+    {
+        "key": "upgradednetherite/echo",
+        "integrity": -1,
+        "group": "netherite_runes",
+        "effects": {
+            "upgradednetherite:echo": 1
+        },
+        "models": [
+            {
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/echo"
+            },
+            {
+                "type": "draw_0",
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/echo"
+            },
+            {
+                "type": "draw_1",
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/echo_1"
+            },
+            {
+                "type": "draw_2",
+                "location": "tetra:item/module/upgradednetherite/recurve_stave/echo_1"
+            }
+        ]
+    }
+]

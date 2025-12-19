@@ -13,7 +13,9 @@ public enum UpgradeType {
     POISON(Effects.poison, Effects.poison_tool, Effects.poison_weapon, Effects.poison_both),
     ULTIMATE(Effects.ultimate, Effects.ultimate_tool, Effects.ultimate_weapon, Effects.ultimate_both),
     WATER(Effects.water, Effects.water_tool, Effects.water_weapon, Effects.water_both),
-    WITHER(Effects.wither, Effects.wither_tool, Effects.wither_weapon, Effects.wither_both);
+    WITHER(Effects.wither, Effects.wither_tool, Effects.wither_weapon, Effects.wither_both),
+    ECHO(Effects.echo, Effects.echo_tool, Effects.echo_weapon, Effects.echo_both),
+    RADIANT(Effects.radiant, Effects.radiant_tool, Effects.radiant_weapon, Effects.radiant_both);
 
     public final ItemEffect base;
     public final ItemEffect tool;

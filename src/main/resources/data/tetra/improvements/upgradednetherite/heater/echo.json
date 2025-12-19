@@ -1,0 +1,14 @@
+[
+    {
+        "key": "upgradednetherite/echo",
+        "integrity": -1,
+        "group": "netherite_runes",
+        "effects": {
+            "upgradednetherite:echo": 1
+        },
+        "models": [{
+            "type": "shield_heater",
+            "location": "tetra:item/module/upgradednetherite/heater/echo"
+        }]
+    }
+]

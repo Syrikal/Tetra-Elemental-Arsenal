@@ -1,0 +1,9 @@
+[
+    {
+        "key": "upgradednetherite/aesthetic_echo",
+        "group": "netherite_runes",
+        "models": [{
+            "location": "tetra:item/module/upgradednetherite/butt/echo"
+        }]
+    }
+]
