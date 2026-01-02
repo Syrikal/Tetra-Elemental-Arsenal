@@ -1,6 +1,19 @@
 {
-    "replace": false,
-    "improvements": [
-        "tetra:upgradednetherite/recurve_stave/"
-    ]
+  "replace" : false,
+  "improvements" : [
+    "tetra:upgradednetherite/corrupt/recurve_stave",
+    "tetra:upgradednetherite/echo/recurve_stave",
+    "tetra:upgradednetherite/ender/recurve_stave",
+    "tetra:upgradednetherite/feather/recurve_stave",
+    "tetra:upgradednetherite/fire/recurve_stave",
+    "tetra:upgradednetherite/gold/recurve_stave",
+    "tetra:upgradednetherite/phantom/recurve_stave",
+    "tetra:upgradednetherite/poison/recurve_stave",
+    "tetra:upgradednetherite/radiant/recurve_stave",
+    "tetra:upgradednetherite/water/recurve_stave",
+    "tetra:upgradednetherite/wither/recurve_stave",
+    "tetra:upgradednetherite/ultimate/recurve_stave",
+    "tetra:upgradednetherite/aetheric/recurve_stave",
+    "tetra:upgradednetherite/forgotten/recurve_stave"
+  ]
 }

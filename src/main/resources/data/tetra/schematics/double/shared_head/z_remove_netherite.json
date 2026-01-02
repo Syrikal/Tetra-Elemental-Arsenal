@@ -1,0 +1,13 @@
+{
+  "replace" : true,
+  "slots" : [ "double/head_left", "double/head_right" ],
+  "rarity" : "hone",
+  "displayType" : "minor",
+  "requirement": {
+    "type": "tetra:aspect",
+    "aspect": "netherite_upgraded",
+    "level": {
+      "min": 1
+    }
+  }
+}

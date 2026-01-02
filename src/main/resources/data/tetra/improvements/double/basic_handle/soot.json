@@ -1,0 +1,13 @@
+[
+  {
+    "key": "basic_handle/soot",
+    "aspects" : {
+      "sooted" : 1
+    },
+    "models": [
+      {
+        "location": "tetra:item/module/double/handle/basic/improvements/soot"
+      }
+    ]
+  }
+]

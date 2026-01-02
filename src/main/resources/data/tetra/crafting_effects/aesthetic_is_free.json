@@ -1,0 +1,13 @@
+{
+  "replace": true,
+  "requirement": {
+    "type": "tetra:schematic",
+    "schematic": "double/shared_head/z_aesthetic_netherite"
+  },
+  "outcomes": [
+    {
+      "type": "tetra:material_reduction",
+      "probability": 0.99
+    }
+  ]
+}

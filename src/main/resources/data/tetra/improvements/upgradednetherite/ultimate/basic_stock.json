@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/ultimate_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:ultimate" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/ultimate/basic_stock",
+    "renderLayer" : "high"
+  } ]
+} ]

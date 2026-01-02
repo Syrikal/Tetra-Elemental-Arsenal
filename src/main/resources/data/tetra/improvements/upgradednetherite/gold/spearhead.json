@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/gold_weapon",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:gold_weapon" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/gold/spearhead",
+    "renderLayer" : "high"
+  } ]
+} ]

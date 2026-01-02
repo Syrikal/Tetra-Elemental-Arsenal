@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/fire_weapon",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:fire_weapon" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/fire/heavy_blade",
+    "renderLayer" : "high"
+  } ]
+} ]

@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/gold_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:gold" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/gold/straight_stave",
+    "renderLayer" : "high"
+  } ]
+} ]

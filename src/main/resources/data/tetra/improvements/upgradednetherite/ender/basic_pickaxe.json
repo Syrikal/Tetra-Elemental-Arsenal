@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/ender_tool",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:ender_tool" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/ender/basic_pickaxe",
+    "renderLayer" : "high"
+  } ]
+} ]

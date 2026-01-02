@@ -1,0 +1,20 @@
+[ {
+  "key" : "upgradednetherite/aetheric_tool",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:aetheric_tool" : 1,
+    "aetheric_tetranomicon:aetheric" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/aetheric/machete",
+    "renderLayer" : "high"
+  } ],
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "aetheric_tetranomicon"
+  } ]
+} ]

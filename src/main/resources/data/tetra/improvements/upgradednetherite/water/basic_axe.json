@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/water_both",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:water_both" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/water/basic_axe",
+    "renderLayer" : "high"
+  } ]
+} ]

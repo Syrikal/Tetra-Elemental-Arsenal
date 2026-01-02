@@ -1,0 +1,30 @@
+{
+    "replace": true,
+    "slots": [
+        "double/handle"
+    ],
+    "materialSlotCount": 1,
+    "displayType": "improvement",
+    "glyph": {
+        "textureX": 16,
+        "textureY": 240
+    },
+    "outcomes": [
+        {
+            "material": {
+                "items": [ "minecraft:coal" ]
+            },
+            "improvements": {
+                "basic_handle/soot": 0
+            }
+        },
+        {
+            "material": {
+                "items": [ "minecraft:charcoal" ]
+            },
+            "improvements": {
+                "basic_handle/soot": 0
+            }
+        }
+    ]
+}

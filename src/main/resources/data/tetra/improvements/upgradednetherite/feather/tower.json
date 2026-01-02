@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/feather_shield",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:feather" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/feather/tower",
+    "renderLayer" : "high"
+  } ]
+} ]

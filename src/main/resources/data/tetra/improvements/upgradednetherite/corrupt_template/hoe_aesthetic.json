@@ -1,0 +1,8 @@
+[
+    {
+        "key": "upgradednetherite/corrupt_aesthetic",
+        "models": [{
+            "location": "tetra:item/module/upgradednetherite/corrupt/hoe"
+        }]
+    }
+]

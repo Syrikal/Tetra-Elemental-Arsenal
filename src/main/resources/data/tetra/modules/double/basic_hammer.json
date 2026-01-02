@@ -1,6 +1,33 @@
 {
-    "replace": false,
-    "improvements": [
-        "tetra:upgradednetherite/basic_hammer/"
-    ]
+  "replace" : false,
+  "improvements" : [
+    "tetra:upgradednetherite/corrupt/basic_hammer",
+    "tetra:upgradednetherite/corrupt/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/echo/basic_hammer",
+    "tetra:upgradednetherite/echo/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/ender/basic_hammer",
+    "tetra:upgradednetherite/ender/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/feather/basic_hammer",
+    "tetra:upgradednetherite/feather/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/fire/basic_hammer",
+    "tetra:upgradednetherite/fire/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/gold/basic_hammer",
+    "tetra:upgradednetherite/gold/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/phantom/basic_hammer",
+    "tetra:upgradednetherite/phantom/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/poison/basic_hammer",
+    "tetra:upgradednetherite/poison/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/radiant/basic_hammer",
+    "tetra:upgradednetherite/radiant/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/water/basic_hammer",
+    "tetra:upgradednetherite/water/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/wither/basic_hammer",
+    "tetra:upgradednetherite/wither/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/ultimate/basic_hammer",
+    "tetra:upgradednetherite/ultimate/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/aetheric/basic_hammer",
+    "tetra:upgradednetherite/aetheric/basic_hammer_aesthetic",
+    "tetra:upgradednetherite/forgotten/basic_hammer",
+    "tetra:upgradednetherite/forgotten/basic_hammer_aesthetic"
+  ]
 }

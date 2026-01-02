@@ -1,7 +1,7 @@
 package com.syric.teupnepa.events;
 
 import com.syric.teupnepa.TeUpNePa;
-import com.syric.teupnepa.UpgradeType;
+import com.syric.teupnepa.enums.UpgradeType;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

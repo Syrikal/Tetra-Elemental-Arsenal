@@ -1,0 +1,13 @@
+{
+  "replace" : true,
+  "slots" : [ "double/handle" ],
+  "rarity" : "hone",
+  "displayType" : "improvement",
+  "requirement": {
+    "type": "tetra:aspect",
+    "aspect": "sooted",
+    "level": {
+      "min": 1
+    }
+  }
+}

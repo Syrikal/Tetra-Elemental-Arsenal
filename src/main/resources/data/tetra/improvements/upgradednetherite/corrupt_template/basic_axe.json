@@ -1,0 +1,13 @@
+[
+    {
+        "key": "upgradednetherite/corrupt_both",
+        "integrity": -1,
+        "group": "netherite_runes",
+        "effects": {
+            "upgradednetherite:corrupt_both": 1
+        },
+        "models": [{
+            "location": "tetra:item/module/upgradednetherite/corrupt/basic_axe"
+        }]
+    }
+]

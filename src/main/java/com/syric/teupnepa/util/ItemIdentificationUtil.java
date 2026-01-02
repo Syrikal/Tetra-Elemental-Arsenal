@@ -1,6 +1,6 @@
 package com.syric.teupnepa.util;
 
-import com.syric.teupnepa.UpgradeType;
+import com.syric.teupnepa.enums.UpgradeType;
 import com.syric.teupnepa.effects.Effects;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;

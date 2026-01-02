@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/echo_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:echo" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/echo/straight_stave",
+    "renderLayer" : "high"
+  } ]
+} ]

@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "ender_upgraded_netherite_ingot",
+  "group": "upgraded_netherite_ingot",
   "ingredients": [
     {
       "item": "minecraft:netherite_ingot"

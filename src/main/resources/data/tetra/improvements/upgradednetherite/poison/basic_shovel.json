@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/poison_tool",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:poison_tool" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/poison/basic_shovel",
+    "renderLayer" : "high"
+  } ]
+} ]

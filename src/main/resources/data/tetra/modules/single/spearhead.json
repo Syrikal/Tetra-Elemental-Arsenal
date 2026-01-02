@@ -1,6 +1,19 @@
 {
-    "replace": false,
-    "improvements": [
-        "tetra:upgradednetherite/spearhead/"
-    ]
+  "replace" : false,
+  "improvements" : [
+    "tetra:upgradednetherite/corrupt/spearhead",
+    "tetra:upgradednetherite/echo/spearhead",
+    "tetra:upgradednetherite/ender/spearhead",
+    "tetra:upgradednetherite/feather/spearhead",
+    "tetra:upgradednetherite/fire/spearhead",
+    "tetra:upgradednetherite/gold/spearhead",
+    "tetra:upgradednetherite/phantom/spearhead",
+    "tetra:upgradednetherite/poison/spearhead",
+    "tetra:upgradednetherite/radiant/spearhead",
+    "tetra:upgradednetherite/water/spearhead",
+    "tetra:upgradednetherite/wither/spearhead",
+    "tetra:upgradednetherite/ultimate/spearhead",
+    "tetra:upgradednetherite/aetheric/spearhead",
+    "tetra:upgradednetherite/forgotten/spearhead"
+  ]
 }

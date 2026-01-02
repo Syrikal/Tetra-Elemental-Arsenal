@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/wither_shield",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:wither" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/wither/heater",
+    "renderLayer" : "high"
+  } ]
+} ]

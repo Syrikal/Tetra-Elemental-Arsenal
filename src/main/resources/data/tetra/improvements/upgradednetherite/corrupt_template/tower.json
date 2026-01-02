@@ -1,0 +1,14 @@
+[
+    {
+        "key": "upgradednetherite/corrupt_shield",
+        "integrity": -1,
+        "group": "netherite_runes",
+        "effects": {
+            "upgradednetherite:corrupt": 1
+        },
+        "models": [{
+            "type": "shield_tower",
+            "location": "tetra:item/module/upgradednetherite/corrupt/tower"
+        }]
+    }
+]

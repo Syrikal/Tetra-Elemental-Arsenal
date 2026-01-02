@@ -144,6 +144,8 @@ dependencies {
     implementation fg.deobf("curse.maven:jei-238222:4712868")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    implementation group: 'tools.jackson.core', name: 'jackson-databind', version: '3.0.0'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

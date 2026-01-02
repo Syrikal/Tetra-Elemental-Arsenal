@@ -1,5 +1,6 @@
 package com.syric.teupnepa.datagen;
 
+import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.registry.TUNPTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -14,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 public class TUNPEntityTypeTagProvider extends EntityTypeTagsProvider {
 
     public TUNPEntityTypeTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(packOutput, lookupProvider, modId, existingFileHelper);
+        super(packOutput, lookupProvider, TeUpNePa.MODID, existingFileHelper);
     }
 
     @Override

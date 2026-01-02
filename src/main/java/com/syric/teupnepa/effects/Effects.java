@@ -70,6 +70,18 @@ public class Effects {
     public static final ItemEffect radiant_both = ItemEffect.get("upgradednetherite:radiant_both");
 
 
+    public static final ItemEffect forgotten = ItemEffect.get("upgradednetherite:forgotten");
+    public static final ItemEffect forgotten_tool = ItemEffect.get("upgradednetherite:forgotten_tool");
+    public static final ItemEffect forgotten_weapon = ItemEffect.get("upgradednetherite:forgotten_weapon");
+    public static final ItemEffect forgotten_both = ItemEffect.get("upgradednetherite:forgotten_both");
+
+
+    public static final ItemEffect aetheric = ItemEffect.get("upgradednetherite:aetheric");
+    public static final ItemEffect aetheric_tool = ItemEffect.get("upgradednetherite:aetheric_tool");
+    public static final ItemEffect aetheric_weapon = ItemEffect.get("upgradednetherite:aetheric_weapon");
+    public static final ItemEffect aetheric_both = ItemEffect.get("upgradednetherite:aetheric_both");
+
+
     public static final ItemEffect ultimate = ItemEffect.get("upgradednetherite:ultimate");
     public static final ItemEffect ultimate_tool = ItemEffect.get("upgradednetherite:ultimate_tool");
     public static final ItemEffect ultimate_weapon = ItemEffect.get("upgradednetherite:ultimate_weapon");

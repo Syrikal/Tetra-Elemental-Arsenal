@@ -1,7 +1,7 @@
 package com.syric.teupnepa.util;
 
 
-import com.syric.teupnepa.UpgradeType;
+import com.syric.teupnepa.enums.UpgradeType;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;

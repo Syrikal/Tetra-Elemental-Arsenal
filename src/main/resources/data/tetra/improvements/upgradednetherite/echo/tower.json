@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/echo_shield",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:echo" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/echo/tower",
+    "renderLayer" : "high"
+  } ]
+} ]

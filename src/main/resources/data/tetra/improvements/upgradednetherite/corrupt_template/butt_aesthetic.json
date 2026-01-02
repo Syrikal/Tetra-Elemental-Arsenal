@@ -1,0 +1,9 @@
+[
+    {
+        "key": "upgradednetherite/aesthetic_corrupt",
+        "group": "netherite_runes",
+        "models": [{
+            "location": "tetra:item/module/upgradednetherite/corrupt/butt"
+        }]
+    }
+]

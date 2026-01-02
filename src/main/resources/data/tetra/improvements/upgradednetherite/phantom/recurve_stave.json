@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/phantom_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:phantom" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/phantom/recurve_stave",
+    "renderLayer" : "high"
+  } ]
+} ]

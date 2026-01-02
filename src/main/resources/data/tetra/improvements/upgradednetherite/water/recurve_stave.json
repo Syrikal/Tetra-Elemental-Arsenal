@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/water_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:water" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/water/recurve_stave",
+    "renderLayer" : "high"
+  } ]
+} ]

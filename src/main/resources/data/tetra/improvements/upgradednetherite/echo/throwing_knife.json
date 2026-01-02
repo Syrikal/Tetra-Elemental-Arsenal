@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/echo_weapon",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:echo_weapon" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/echo/throwing_knife",
+    "renderLayer" : "high"
+  } ]
+} ]

@@ -1,6 +1,33 @@
 {
-    "replace": false,
-    "improvements": [
-        "tetra:upgradednetherite/basic_pickaxe/"
-    ]
+  "replace" : false,
+  "improvements" : [
+    "tetra:upgradednetherite/corrupt/basic_pickaxe",
+    "tetra:upgradednetherite/corrupt/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/echo/basic_pickaxe",
+    "tetra:upgradednetherite/echo/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/ender/basic_pickaxe",
+    "tetra:upgradednetherite/ender/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/feather/basic_pickaxe",
+    "tetra:upgradednetherite/feather/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/fire/basic_pickaxe",
+    "tetra:upgradednetherite/fire/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/gold/basic_pickaxe",
+    "tetra:upgradednetherite/gold/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/phantom/basic_pickaxe",
+    "tetra:upgradednetherite/phantom/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/poison/basic_pickaxe",
+    "tetra:upgradednetherite/poison/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/radiant/basic_pickaxe",
+    "tetra:upgradednetherite/radiant/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/water/basic_pickaxe",
+    "tetra:upgradednetherite/water/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/wither/basic_pickaxe",
+    "tetra:upgradednetherite/wither/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/ultimate/basic_pickaxe",
+    "tetra:upgradednetherite/ultimate/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/aetheric/basic_pickaxe",
+    "tetra:upgradednetherite/aetheric/basic_pickaxe_aesthetic",
+    "tetra:upgradednetherite/forgotten/basic_pickaxe",
+    "tetra:upgradednetherite/forgotten/basic_pickaxe_aesthetic"
+  ]
 }

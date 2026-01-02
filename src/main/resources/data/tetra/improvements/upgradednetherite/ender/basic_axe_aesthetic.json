@@ -1,0 +1,11 @@
+[ {
+  "key" : "upgradednetherite/ender_aesthetic",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "group" : "aesthetic_netherite_runes",
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/ender/basic_axe",
+    "renderLayer" : "higher"
+  } ]
+} ]

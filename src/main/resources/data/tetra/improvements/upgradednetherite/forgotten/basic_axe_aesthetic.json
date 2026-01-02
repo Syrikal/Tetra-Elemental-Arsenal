@@ -1,0 +1,11 @@
+[ {
+  "key" : "upgradednetherite/forgotten_aesthetic",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "group" : "aesthetic_netherite_runes",
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/forgotten/basic_axe",
+    "renderLayer" : "higher"
+  } ]
+} ]

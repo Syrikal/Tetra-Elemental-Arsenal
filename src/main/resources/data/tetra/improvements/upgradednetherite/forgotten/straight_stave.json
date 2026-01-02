@@ -1,0 +1,19 @@
+[ {
+  "key" : "upgradednetherite/forgotten_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:forgotten" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/forgotten/straight_stave",
+    "renderLayer" : "high"
+  } ],
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "undergardenpatch"
+  } ]
+} ]

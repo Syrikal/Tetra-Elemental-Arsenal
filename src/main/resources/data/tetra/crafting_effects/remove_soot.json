@@ -1,0 +1,29 @@
+{
+  "replace": true,
+  "requirement": {
+    "type": "tetra:or",
+    "requirements": [
+      {
+        "type": "tetra:schematic",
+        "schematic": "double/basic_handle/z_remove_soot"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "single/handle/z_remove_soot"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "sword/basic_hilt/z_remove_soot"
+      }
+    ]
+  },
+  "outcomes": [
+    {
+      "type": "tetra:remove_improvements",
+      "improvements": [
+        "basic_handle/soot",
+        "basic_hilt/soot"
+      ]
+    }
+  ]
+}

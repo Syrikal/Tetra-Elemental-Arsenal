@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/phantom_weapon",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:phantom_weapon" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/phantom/basic_blade",
+    "renderLayer" : "high"
+  } ]
+} ]

@@ -1,0 +1,15 @@
+[ {
+  "key" : "upgradednetherite/fire_shield",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:fire" : 1
+  },
+  "models" : [ {
+    "location" : "tetra:item/module/upgradednetherite/fire/buckler",
+    "renderLayer" : "high"
+  } ]
+} ]

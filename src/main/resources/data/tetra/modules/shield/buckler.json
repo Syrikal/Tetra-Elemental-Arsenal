@@ -1,6 +1,19 @@
 {
-    "replace": false,
-    "improvements": [
-        "tetra:upgradednetherite/buckler/"
-    ]
+  "replace" : false,
+  "improvements" : [
+    "tetra:upgradednetherite/corrupt/buckler",
+    "tetra:upgradednetherite/echo/buckler",
+    "tetra:upgradednetherite/ender/buckler",
+    "tetra:upgradednetherite/feather/buckler",
+    "tetra:upgradednetherite/fire/buckler",
+    "tetra:upgradednetherite/gold/buckler",
+    "tetra:upgradednetherite/phantom/buckler",
+    "tetra:upgradednetherite/poison/buckler",
+    "tetra:upgradednetherite/radiant/buckler",
+    "tetra:upgradednetherite/water/buckler",
+    "tetra:upgradednetherite/wither/buckler",
+    "tetra:upgradednetherite/ultimate/buckler",
+    "tetra:upgradednetherite/aetheric/buckler",
+    "tetra:upgradednetherite/forgotten/buckler"
+  ]
 }
