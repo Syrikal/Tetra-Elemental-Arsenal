@@ -1,0 +1,12 @@
+[ {
+  "key" : "upgradednetherite/ice_magic_shield",
+  "group" : "spell_upgrades",
+  "attributes" : {
+    "**irons_spellbooks:ice_spell_power" : 0.05,
+    "**irons_spellbooks:ice_magic_resist" : 0.35
+  },
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "irons_spellbooks"
+  } ]
+} ]

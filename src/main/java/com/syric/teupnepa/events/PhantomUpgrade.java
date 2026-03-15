@@ -1,0 +1,191 @@
+package com.syric.teupnepa.events;
+
+import com.syric.teupnepa.TeUpNePa;
+import com.syric.teupnepa.enums.UpgradeType;
+import com.syric.teupnepa.registry.TUNPTags;
+import com.syric.teupnepa.util.FindShield;
+import com.syric.teupnepa.util.ItemIdentificationUtil;
+import com.syric.teupnepa.util.SendMessageUtil;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.FlyingMob;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.animal.FlyingAnimal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
+import net.minecraft.world.entity.projectile.Arrow;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.event.entity.ProjectileImpactEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.ShieldBlockEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+import java.util.List;
+
+@Mod.EventBusSubscriber(
+        modid = TeUpNePa.MODID,
+        bus = Mod.EventBusSubscriber.Bus.FORGE
+)
+public class PhantomUpgrade {
+
+    @SubscribeEvent
+    public static void phantomAttack(LivingHurtEvent event) {
+        if (!event.getEntity().level().isClientSide) {
+            if ((event.getSource().is(DamageTypes.MOB_ATTACK) || event.getSource().is(DamageTypes.PLAYER_ATTACK))
+                    && !event.getSource().isIndirect()
+                    && event.getSource().getDirectEntity() instanceof LivingEntity
+                    && ItemIdentificationUtil.isUpgradedMeleeWeapon(((LivingEntity) event.getSource().getDirectEntity()).getMainHandItem(), UpgradeType.PHANTOM)) {
+
+                if (event.getEntity().getType().is(TUNPTags.EntityTypes.PHANTOM)) {
+                    SendMessageUtil.triggered(UpgradeType.PHANTOM, event.getSource().getEntity());
+                    event.setAmount(event.getAmount() * 1.5F);
+                } else if (event.getEntity().isNoGravity() || event.getEntity() instanceof FlyingAnimal || event.getEntity() instanceof FlyingMob) {
+                    SendMessageUtil.triggered(UpgradeType.PHANTOM, event.getSource().getEntity());
+                    event.setAmount(event.getAmount() * 1.2F);
+                }
+
+            } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
+                    && event.getSource().getDirectEntity() instanceof Arrow
+                    && event.getSource().getDirectEntity().getTags().contains("PhantomUpgradedNetheriteBow")) {
+                if (event.getEntity().getType().is(TUNPTags.EntityTypes.PHANTOM)) {
+                    SendMessageUtil.triggered(UpgradeType.PHANTOM, event.getSource().getEntity());
+                    event.setAmount(event.getAmount() * 1.5F);
+                } else if (event.getEntity().isNoGravity() || event.getEntity() instanceof FlyingAnimal || event.getEntity() instanceof FlyingMob) {
+                    SendMessageUtil.triggered(UpgradeType.PHANTOM, event.getSource().getEntity());
+                    event.setAmount(event.getAmount() * 1.2F);
+                }
+            }
+        }
+    }
+
+    //Shield damages flying enemies, especially phantoms
+    @SubscribeEvent
+    public static void ShieldBlock(ShieldBlockEvent event) {
+        if (!event.getEntity().level().isClientSide && FindShield.getModularShield(event.getEntity()) != null && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.PHANTOM)) {
+            Entity attacker = event.getDamageSource().getDirectEntity();
+            LivingEntity defender = event.getEntity();
+            if (attacker != null && attacker.getType().is(TUNPTags.EntityTypes.PHANTOM)) {
+                attacker.hurt(attacker.damageSources().thorns(defender), defender.getRandom().nextFloat() * 6 + 3);
+                FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {});
+                SendMessageUtil.triggered(UpgradeType.PHANTOM, defender);
+            } else if (attacker != null && (attacker instanceof FlyingMob || attacker instanceof FlyingAnimal || attacker.isNoGravity()) && defender.getRandom().nextFloat() < 0.5) {
+                attacker.hurt(attacker.damageSources().thorns(defender), defender.getRandom().nextFloat() * 4 + 2);
+                FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {});
+                SendMessageUtil.triggered(UpgradeType.PHANTOM, defender);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void projectileDeflect(ProjectileImpactEvent event) {
+//        TeUpNePa.LOGGER.debug("ProjectileImpactEvent has triggered");
+
+        if (event.getRayTraceResult() instanceof EntityHitResult entityHitResult
+                && entityHitResult.getEntity() instanceof LivingEntity livingEntity
+                && !event.getProjectile().getTags().contains("reflected")
+                && livingEntity.isBlocking()
+                && FindShield.getModularShield(livingEntity) != null
+                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(livingEntity), UpgradeType.PHANTOM)
+                && isBlocked(livingEntity, event.getProjectile())) {
+
+            boolean sneaking = livingEntity.isShiftKeyDown();
+            int sneaking_durability_mult = sneaking ? 2 : 1;
+
+//                TeUpNePa.LOGGER.debug("Phantom shield projectile deflection checks passed");
+            event.setImpactResult(ProjectileImpactEvent.ImpactResult.SKIP_ENTITY);
+            Projectile projectile = event.getProjectile();
+
+            if (!sneaking) {
+                projectile.setDeltaMovement(projectile.getDeltaMovement().scale(-1));
+                projectile.setYRot(projectile.getYRot() + 180);
+                projectile.setXRot(projectile.getXRot() * -1);
+
+                if (projectile instanceof AbstractHurtingProjectile abstractHurtingProjectile) {
+                    abstractHurtingProjectile.xPower *= -1;
+                    abstractHurtingProjectile.yPower *= -1;
+                    abstractHurtingProjectile.zPower *= -1;
+                }
+            } else {
+                Vec2 accurateAimVector = new Vec2(livingEntity.getViewXRot(1.0F), livingEntity.getViewYRot(1.0F));
+                Vec2 inaccurateAimVector = new Vec2(livingEntity.getViewXRot(1.0F), livingEntity.getViewYRot(1.0F)).add(new Vec2(6 * livingEntity.getRandom().nextFloat() - 3, 6 * livingEntity.getRandom().nextFloat() - 3));
+                boolean accurate = true;
+                Vec3 finalAimVector = Vec3.directionFromRotation(accurate ? accurateAimVector.x : inaccurateAimVector.x, accurate ? accurateAimVector.y : inaccurateAimVector.y);
+
+                projectile.setDeltaMovement(finalAimVector.normalize().scale(projectile.getDeltaMovement().length() * 1.5));
+                projectile.setYRot(inaccurateAimVector.y);
+                projectile.setXRot(inaccurateAimVector.x);
+
+                if (projectile instanceof AbstractHurtingProjectile abstractHurtingProjectile) {
+                    Vec3 originalPowerVector = new Vec3(abstractHurtingProjectile.xPower, abstractHurtingProjectile.yPower, abstractHurtingProjectile.zPower);
+                    Vec3 powerVector = finalAimVector.normalize().scale(originalPowerVector.length());
+                    abstractHurtingProjectile.xPower = powerVector.x();
+                    abstractHurtingProjectile.yPower = powerVector.y();
+                    abstractHurtingProjectile.zPower = powerVector.z();
+                }
+            }
+
+
+            projectile.hasImpulse = true;
+            projectile.setOwner(livingEntity);
+            projectile.addTag("reflected");
+            livingEntity.level().playSound(livingEntity, livingEntity.getOnPos().above(), SoundEvents.SHIELD_BLOCK, (livingEntity instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE), 1F, 1F);
+            if (projectile instanceof AbstractArrow arrow) {
+                arrow.setCritArrow(true);
+                if (livingEntity instanceof Player player && !player.isCreative()) {
+//                    TeUpNePa.LOGGER.debug("Damaging item used");
+                    FindShield.getModularShield(livingEntity).hurtAndBreak((int) (arrow.getBaseDamage() * 2 * sneaking_durability_mult), livingEntity, (x) -> {});
+                }
+            } else {
+                if (livingEntity instanceof Player player && !player.isCreative()) {
+//                    TeUpNePa.LOGGER.debug("Damaging item used");
+                    FindShield.getModularShield(livingEntity).hurtAndBreak((int) 6 * sneaking_durability_mult, livingEntity, (x) -> {});
+                }
+            }
+
+        }
+
+    }
+
+    private static boolean isBlocked(Entity target, Projectile projectile) {
+        if (projectile instanceof AbstractArrow arrow && arrow.getPierceLevel() > 0) {
+            return false;
+        }
+        Vec3 shooterPos = projectile.getEffectSource().position();
+        Vec3 shooterToTarget = shooterPos.vectorTo(target.position());
+        Vec3 targetLookDirection = target.getViewVector(1);
+        Vec3 shooterToTargetHorizontal = new Vec3(shooterToTarget.x, 0, shooterToTarget.z);
+
+        return targetLookDirection.dot(shooterToTargetHorizontal) < 0;
+
+    }
+
+
+    @SubscribeEvent
+    public static void rightClickEvent(PlayerInteractEvent.RightClickBlock event) {
+        if (ItemIdentificationUtil.isUpgradedTool(event.getItemStack(), UpgradeType.PHANTOM)) {
+            Vec3 originPos = event.getPos().getCenter();
+            List<Entity> entities = event.getEntity().level().getEntities(event.getEntity(), new AABB(originPos.x() - 40, originPos.y() - 40, originPos.z() - 40, originPos.x() + 40, originPos.y() + 40, originPos.z() + 40));
+            for (Entity entity : entities) {
+                if (entity instanceof LivingEntity livingEntity && entity.position().distanceTo(originPos) < 40) {
+                    livingEntity.addEffect(new MobEffectInstance(MobEffects.GLOWING, 100, 0));
+                }
+            }
+            if (!event.getEntity().isCreative() && !entities.isEmpty()) {
+                event.getItemStack().hurtAndBreak(3, event.getEntity(), (x) -> {});
+            }
+        }
+
+    }
+
+}

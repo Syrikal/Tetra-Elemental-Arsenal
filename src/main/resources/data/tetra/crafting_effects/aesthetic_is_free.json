@@ -1,13 +1,42 @@
 {
   "replace": true,
   "requirement": {
-    "type": "tetra:schematic",
-    "schematic": "double/shared_head/z_aesthetic_netherite"
+    "type": "tetra:or",
+    "requirements": [
+      {
+        "type": "tetra:schematic",
+        "schematic": "bow/stave/z_aesthetic_netherite"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "crossbow/stock/z_aesthetic_netherite"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "double/shared_head/z_aesthetic_netherite_left"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "double/shared_head/z_aesthetic_netherite_right"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "shield/plate/z_aesthetic_netherite"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "single/head/z_aesthetic_netherite"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "sword/shared_blade/z_aesthetic_netherite"
+      }
+    ]
   },
   "outcomes": [
     {
       "type": "tetra:material_reduction",
-      "probability": 0.99
+      "probability": 0.5
     }
   ]
 }

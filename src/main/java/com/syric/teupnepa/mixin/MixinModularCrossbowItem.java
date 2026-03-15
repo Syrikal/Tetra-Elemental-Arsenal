@@ -21,7 +21,7 @@ public class MixinModularCrossbowItem {
             shift = At.Shift.AFTER),
             locals = LocalCapture.CAPTURE_FAILSOFT)
     private void applyTags(Level world, net.minecraft.world.item.ItemStack crossbowStack, net.minecraft.world.item.ItemStack ammoStack, Player player, double yaw, boolean isDupe, CallbackInfo ci, double strength, float velocityBonus, float projectileVelocity, net.minecraft.world.item.ArrowItem ammoItem, AbstractArrow projectile) {
-        ArrowUtil.addTags(crossbowStack, projectile, player);
+//        ArrowUtil.addTags(crossbowStack, projectile, player);
     }
 
 }

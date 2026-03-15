@@ -1,0 +1,12 @@
+[ {
+  "key" : "upgradednetherite/lightning_magic_shield",
+  "group" : "spell_upgrades",
+  "attributes" : {
+    "**irons_spellbooks:lightning_spell_power" : 0.05,
+    "**irons_spellbooks:lightning_magic_resist" : 0.35
+  },
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "irons_spellbooks"
+  } ]
+} ]

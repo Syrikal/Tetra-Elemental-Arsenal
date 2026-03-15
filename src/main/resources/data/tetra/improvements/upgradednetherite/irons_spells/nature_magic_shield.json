@@ -1,0 +1,12 @@
+[ {
+  "key" : "upgradednetherite/nature_magic_shield",
+  "group" : "spell_upgrades",
+  "attributes" : {
+    "**irons_spellbooks:nature_spell_power" : 0.05,
+    "**irons_spellbooks:nature_magic_resist" : 0.35
+  },
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "irons_spellbooks"
+  } ]
+} ]

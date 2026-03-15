@@ -9,6 +9,16 @@
         "textureX": 16,
         "textureY": 240
     },
+    "requirement": {
+        "type": "tetra:not",
+        "requirement": {
+            "type": "tetra:aspect",
+            "aspect": "sooted",
+            "level": {
+                "min": 1
+            }
+        }
+    },
     "outcomes": [
         {
             "material": {

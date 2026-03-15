@@ -1,7 +1,8 @@
 package com.syric.teupnepa.util;
 
+import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
-import com.syric.teupnepa.effects.Effects;
+import com.syric.teupnepa.tetra_effects.Effects;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import se.mickelus.tetra.effect.ItemEffect;
@@ -18,6 +19,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ItemIdentificationUtil {
+
+    public static boolean isUpgradedItem(ItemStack itemStack, UpgradeType upgradeType) {
+        return isUpgradedToolOrWeapon(itemStack, upgradeType) || isUpgradedShield(itemStack, upgradeType);
+    }
 
     public static boolean isUpgradedToolOrWeapon(ItemStack itemStack, UpgradeType upgradeType) {
         return isUpgradedWeapon(itemStack, upgradeType) || isUpgradedTool(itemStack, upgradeType);
@@ -69,6 +74,10 @@ public class ItemIdentificationUtil {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
             EffectData effectData = modularItem.getEffectData(itemStack);
             List<ItemEffect> validEffects = Arrays.asList(upgradeType.weapon, upgradeType.both, Effects.ultimate_weapon, Effects.ultimate_both);
+//            TeUpNePa.LOGGER.debug("Valid effects: ");
+//            validEffects.stream().forEach(x -> TeUpNePa.LOGGER.debug(x.getKey()));
+//            TeUpNePa.LOGGER.debug("Testing item effects...");
+//            effectData.levelMap.entrySet().stream().forEach(x -> TeUpNePa.LOGGER.debug(x.getKey().getKey()));
             return effectData.levelMap.entrySet().stream().anyMatch(entry -> validEffects.contains(entry.getKey()));
         }
         return false;
@@ -94,6 +103,9 @@ public class ItemIdentificationUtil {
     }
 
     public static boolean isUpgradedShield(ItemStack itemStack, UpgradeType upgradeType) {
+        if (itemStack == null) {
+            return false;
+        }
         if (itemStack.getItem() instanceof ModularShieldItem modularItem) {
             EffectData effectData = modularItem.getEffectData(itemStack);
             List<ItemEffect> validEffects = Arrays.asList(upgradeType.base, Effects.ultimate);

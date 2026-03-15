@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "teupnepa:item/lightning_upgraded_netherite_ingot"
+  }
+}

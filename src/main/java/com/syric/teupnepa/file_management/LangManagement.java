@@ -7,6 +7,7 @@ public class LangManagement {
 
     public static void main(String[] args) {
         generateImprovementLangLines();
+        generateAestheticImprovementLangLines();
     }
 
     private static void generateImprovementLangLines() {
@@ -23,6 +24,8 @@ public class LangManagement {
                     case ENDER -> "Voidwalker";
                     case FEATHER -> "Skyseeker";
                     case FIRE -> "Magmatic";
+                    case FROST -> "Frigid";
+                    case LIGHTNING -> "Fulminous";
                     case GOLD -> "Gilded";
                     case PHANTOM -> "Phantasmal";
                     case POISON -> "Vile";
@@ -32,6 +35,7 @@ public class LangManagement {
                     case ULTIMATE -> "Paragon";
                     case AETHERIC -> "Aetheric";
                     case FORGOTTEN -> "Forgotten";
+                    case ARCANE -> "Arcane";
                 };
 
                 String improvement_name_line = "\"tetra.improvement.upgradednetherite/" + upgradeType.name + suffix + ".name\": \"" + fancyName + " Netherite Runes\",";
@@ -51,6 +55,8 @@ public class LangManagement {
                 case ENDER -> "Voidwalker";
                 case FEATHER -> "Skyseeker";
                 case FIRE -> "Magmatic";
+                case FROST -> "Frigid";
+                case LIGHTNING -> "Fulminous";
                 case GOLD -> "Gilded";
                 case PHANTOM -> "Phantasmal";
                 case POISON -> "Vile";
@@ -60,9 +66,10 @@ public class LangManagement {
                 case ULTIMATE -> "Paragon";
                 case AETHERIC -> "Aetheric";
                 case FORGOTTEN -> "Forgotten";
+                case ARCANE -> "Arcane";
             };
 
-            String improvement_name_line = "\"tetra.improvement.upgradednetherite/" + upgradeType.name + "_aesthetic" + "\": \"" + fancyName + " Netherite Runes\",";
+            String improvement_name_line = "\"tetra.improvement.upgradednetherite/" + upgradeType.name + "_aesthetic" + "\": \"" + fancyName + " Netherite Runes (Aesthetic)\",";
             System.out.println(improvement_name_line);
             String improvement_description_line = "\"tetra.improvement.upgradednetherite/" + upgradeType.name + "_aesthetic" + ".description\": \"Aesthetic enhancement, no effect\",";
             System.out.println(improvement_description_line);

@@ -19,15 +19,15 @@ import java.util.function.Function;
 @Mixin(value = ModularBowItem.class)
 public class MixinModularBowItem {
 
-    @Inject(method = "fireProjectile", at = @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;shootFromRotation(Lnet/minecraft/world/entity/Entity;FFFFF)V",
-            shift = At.Shift.AFTER),
-            locals = LocalCapture.CAPTURE_FAILSOFT)
-    private static void applyTags(ItemStack itemStack, Level world, ArrowItem ammoItem, ItemStack ammoStack, ImmutableList<Function<AbstractArrow, AbstractArrow>> projectileRemappers, Player player, float basePitch, float yaw, float projectileVelocity, float accuracy, int drawProgress, double strength, int powerLevel, int punchLevel, int flameLevel, int piercingLevel, boolean hasSuspend, boolean infiniteAmmo, CallbackInfo ci, AbstractArrow projectile) {
-
-        ArrowUtil.addTags(itemStack, projectile, player);
-
-    }
+//    @Inject(method = "fireProjectile", at = @At(
+//            value = "INVOKE",
+//            target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;shootFromRotation(Lnet/minecraft/world/entity/Entity;FFFFF)V",
+//            shift = At.Shift.AFTER),
+//            locals = LocalCapture.CAPTURE_FAILSOFT)
+//    private static void applyTags(ItemStack itemStack, Level world, ArrowItem ammoItem, ItemStack ammoStack, ImmutableList<Function<AbstractArrow, AbstractArrow>> projectileRemappers, Player player, float basePitch, float yaw, float projectileVelocity, float accuracy, int drawProgress, double strength, int powerLevel, int punchLevel, int flameLevel, int piercingLevel, boolean hasSuspend, boolean infiniteAmmo, CallbackInfo ci, AbstractArrow projectile) {
+//
+//        ArrowUtil.addTags(itemStack, projectile, player);
+//
+//    }
 
 }

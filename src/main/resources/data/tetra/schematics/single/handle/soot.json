@@ -9,10 +9,22 @@
         "textureX": 16,
         "textureY": 240
     },
+    "requirement": {
+        "type": "tetra:not",
+        "requirement": {
+            "type": "tetra:aspect",
+            "aspect": "sooted",
+            "level": {
+                "min": 1
+            }
+        }
+    },
     "outcomes": [
         {
             "material": {
-                "item": "minecraft:coal"
+                "items": [
+                    "minecraft:coal"
+                ]
             },
             "improvements": {
                 "basic_handle/soot": 0
@@ -20,7 +32,9 @@
         },
         {
             "material": {
-                "item": "minecraft:charcoal"
+                "items": [
+                    "minecraft:charcoal"
+                ]
             },
             "improvements": {
                 "basic_handle/soot": 0
