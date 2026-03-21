@@ -47,8 +47,8 @@ public class PoisonUpgrade {
                     SendMessageUtil.triggered(UpgradeType.POISON, event.getSource().getEntity());
                 }
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("PoisonUpgradedNetheriteBow")) {
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.POISON)) {
 //                TeUpNePa.LOGGER.debug("Passed ranged checks, testing whether target is poisoned");
                 if (event.getEntity().hasEffect(MobEffects.POISON)) {
 //                    TeUpNePa.LOGGER.debug("Target is poisoned, increased damage");

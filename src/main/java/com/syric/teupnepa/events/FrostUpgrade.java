@@ -17,18 +17,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -63,8 +59,8 @@ public class FrostUpgrade {
                 }
 
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("FrostUpgradedNetheriteBow")) {
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.FROST)) {
 
                 if (event.getEntity().getType().is(TUNPTags.EntityTypes.FROST_DAMAGED)) {
 //                    TeUpNePa.LOGGER.debug("+20% damage due to target type");

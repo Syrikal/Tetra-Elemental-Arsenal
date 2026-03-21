@@ -61,8 +61,8 @@ public class WitherUpgrade {
                     SendMessageUtil.triggered(UpgradeType.WITHER, event.getSource().getEntity());
                 }
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("WitherUpgradedNetheriteBow")) {
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.WITHER)) {
 //                TeUpNePa.LOGGER.debug("Passed ranged checks, testing whether target is withering");
                 if (event.getEntity().hasEffect(MobEffects.WITHER)) {
 //                    TeUpNePa.LOGGER.debug("Target is withering, increased damage");

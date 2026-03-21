@@ -2,7 +2,6 @@ package com.syric.teupnepa.events;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
-import com.syric.teupnepa.registry.TUNPTags;
 import com.syric.teupnepa.util.FindShield;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
@@ -14,30 +13,22 @@ import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.monster.piglin.PiglinBrute;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegistryObject;
 import se.mickelus.tetra.ServerScheduler;
-import se.mickelus.tetra.TetraRegistries;
-import se.mickelus.tetra.items.modular.ModularItem;
-import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 
 import java.util.List;
 import java.util.Optional;
@@ -86,9 +77,8 @@ public class FireUpgrade {
                 SendMessageUtil.triggered(UpgradeType.FIRE, event.getSource().getEntity());
                 event.setAmount(event.getAmount() * 1.2F);
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("FireUpgradedNetheriteBow")) {
-                TeUpNePa.LOGGER.debug("Passed ranged checks, increasing damage");
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.FIRE)) {
                 SendMessageUtil.triggered(UpgradeType.FIRE, event.getSource().getEntity());
                 event.setAmount(event.getAmount() * 1.2F);
             }

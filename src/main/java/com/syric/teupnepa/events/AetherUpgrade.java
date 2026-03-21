@@ -61,8 +61,8 @@ public class AetherUpgrade {
                 SendMessageUtil.triggered(UpgradeType.AETHERIC, event.getSource().getEntity());
                 event.setAmount(event.getAmount() * 1.2F);
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("AethericUpgradedNetheriteBow")) {
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.AETHERIC)) {
                 SendMessageUtil.triggered(UpgradeType.AETHERIC, event.getSource().getEntity());
                 event.setAmount(event.getAmount() * 1.2F);
             }

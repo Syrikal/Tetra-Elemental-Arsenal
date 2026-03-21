@@ -19,7 +19,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
@@ -87,7 +86,7 @@ public class FeatherUpgrade {
 
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
                     && event.getSource().getDirectEntity() instanceof Arrow arrow
-                    && arrow.getTags().contains("FeatherUpgradedNetheriteBow")
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.FEATHER)
                     && (!event.getEntity().getAttributes().hasAttribute(Attributes.KNOCKBACK_RESISTANCE)
                         || Objects.requireNonNull(event.getEntity().getAttribute(Attributes.KNOCKBACK_RESISTANCE)).getValue() < 1)
                     && arrow.getOwner() != null) {

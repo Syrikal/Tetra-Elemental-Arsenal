@@ -4,7 +4,6 @@ import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
 import com.syric.teupnepa.registry.TUNPMobEffects;
 import com.syric.teupnepa.registry.TUNPTags;
-import com.syric.teupnepa.util.FindShield;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
 import net.minecraft.server.level.ServerLevel;
@@ -22,18 +21,15 @@ import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.EntityTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LootingLevelEvent;
-import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.items.modular.ModularItem;
-import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 
 @Mod.EventBusSubscriber(
         modid = TeUpNePa.MODID,
@@ -57,29 +53,24 @@ public class EnderUpgrade {
     @SubscribeEvent
     public static void enderAttack(LivingHurtEvent event) {
         if (!event.getEntity().level().isClientSide) {
-            if (event.getEntity().getType().is(TUNPTags.EntityTypes.END_NATIVE) || event.getEntity().level().dimension().location().getPath().equals("the_end")) {
-                if ((event.getSource().is(DamageTypes.MOB_ATTACK) || event.getSource().is(DamageTypes.PLAYER_ATTACK))
-                        && !event.getSource().isIndirect()
-                        && event.getSource().getDirectEntity() instanceof LivingEntity
-                        && ItemIdentificationUtil.isUpgradedMeleeWeapon(((LivingEntity) event.getSource().getDirectEntity()).getMainHandItem(), UpgradeType.ENDER)) {
-                    SendMessageUtil.triggered(UpgradeType.ENDER, event.getSource().getEntity());
-                    event.setAmount(event.getAmount() * 1.2F);
-                } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                        && event.getSource().getDirectEntity() instanceof Arrow
-                        && event.getSource().getDirectEntity().getTags().contains("EnderUpgradedNetheriteBow")) {
-                    SendMessageUtil.triggered(UpgradeType.ENDER, event.getSource().getEntity());
-                    event.setAmount(event.getAmount() * 1.2F);
-                }
-            }
+            boolean damage_increase = event.getEntity().getType().is(TUNPTags.EntityTypes.END_NATIVE) || event.getEntity().level().dimension().location().getPath().equals("the_end");
             if ((event.getSource().is(DamageTypes.MOB_ATTACK) || event.getSource().is(DamageTypes.PLAYER_ATTACK))
                     && !event.getSource().isIndirect()
                     && event.getSource().getDirectEntity() instanceof LivingEntity
                     && ItemIdentificationUtil.isUpgradedMeleeWeapon(((LivingEntity) event.getSource().getDirectEntity()).getMainHandItem(), UpgradeType.ENDER)) {
+                SendMessageUtil.triggered(UpgradeType.ENDER, event.getSource().getEntity());
                 getAnchoredIdiot(event.getEntity());
+                if (damage_increase) {
+                    event.setAmount(event.getAmount() * 1.2F);
+                }
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("EnderUpgradedNetheriteBow")) {
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.ENDER)) {
+                SendMessageUtil.triggered(UpgradeType.ENDER, event.getSource().getEntity());
                 getAnchoredIdiot(event.getEntity());
+                if (damage_increase) {
+                    event.setAmount(event.getAmount() * 1.2F);
+                }
             }
         }
     }
@@ -131,7 +122,7 @@ public class EnderUpgrade {
                 && event.getDamageSource().getDirectEntity() != null
                 && event.getEntity().getType().is(TUNPTags.EntityTypes.END_NATIVE)) {
             if (event.getDamageSource().getDirectEntity() instanceof Arrow arrow) {
-                if (arrow.getTags().contains("EnderUpgradedNetheriteBow")) {
+                if (ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.ENDER)) {
                     event.setLootingLevel(Math.min(1, event.getLootingLevel() + 1));
                     SendMessageUtil.triggered(UpgradeType.ENDER, event.getDamageSource().getEntity());
                 }

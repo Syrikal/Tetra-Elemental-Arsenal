@@ -56,8 +56,8 @@ public class PhantomUpgrade {
                 }
 
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("PhantomUpgradedNetheriteBow")) {
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.PHANTOM)) {
                 if (event.getEntity().getType().is(TUNPTags.EntityTypes.PHANTOM)) {
                     SendMessageUtil.triggered(UpgradeType.PHANTOM, event.getSource().getEntity());
                     event.setAmount(event.getAmount() * 1.5F);

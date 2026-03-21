@@ -1,11 +1,12 @@
 package com.syric.teupnepa.util;
 
-import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
 import com.syric.teupnepa.tetra_effects.Effects;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.item.ItemExpireEvent;
 import se.mickelus.tetra.effect.ItemEffect;
+import se.mickelus.tetra.event.ModularItemDamageEvent;
 import se.mickelus.tetra.items.modular.ModularItem;
 import se.mickelus.tetra.items.modular.impl.ModularBladedItem;
 import se.mickelus.tetra.items.modular.impl.ModularDoubleHeadedItem;
@@ -21,7 +22,7 @@ import java.util.List;
 public class ItemIdentificationUtil {
 
     public static boolean isUpgradedItem(ItemStack itemStack, UpgradeType upgradeType) {
-        return isUpgradedToolOrWeapon(itemStack, upgradeType) || isUpgradedShield(itemStack, upgradeType);
+        return itemStack.getItem() instanceof ModularItem && (isUpgradedToolOrWeapon(itemStack, upgradeType) || isUpgradedShield(itemStack, upgradeType));
     }
 
     public static boolean isUpgradedToolOrWeapon(ItemStack itemStack, UpgradeType upgradeType) {
@@ -129,6 +130,9 @@ public class ItemIdentificationUtil {
             case CORRUPT -> {
                 return arrow.getTags().contains("CorruptUpgradedNetheriteBow");
             }
+            case ECHO -> {
+                return arrow.getTags().contains("EchoUpgradedNetheriteBow");
+            }
             case ENDER -> {
                 return arrow.getTags().contains("EnderUpgradedNetheriteBow");
             }
@@ -137,6 +141,12 @@ public class ItemIdentificationUtil {
             }
             case FIRE -> {
                 return arrow.getTags().contains("FireUpgradedNetheriteBow");
+            }
+            case FROST -> {
+                return arrow.getTags().contains("FrostUpgradedNetheriteBow");
+            }
+            case LIGHTNING -> {
+                return arrow.getTags().contains("LightningUpgradedNetheriteBow");
             }
             case GOLD -> {
                 return arrow.getTags().contains("GoldUpgradedNetheriteBow");
@@ -159,8 +169,14 @@ public class ItemIdentificationUtil {
             case RADIANT -> {
                 return arrow.getTags().contains("RadiantUpgradedNetheriteBow");
             }
-            case ECHO -> {
-                return arrow.getTags().contains("EchoUpgradedNetheriteBow");
+            case FORGOTTEN -> {
+                return arrow.getTags().contains("ForgottenUpgradedNetheriteBow");
+            }
+            case AETHERIC -> {
+                return arrow.getTags().contains("AethericUpgradedNetheriteBow");
+            }
+            case ARCANE -> {
+                return arrow.getTags().contains("ArcaneUpgradedNetheriteBow");
             }
         }
         return false;

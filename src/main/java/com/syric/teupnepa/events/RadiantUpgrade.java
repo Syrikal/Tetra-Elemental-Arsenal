@@ -81,7 +81,7 @@ public class RadiantUpgrade {
 
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
                     && event.getSource().getDirectEntity() instanceof Arrow arrow
-                    && event.getSource().getDirectEntity().getTags().contains("RadiantUpgradedNetheriteBow")) {
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.RADIANT)) {
 
                 if (!(arrow.getOwner() instanceof Player) || arrow.isCritArrow()) {
                     reduceEffects(arrow.getOwner(), true);

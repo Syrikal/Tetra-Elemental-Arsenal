@@ -43,8 +43,8 @@ public class GoldUpgrade {
                 SendMessageUtil.triggered(UpgradeType.GOLD, event.getSource().getEntity());
                 event.setAmount(event.getAmount() * 1.2F);
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("GoldUpgradedNetheriteBow")) {
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.GOLD)) {
                 SendMessageUtil.triggered(UpgradeType.GOLD, event.getSource().getEntity());
                 event.setAmount(event.getAmount() * 1.2F);
             }
@@ -58,7 +58,7 @@ public class GoldUpgrade {
         assert event.getDamageSource() != null;
         if (event.getDamageSource().getDirectEntity() != null && !event.getEntity().level().isClientSide) {
             if (event.getDamageSource().getDirectEntity() instanceof Arrow arrow) {
-                if (arrow.getTags().contains("GoldUpgradedNetheriteBow")) {
+                if (ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.GOLD)) {
                     int bonus = event.getLootingLevel() >= 3 ? 2 : 1;
                     event.setLootingLevel(Math.min(1, event.getLootingLevel() + bonus));
                     SendMessageUtil.triggered(UpgradeType.GOLD, event.getDamageSource().getEntity());

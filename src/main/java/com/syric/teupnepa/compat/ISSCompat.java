@@ -2,7 +2,6 @@ package com.syric.teupnepa.compat;
 
 import io.redspace.ironsspellbooks.registries.MobEffectRegistry;
 import io.redspace.ironsspellbooks.registries.ParticleRegistry;
-import net.minecraft.client.particle.Particle;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.world.effect.MobEffect;
 

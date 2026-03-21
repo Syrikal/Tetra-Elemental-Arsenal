@@ -6,7 +6,6 @@ import com.syric.teupnepa.util.FindShield;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.RightClickLiquidUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -14,7 +13,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
@@ -22,15 +20,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.ForgeMod;
-import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.time.Year;
 
 @Mod.EventBusSubscriber(
         modid = TeUpNePa.MODID,
@@ -65,8 +60,8 @@ public class WaterUpgrade {
             }
 
         } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                && event.getSource().getDirectEntity() instanceof Arrow
-                && event.getSource().getDirectEntity().getTags().contains("WaterUpgradedNetheriteBow")) {
+                && event.getSource().getDirectEntity() instanceof Arrow arrow
+                && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.WATER)) {
 //                TeUpNePa.LOGGER.debug("Passed ranged checks, increasing damage");
             if (event.getEntity().getType().fireImmune() || event.getEntity().isSensitiveToWater()) {
 //                    TeUpNePa.LOGGER.debug("+20% damage due to target type");
