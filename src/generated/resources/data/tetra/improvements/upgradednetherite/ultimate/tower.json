@@ -1,0 +1,17 @@
+[ {
+  "key" : "upgradednetherite/ultimate_shield",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:ultimate" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 16,
+    "location" : "tetra:item/module/upgradednetherite/ultimate/tower",
+    "type" : "tetra:plate/tower"
+  } ]
+} ]

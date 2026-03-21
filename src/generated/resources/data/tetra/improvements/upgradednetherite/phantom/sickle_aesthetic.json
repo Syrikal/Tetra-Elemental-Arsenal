@@ -1,0 +1,12 @@
+[ {
+  "key" : "upgradednetherite/phantom_aesthetic",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "group" : "aesthetic_netherite_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/phantom/sickle"
+  } ]
+} ]

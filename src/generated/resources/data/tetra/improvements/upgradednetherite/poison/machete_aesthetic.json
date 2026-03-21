@@ -1,0 +1,12 @@
+[ {
+  "key" : "upgradednetherite/poison_aesthetic",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "group" : "aesthetic_netherite_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/poison/machete"
+  } ]
+} ]

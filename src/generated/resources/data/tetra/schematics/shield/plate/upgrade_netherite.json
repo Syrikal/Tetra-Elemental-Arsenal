@@ -1,0 +1,199 @@
+{
+  "replace" : true,
+  "slots" : [ "shield/plate" ],
+  "materialSlotCount" : 1,
+  "rarity" : "hone",
+  "displayType" : "major",
+  "materialRevealSlot" : 0,
+  "glyph" : {
+    "textureX" : 32,
+    "textureY" : 240
+  },
+  "outcomes" : [ {
+    "material" : {
+      "items" : [ "teupnepa:corrupt_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/corrupt_shield" : 0,
+      "upgradednetherite/blood_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:echo_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/echo_shield" : 0,
+      "upgradednetherite/eldritch_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:ender_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/ender_shield" : 0,
+      "upgradednetherite/ender_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:feather_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/feather_shield" : 0,
+      "upgradednetherite/evocation_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:fire_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/fire_shield" : 0,
+      "upgradednetherite/fire_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:frost_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/frost_shield" : 0,
+      "upgradednetherite/ice_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:lightning_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/lightning_shield" : 0,
+      "upgradednetherite/lightning_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:gold_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/gold_shield" : 0,
+      "upgradednetherite/evocation_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:phantom_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/phantom_shield" : 0,
+      "upgradednetherite/evocation_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:poison_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/poison_shield" : 0,
+      "upgradednetherite/nature_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:radiant_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/radiant_shield" : 0,
+      "upgradednetherite/holy_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:water_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/water_shield" : 0,
+      "upgradednetherite/lightning_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:wither_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/wither_shield" : 0,
+      "upgradednetherite/blood_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:ultimate_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/ultimate_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:aetheric_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/aetheric_shield" : 0,
+      "upgradednetherite/lightning_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:forgotten_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/forgotten_shield" : 0,
+      "upgradednetherite/nature_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:arcane_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/arcane_shield" : 0,
+      "upgradednetherite/arcane_magic_shield" : 0
+    }
+  } ]
+}

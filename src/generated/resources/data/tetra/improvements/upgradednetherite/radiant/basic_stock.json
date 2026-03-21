@@ -1,0 +1,36 @@
+[ {
+  "key" : "upgradednetherite/radiant_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:radiant" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 16,
+    "location" : "tetra:item/module/upgradednetherite/radiant/basic_stock"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 16,
+    "location" : "tetra:item/module/upgradednetherite/radiant/basic_stock",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 16,
+    "location" : "tetra:item/module/upgradednetherite/radiant/basic_stock",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 16,
+    "location" : "tetra:item/module/upgradednetherite/radiant/basic_stock",
+    "type" : "draw_2"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 16,
+    "location" : "tetra:item/module/upgradednetherite/radiant/basic_stock",
+    "type" : "loaded"
+  } ]
+} ]

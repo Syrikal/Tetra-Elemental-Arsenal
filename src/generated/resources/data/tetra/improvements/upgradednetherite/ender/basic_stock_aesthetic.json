@@ -1,0 +1,32 @@
+[ {
+  "key" : "upgradednetherite/ender_aesthetic",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "group" : "aesthetic_netherite_runes",
+  "models" : [ {
+    "renderLayer" : "highest",
+    "emission" : 12,
+    "location" : "tetra:item/module/upgradednetherite/ender/basic_stock"
+  }, {
+    "renderLayer" : "highest",
+    "emission" : 12,
+    "location" : "tetra:item/module/upgradednetherite/ender/basic_stock",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "highest",
+    "emission" : 12,
+    "location" : "tetra:item/module/upgradednetherite/ender/basic_stock",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "highest",
+    "emission" : 12,
+    "location" : "tetra:item/module/upgradednetherite/ender/basic_stock",
+    "type" : "draw_2"
+  }, {
+    "renderLayer" : "highest",
+    "emission" : 12,
+    "location" : "tetra:item/module/upgradednetherite/ender/basic_stock",
+    "type" : "loaded"
+  } ]
+} ]

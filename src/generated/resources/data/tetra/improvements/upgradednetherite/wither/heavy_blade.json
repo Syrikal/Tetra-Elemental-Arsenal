@@ -1,0 +1,16 @@
+[ {
+  "key" : "upgradednetherite/wither_weapon",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:wither_weapon" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/wither/heavy_blade"
+  } ]
+} ]

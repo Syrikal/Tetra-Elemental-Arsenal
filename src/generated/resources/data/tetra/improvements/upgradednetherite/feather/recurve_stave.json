@@ -1,0 +1,31 @@
+[ {
+  "key" : "upgradednetherite/feather_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:feather" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/feather/recurve_stave"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/feather/recurve_stave",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/feather/recurve_stave_1",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/feather/recurve_stave_1",
+    "type" : "draw_2"
+  } ]
+} ]

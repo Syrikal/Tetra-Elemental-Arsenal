@@ -1,0 +1,195 @@
+{
+  "values" : [
+    "minecraft:enderman",
+    "minecraft:endermite",
+    "minecraft:ender_dragon",
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:greater_endermitee"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:end_manta"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:eye_guardian"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:eye_guardian_seeker"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:eye_guardian_ground_seeker"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:zombified_enderman"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:endermite_guardian"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:eye_guardian_crawler"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:eye_guardian_tower"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:guardian_golem"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:endermite_queen"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:void_jelly"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:meteor_crab"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:sun_glider"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:axefish"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:forgotten"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:forgotten_litch"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:reborn_litch"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:luminion_golem"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:great_fin_leviathan"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:nomouth_enderman"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:bloodworm"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:starfly"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:blackwasp"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:starflyshelless"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:endermite_swarmer"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:crown_squid"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:alpha_crown_squid"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:eye_guardian_machine"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:eye_guardian_walker"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:crestguin"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:crestling"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:crestguin_tamable"
+    },
+    {
+      "required" : false,
+      "id" : "mofus_better_end_:eye_guardian_golem"
+    },
+    {
+      "required" : false,
+      "id" : "betterend:dragonfly"
+    },
+    {
+      "required" : false,
+      "id" : "betterend:end_slime"
+    },
+    {
+      "required" : false,
+      "id" : "betterend:end_fish"
+    },
+    {
+      "required" : false,
+      "id" : "betterend:shadow_walker"
+    },
+    {
+      "required" : false,
+      "id" : "betterend:cubozoa"
+    },
+    {
+      "required" : false,
+      "id" : "betterend:silk_moth"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:endergrade"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:enderiophage"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:void_worm"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:void_worm_part"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:cosmaw"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:cosmic_cod"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:spectre"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "values" : [
+    "minecraft:wither",
+    "minecraft:poison",
+    {
+      "required" : false,
+      "id" : "sculkhorde:sculk_infected"
+    },
+    {
+      "required" : false,
+      "id" : "spore:mycelium_ef"
+    },
+    {
+      "required" : false,
+      "id" : "undergarden:virulence"
+    },
+    {
+      "required" : false,
+      "id" : "alexscaves:irradiated"
+    }
+  ]
+}

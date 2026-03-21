@@ -1,0 +1,31 @@
+[ {
+  "key" : "upgradednetherite/gold_bow",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:gold" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/gold/recurve_stave"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/gold/recurve_stave",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/gold/recurve_stave_1",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/gold/recurve_stave_1",
+    "type" : "draw_2"
+  } ]
+} ]

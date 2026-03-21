@@ -1,0 +1,16 @@
+[ {
+  "key" : "upgradednetherite/radiant_both",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:radiant_both" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 16,
+    "location" : "tetra:item/module/upgradednetherite/radiant/basic_axe"
+  } ]
+} ]

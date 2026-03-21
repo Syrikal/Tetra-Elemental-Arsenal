@@ -1,0 +1,27 @@
+[ {
+  "key" : "upgradednetherite/wither_aesthetic",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "group" : "aesthetic_netherite_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/wither/long_stave"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/wither/long_stave_0",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/wither/long_stave_1",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/wither/long_stave_2",
+    "type" : "draw_2"
+  } ]
+} ]

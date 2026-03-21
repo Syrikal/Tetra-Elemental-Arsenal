@@ -1,0 +1,21 @@
+[ {
+  "key" : "upgradednetherite/forgotten_tool",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:forgotten_tool" : 1,
+    "undergardenpatch:undermine" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/forgotten/basic_hammer"
+  } ],
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "undergardenpatch"
+  } ]
+} ]

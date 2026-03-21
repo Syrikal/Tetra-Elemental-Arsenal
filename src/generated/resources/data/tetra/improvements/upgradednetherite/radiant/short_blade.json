@@ -1,0 +1,16 @@
+[ {
+  "key" : "upgradednetherite/radiant_weapon",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:radiant_weapon" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 16,
+    "location" : "tetra:item/module/upgradednetherite/radiant/short_blade"
+  } ]
+} ]

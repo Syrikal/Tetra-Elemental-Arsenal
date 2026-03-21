@@ -1,0 +1,17 @@
+{
+  "values" : [
+    "minecraft:hoglin",
+    "minecraft:piglin",
+    "minecraft:zombified_piglin",
+    "minecraft:zoglin",
+    "minecraft:piglin_brute",
+    {
+      "required" : false,
+      "id" : "alexsmobs:tusklin"
+    },
+    {
+      "required" : false,
+      "id" : "betternether:flying_pig"
+    }
+  ]
+}

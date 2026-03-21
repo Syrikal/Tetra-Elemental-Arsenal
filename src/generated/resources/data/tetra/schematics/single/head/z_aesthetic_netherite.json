@@ -1,0 +1,183 @@
+{
+  "replace" : true,
+  "slots" : [ "single/head" ],
+  "materialSlotCount" : 1,
+  "rarity" : "hone",
+  "displayType" : "major",
+  "materialRevealSlot" : 0,
+  "glyph" : {
+    "textureX" : 32,
+    "textureY" : 240
+  },
+  "outcomes" : [ {
+    "material" : {
+      "items" : [ "teupnepa:corrupt_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/corrupt_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:echo_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/echo_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:ender_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/ender_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:feather_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/feather_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:fire_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/fire_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:frost_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/frost_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:lightning_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/lightning_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:gold_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/gold_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:phantom_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/phantom_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:poison_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/poison_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:radiant_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/radiant_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:water_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/water_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:wither_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/wither_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:ultimate_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/ultimate_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:aetheric_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/aetheric_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:forgotten_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/forgotten_aesthetic" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "teupnepa:arcane_upgraded_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "upgradednetherite/arcane_aesthetic" : 0
+    }
+  } ]
+}

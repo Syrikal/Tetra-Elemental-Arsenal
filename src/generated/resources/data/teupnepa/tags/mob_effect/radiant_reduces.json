@@ -1,0 +1,100 @@
+{
+  "values" : [
+    "minecraft:blindness",
+    "minecraft:darkness",
+    "minecraft:hunger",
+    "minecraft:mining_fatigue",
+    "minecraft:nausea",
+    "minecraft:slowness",
+    "minecraft:unluck",
+    "minecraft:weakness",
+    {
+      "required" : false,
+      "id" : "sculkhorde:corroded"
+    },
+    {
+      "required" : false,
+      "id" : "sculkhorde:sculk_lure"
+    },
+    {
+      "required" : false,
+      "id" : "sculkhorde:rooted"
+    },
+    {
+      "required" : false,
+      "id" : "sculkhorde:sculk_fog"
+    },
+    {
+      "required" : false,
+      "id" : "spore:corrosion"
+    },
+    {
+      "required" : false,
+      "id" : "spore:madness"
+    },
+    {
+      "required" : false,
+      "id" : "spore:marker"
+    },
+    {
+      "required" : false,
+      "id" : "aether:inebriation"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:debilitating_sting"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:ender_flu"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:exsanguination"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:fear"
+    },
+    {
+      "required" : false,
+      "id" : "irons_spellbooks:blight"
+    },
+    {
+      "required" : false,
+      "id" : "irons_spellbooks:slowed"
+    },
+    {
+      "required" : false,
+      "id" : "tetra:bleeding"
+    },
+    {
+      "required" : false,
+      "id" : "tetra:earthbound"
+    },
+    {
+      "required" : false,
+      "id" : "tetra:exhausted"
+    },
+    {
+      "required" : false,
+      "id" : "tetra:punctured"
+    },
+    {
+      "required" : false,
+      "id" : "tetra:severed"
+    },
+    {
+      "required" : false,
+      "id" : "tetra:stun"
+    },
+    {
+      "required" : false,
+      "id" : "undergarden:brittleness"
+    },
+    {
+      "required" : false,
+      "id" : "alexscaves:stunned"
+    }
+  ]
+}

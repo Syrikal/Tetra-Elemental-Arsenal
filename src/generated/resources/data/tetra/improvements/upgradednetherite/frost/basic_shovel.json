@@ -1,0 +1,16 @@
+[ {
+  "key" : "upgradednetherite/frost_tool",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:frost_tool" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/frost/basic_shovel"
+  } ]
+} ]

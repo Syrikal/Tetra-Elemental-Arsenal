@@ -1,0 +1,17 @@
+[ {
+  "key" : "upgradednetherite/ender_shield",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:ender" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 12,
+    "location" : "tetra:item/module/upgradednetherite/ender/tower",
+    "type" : "tetra:plate/tower"
+  } ]
+} ]

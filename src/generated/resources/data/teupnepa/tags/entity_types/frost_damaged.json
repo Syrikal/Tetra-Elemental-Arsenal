@@ -1,0 +1,39 @@
+{
+  "values" : [
+    "#minecraft:freeze_hurts_extra_types",
+    "minecraft:blaze",
+    "minecraft:magma_cube",
+    {
+      "required" : false,
+      "id" : "#spore:fungus_entities"
+    },
+    {
+      "required" : false,
+      "id" : "#aether:fire_mob"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:laviathan"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:sunbird"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:bone_serpent"
+    },
+    {
+      "required" : false,
+      "id" : "alexsmobs:bone_serpent_part"
+    },
+    {
+      "required" : false,
+      "id" : "betternether:naga"
+    },
+    {
+      "required" : false,
+      "id" : "betternether:skull"
+    }
+  ]
+}

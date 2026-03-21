@@ -1,0 +1,17 @@
+[ {
+  "key" : "upgradednetherite/frost_shield",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:frost" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/frost/buckler",
+    "type" : "tetra:plate/buckler"
+  } ]
+} ]

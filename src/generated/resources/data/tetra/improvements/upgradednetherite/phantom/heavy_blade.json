@@ -1,0 +1,20 @@
+[ {
+  "key" : "upgradednetherite/phantom_weapon",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:phantom_weapon" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/phantom/heavy_blade"
+  } ],
+  "attributes" : {
+    "generic.block_interaction_range" : 1.5,
+    "generic.entity_interaction_range" : 1.5
+  }
+} ]

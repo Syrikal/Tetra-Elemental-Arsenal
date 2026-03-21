@@ -1,0 +1,16 @@
+[ {
+  "key" : "upgradednetherite/poison_both",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:poison_both" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/upgradednetherite/poison/basic_axe"
+  } ]
+} ]

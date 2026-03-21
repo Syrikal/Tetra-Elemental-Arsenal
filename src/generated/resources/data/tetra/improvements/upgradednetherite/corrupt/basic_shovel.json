@@ -1,0 +1,16 @@
+[ {
+  "key" : "upgradednetherite/corrupt_tool",
+  "integrity" : -1,
+  "group" : "netherite_runes",
+  "aspects" : {
+    "netherite_upgraded" : 1
+  },
+  "effects" : {
+    "upgradednetherite:corrupt_tool" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/upgradednetherite/corrupt/basic_shovel"
+  } ]
+} ]
