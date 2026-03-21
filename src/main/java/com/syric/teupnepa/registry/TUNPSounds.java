@@ -9,7 +9,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class TUNPSounds {
 
-    public static DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS.getRegistryName(), TeUpNePa.MODID);
+    public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS.getRegistryName(), TeUpNePa.MODID);
 
     public static final RegistryObject<SoundEvent> LIGHTNING_SHOCKWAVE = registerSoundEvents("lightning_shockwave");
 

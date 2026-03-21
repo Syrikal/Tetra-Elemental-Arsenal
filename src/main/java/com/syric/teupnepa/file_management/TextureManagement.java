@@ -16,14 +16,14 @@ import java.util.stream.Stream;
 
 public class TextureManagement {
 
-    static String texturesFolder = "src\\generated\\resources\\assets\\tetra\\textures\\item\\module_old_manual\\upgradednetherite";
-    static String destinationFolder = "src\\generated\\resources\\assets\\tetra\\textures\\item\\module\\upgradednetherite";
-    static String ingotDestinationFolder = "src\\generated\\resources\\assets\\teupnepa\\textures\\item";
+    static final String texturesFolder = "src\\generated\\resources\\assets\\tetra\\textures\\item\\module_old_manual\\upgradednetherite";
+    static final String destinationFolder = "src\\generated\\resources\\assets\\tetra\\textures\\item\\module\\upgradednetherite";
+    static final String ingotDestinationFolder = "src\\generated\\resources\\assets\\teupnepa\\textures\\item";
 
-    static String corruptTextures = "src\\main\\resources\\assets\\tetra\\textures\\item\\module\\upgradednetherite\\corrupt";
-    static String corruptIngotTexture = "src\\main\\resources\\assets\\teupnepa\\textures\\item\\corrupt_upgraded_netherite_ingot.png";
+    static final String corruptTextures = "src\\main\\resources\\assets\\tetra\\textures\\item\\module\\upgradednetherite\\corrupt";
+    static final String corruptIngotTexture = "src\\main\\resources\\assets\\teupnepa\\textures\\item\\corrupt_upgraded_netherite_ingot.png";
 
-    static Color[] echoColors = new Color[] {
+    static final Color[] echoColors = new Color[] {
             new Color(17, 27, 33),
             new Color(2, 41, 51),
             new Color(0, 79, 97),
@@ -31,7 +31,7 @@ public class TextureManagement {
             new Color(0, 221, 237)
     };
 
-    static Color[] radiantColors = new Color[] {
+    static final Color[] radiantColors = new Color[] {
             new Color(247, 179, 82),
             new Color(247, 201, 82),
             new Color(255, 249, 146),
@@ -39,7 +39,7 @@ public class TextureManagement {
             new Color(250, 248, 214)
     };
 
-    static Color[] forgottenColors = new Color[] {
+    static final Color[] forgottenColors = new Color[] {
             new Color(47, 76, 76),
             new Color(41, 123, 103),
             new Color(58, 186, 140),
@@ -47,7 +47,7 @@ public class TextureManagement {
             new Color(123, 255, 189)
     };
 
-    static Color[] aethericColors = new Color[]{
+    static final Color[] aethericColors = new Color[]{
             new Color(73, 84, 84),
             new Color(101, 115, 115),
             new Color(227, 243, 243),
@@ -55,7 +55,7 @@ public class TextureManagement {
             new Color(255, 255, 255)
     };
 
-    static Color[] frostColors = new Color[]{
+    static final Color[] frostColors = new Color[]{
             new Color(106,204,230),
             new Color(128,229,239),
             new Color(168,247,255),
@@ -63,7 +63,7 @@ public class TextureManagement {
             new Color(225,252,255)
     };
 
-    static Color[] arcaneColors = new Color[]{
+    static final Color[] arcaneColors = new Color[]{
             new Color(100,24,154),
             new Color(153,56,195),
             new Color(150,139,226),
@@ -71,7 +71,7 @@ public class TextureManagement {
             new Color(95,209,226)
     };
 
-    static Color[] lightningColors = new Color[] {
+    static final Color[] lightningColors = new Color[] {
             new Color(56, 196, 224),
             new Color(152, 217, 235),
             new Color(195, 234, 246),

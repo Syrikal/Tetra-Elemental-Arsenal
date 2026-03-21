@@ -1,6 +1,6 @@
 package com.syric.teupnepa.network;
 
-import com.syric.teupnepa.events.FeatherUpgrade;
+import com.syric.teupnepa.upgrade_types.FeatherUpgrade;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;

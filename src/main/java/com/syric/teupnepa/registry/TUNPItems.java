@@ -1,7 +1,8 @@
 package com.syric.teupnepa.registry;
 
 import com.syric.teupnepa.TeUpNePa;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,9 +35,6 @@ public class TUNPItems {
     public static final RegistryObject<Item> AETHERIC_UPGRADED_NETHERITE_INGOT = ITEMS.register("aetheric_upgraded_netherite_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FORGOTTEN_UPGRADED_NETHERITE_INGOT = ITEMS.register("forgotten_upgraded_netherite_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ARCANE_UPGRADED_NETHERITE_INGOT = ITEMS.register("arcane_upgraded_netherite_ingot", () -> new Item(new Item.Properties()));
-
-    public TUNPItems() {
-    }
 
     @SubscribeEvent
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {

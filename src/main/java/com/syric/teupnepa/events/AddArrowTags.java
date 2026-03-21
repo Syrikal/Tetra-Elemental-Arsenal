@@ -4,6 +4,7 @@ import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
 import com.syric.teupnepa.network.PacketHandler;
 import com.syric.teupnepa.network.S2CWaterArrowTagPacket;
+import com.syric.teupnepa.upgrade_types.FeatherUpgrade;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
 import net.minecraft.world.item.ItemStack;

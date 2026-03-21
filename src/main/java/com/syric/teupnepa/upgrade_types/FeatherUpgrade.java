@@ -1,4 +1,4 @@
-package com.syric.teupnepa.events;
+package com.syric.teupnepa.upgrade_types;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
@@ -13,7 +13,10 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySelector;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;

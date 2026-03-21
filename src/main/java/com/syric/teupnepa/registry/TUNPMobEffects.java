@@ -3,7 +3,7 @@ package com.syric.teupnepa.registry;
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.effects.ChargedEffect;
 import com.syric.teupnepa.effects.DimensionalAnchorEffect;
-import net.minecraft.resources.ResourceLocation;
+import com.syric.teupnepa.effects.ShockedEffect;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -22,7 +22,7 @@ public class TUNPMobEffects {
     public static final RegistryObject<MobEffect> CHARGED_EFFECT = MOB_EFFECTS.register("charged", () -> new ChargedEffect(MobEffectCategory.BENEFICIAL, 0x40ffff)
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, UUID.randomUUID().toString(), 0.2F, AttributeModifier.Operation.MULTIPLY_BASE)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, UUID.randomUUID().toString(), 0.1F, AttributeModifier.Operation.MULTIPLY_BASE));
-    public static final RegistryObject<MobEffect> SHOCKED_EFFECT = MOB_EFFECTS.register("shocked", () -> new ChargedEffect(MobEffectCategory.HARMFUL, 0x40ffff)
+    public static final RegistryObject<MobEffect> SHOCKED_EFFECT = MOB_EFFECTS.register("shocked", () -> new ShockedEffect(MobEffectCategory.HARMFUL, 0x40ffff)
             .addAttributeModifier(Attributes.MOVEMENT_SPEED, UUID.randomUUID().toString(), -0.2F, AttributeModifier.Operation.MULTIPLY_BASE)
             .addAttributeModifier(Attributes.ATTACK_DAMAGE, UUID.randomUUID().toString(), -0.2F, AttributeModifier.Operation.MULTIPLY_BASE));
 

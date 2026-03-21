@@ -1,4 +1,4 @@
-package com.syric.teupnepa.events;
+package com.syric.teupnepa.upgrade_types;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
@@ -149,7 +149,7 @@ public class PhantomUpgrade {
             } else {
                 if (livingEntity instanceof Player player && !player.isCreative()) {
 //                    TeUpNePa.LOGGER.debug("Damaging item used");
-                    FindShield.getModularShield(livingEntity).hurtAndBreak((int) 6 * sneaking_durability_mult, livingEntity, (x) -> {});
+                    FindShield.getModularShield(livingEntity).hurtAndBreak(6 * sneaking_durability_mult, livingEntity, (x) -> {});
                 }
             }
 

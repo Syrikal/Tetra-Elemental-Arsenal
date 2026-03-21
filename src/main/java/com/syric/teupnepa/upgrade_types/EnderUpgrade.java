@@ -1,4 +1,4 @@
-package com.syric.teupnepa.events;
+package com.syric.teupnepa.upgrade_types;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
@@ -159,7 +159,7 @@ public class EnderUpgrade {
 
             for(int i = 0; i < 16; i++) {
                 double d3 = target.getX() + (victim.getRandom().nextDouble() - 0.5D) * 8.0D;
-                double d4 = Mth.clamp(target.getY() + (double)(victim.getRandom().nextInt(8) - 4), (double)victim.level().getMinBuildHeight(), (double)(victim.level().getMinBuildHeight() + ((ServerLevel)victim.level()).getLogicalHeight() - 1));
+                double d4 = Mth.clamp(target.getY() + (double)(victim.getRandom().nextInt(8) - 4), victim.level().getMinBuildHeight(), victim.level().getMinBuildHeight() + ((ServerLevel)victim.level()).getLogicalHeight() - 1);
                 double d5 = target.getZ() + (victim.getRandom().nextDouble() - 0.5D) * 8.0D;
                 if (victim.isPassenger()) {
                     victim.stopRiding();
@@ -176,7 +176,7 @@ public class EnderUpgrade {
                 net.minecraftforge.event.entity.EntityTeleportEvent.ChorusFruit event = net.minecraftforge.event.ForgeEventFactory.onChorusFruitTeleport(victim, d3, d4, d5);
                 if (victim.randomTeleport(event.getTargetX(), event.getTargetY(), event.getTargetZ(), true)) {
                     SoundEvent soundevent = victim instanceof Fox ? SoundEvents.FOX_TELEPORT : SoundEvents.CHORUS_FRUIT_TELEPORT;
-                    victim.level().playSound((Player)null, d0, d1, d2, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    victim.level().playSound(null, d0, d1, d2, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
                     victim.playSound(soundevent, 1.0F, 1.0F);
 
 

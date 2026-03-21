@@ -1,4 +1,4 @@
-package com.syric.teupnepa.events;
+package com.syric.teupnepa.upgrade_types;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;

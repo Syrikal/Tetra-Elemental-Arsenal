@@ -1,11 +1,11 @@
 package com.syric.teupnepa;
 
-import com.syric.teupnepa.events.*;
+import com.syric.teupnepa.events.AddArrowTags;
+import com.syric.teupnepa.registry.TUNPItems;
 import com.syric.teupnepa.registry.TUNPLootModifiers;
 import com.syric.teupnepa.registry.TUNPMobEffects;
 import com.syric.teupnepa.registry.TUNPSounds;
 import com.syric.teupnepa.tetra_effects.Effects;
-import com.syric.teupnepa.registry.TUNPItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -48,7 +48,6 @@ public class TeUpNePa {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-        MinecraftForge.EVENT_BUS.register(new AddTooltips());
     }
 
 }

@@ -1,4 +1,4 @@
-package com.syric.teupnepa.events;
+package com.syric.teupnepa.upgrade_types;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
@@ -6,7 +6,6 @@ import com.syric.teupnepa.registry.TUNPTags;
 import com.syric.teupnepa.util.FindShield;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
-import net.minecraft.core.Holder;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -23,11 +22,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Mod.EventBusSubscriber(
         modid = TeUpNePa.MODID,
@@ -148,8 +145,6 @@ public class RadiantUpgrade {
                             MobEffectInstance new_instance = new MobEffectInstance(instance.getEffect(), new_duration, instance.getAmplifier(), instance.isAmbient(), instance.isVisible(), instance.showIcon());
                             new_effects.add(new_instance);
                             to_remove.add(instance.getEffect());
-                        } else {
-//                            TeUpNePa.LOGGER.debug("Not reducing, failed tag checks");
                         }
                     }
                 }

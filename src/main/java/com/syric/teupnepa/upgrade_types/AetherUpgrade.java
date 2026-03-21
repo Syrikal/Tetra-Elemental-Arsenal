@@ -1,4 +1,4 @@
-package com.syric.teupnepa.events;
+package com.syric.teupnepa.upgrade_types;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
@@ -9,28 +9,15 @@ import com.syric.teupnepa.util.SendMessageUtil;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.monster.hoglin.Hoglin;
-import net.minecraft.world.entity.monster.piglin.PiglinBrute;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Arrow;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
-import net.minecraftforge.event.entity.living.LootingLevelEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-import se.mickelus.tetra.ServerScheduler;
-import se.mickelus.tetra.TetraRegistries;
-import se.mickelus.tetra.items.modular.ModularItem;
-import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 
 import java.util.Objects;
-import java.util.Optional;
 
 @Mod.EventBusSubscriber(
         modid = TeUpNePa.MODID,
@@ -47,8 +34,8 @@ public class AetherUpgrade {
                 && ItemIdentificationUtil.isUpgradedMeleeWeapon(((LivingEntity) event.getSource().getDirectEntity()).getMainHandItem(), UpgradeType.AETHERIC)) {
 
             TeUpNePa.LOGGER.debug("Detected attack with aetheric-upgraded weapon");
-            TeUpNePa.LOGGER.debug("Aether native: " + event.getEntity().getType().is(TUNPTags.EntityTypes.AETHER_NATIVE));
-            TeUpNePa.LOGGER.debug("Namespace contains aether: " + Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace().contains("aether") + ", namespace: " + Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace());
+            TeUpNePa.LOGGER.debug("Aether native: {}", event.getEntity().getType().is(TUNPTags.EntityTypes.AETHER_NATIVE));
+            TeUpNePa.LOGGER.debug("Namespace contains aether: {}, namespace: {}", Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace().contains("aether"), Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace());
 
         }
 
@@ -75,7 +62,7 @@ public class AetherUpgrade {
         if (!event.getEntity().level().isClientSide && FindShield.getModularShield(event.getEntity()) != null && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.AETHERIC)) {
             Entity attacker = event.getDamageSource().getDirectEntity();
             LivingEntity defender = event.getEntity();
-            TeUpNePa.LOGGER.debug("Attacker Namespace: " + Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace());
+            TeUpNePa.LOGGER.debug("Attacker Namespace: {}", Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace());
             if (attacker != null && (attacker.getType().is(TUNPTags.EntityTypes.AETHER_NATIVE) || Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace().contains("aether")) && defender.getRandom().nextFloat() < 0.5) {
                 attacker.hurt(attacker.damageSources().thorns(defender), defender.getRandom().nextFloat() * 4 + 2);
                 FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {});
@@ -87,13 +74,13 @@ public class AetherUpgrade {
     @SubscribeEvent
     public void breakSpeed(PlayerEvent.BreakSpeed event) {
         TeUpNePa.LOGGER.debug("Detected BreakSpeed event.");
-        TeUpNePa.LOGGER.debug("Aether dimension: " + event.getEntity().level().dimension().location().getPath().equals("the_aether") + ", (id: '" + event.getEntity().level().dimensionTypeId() + "', path: '" + event.getEntity().level().dimension().location().getPath() + "')");
-        TeUpNePa.LOGGER.debug("Aether block: " + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether") + ", (namespace: " + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace() + ")");
+        TeUpNePa.LOGGER.debug("Aether dimension: {}, (id: '{}', path: '{}')", event.getEntity().level().dimension().location().getPath().equals("the_aether"), event.getEntity().level().dimensionTypeId(), event.getEntity().level().dimension().location().getPath());
+        TeUpNePa.LOGGER.debug("Aether block: {}, (namespace: {})", Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether"), Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace());
         if (!event.getEntity().isCreative()
                 && ItemIdentificationUtil.isUpgradedTool(event.getEntity().getMainHandItem(), UpgradeType.AETHERIC)
                 && (event.getEntity().level().dimension().location().getPath().equals("the_aether") || Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether"))) {
             TeUpNePa.LOGGER.debug("Activated aetheric speed boost");
-            TeUpNePa.LOGGER.debug("Dimension: " + event.getEntity().level().dimensionTypeId().toString().contains("aether") + "; Block namespace: " + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether"));
+            TeUpNePa.LOGGER.debug("Dimension: {}; Block namespace: {}", event.getEntity().level().dimensionTypeId().toString().contains("aether"), Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether"));
             event.setNewSpeed(event.getOriginalSpeed() * 1.33F);
         }
     }

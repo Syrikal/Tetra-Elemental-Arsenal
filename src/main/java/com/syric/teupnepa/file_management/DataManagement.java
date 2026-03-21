@@ -1,7 +1,6 @@
 package com.syric.teupnepa.file_management;
 
 import com.syric.teupnepa.enums.*;
-import net.minecraftforge.fml.common.Mod;
 import tools.jackson.core.util.DefaultIndenter;
 import tools.jackson.core.util.DefaultPrettyPrinter;
 import tools.jackson.databind.ObjectMapper;
@@ -46,7 +45,7 @@ public class DataManagement {
         }
     }
 
-    private static Path modules = Path.of("src\\generated\\resources\\data\\tetra\\modules");
+    private static final Path modules = Path.of("src\\generated\\resources\\data\\tetra\\modules");
 
     private static void writeModulesFile(ModuleType moduleType) {
         Path filepath = Path.of(modules.toString(), "\\", moduleType.category.id, "\\", moduleType.id + ".json");
@@ -83,7 +82,7 @@ public class DataManagement {
         mapper.writer().with(prettyPrinter).writeValue(file, rootNode);
     }
 
-    private static Path improvements = Path.of("src\\generated\\resources\\data\\tetra\\improvements\\upgradednetherite");
+    private static final Path improvements = Path.of("src\\generated\\resources\\data\\tetra\\improvements\\upgradednetherite");
 
     private static void writeAllImprovementFiles() {
         for (UpgradeType upgradeType : UpgradeType.values()) {
@@ -275,7 +274,7 @@ public class DataManagement {
         }
     }
 
-    private static Path schematics = Path.of("src\\generated\\resources\\data\\tetra\\schematics");
+    private static final Path schematics = Path.of("src\\generated\\resources\\data\\tetra\\schematics");
 
     private static void writeAllSchematics() {
         writeSchematicFiles(ModularItemCategory.BOW, false, false);

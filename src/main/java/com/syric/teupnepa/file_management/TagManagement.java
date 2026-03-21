@@ -177,9 +177,9 @@ public class TagManagement {
 
     private static class Tag {
 
-        ObjectNode node;
-        ArrayNode values;
-        ObjectMapper mapper;
+        final ObjectNode node;
+        final ArrayNode values;
+        final ObjectMapper mapper;
 
         private Tag() {
             ObjectMapper mapper = new ObjectMapper();

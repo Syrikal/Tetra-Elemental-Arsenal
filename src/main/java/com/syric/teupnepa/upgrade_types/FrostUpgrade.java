@@ -1,4 +1,4 @@
-package com.syric.teupnepa.events;
+package com.syric.teupnepa.upgrade_types;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
@@ -21,7 +21,6 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
@@ -102,7 +101,7 @@ public class FrostUpgrade {
             boolean clientSide = level.isClientSide;
             //Find right-clicked block
             BlockHitResult liquidHitResult = RightClickLiquidUtil.getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
-            BlockState originalState = level.getBlockState(liquidHitResult.getBlockPos());
+            level.getBlockState(liquidHitResult.getBlockPos());
 //            TeUpNePa.LOGGER.debug("Block hit: " + level.getBlockState(liquidHitResult.getBlockPos()));
             if (level.getBlockState(liquidHitResult.getBlockPos()).is(Blocks.WATER)) {
 //                TeUpNePa.LOGGER.debug("Triggering obsidian effect");

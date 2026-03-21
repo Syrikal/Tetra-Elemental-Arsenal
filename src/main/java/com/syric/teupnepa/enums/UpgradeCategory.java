@@ -6,5 +6,5 @@ public enum UpgradeCategory {
     BOTH,
     BOW,
     SHIELD,
-    NONE;
+    NONE
 }
