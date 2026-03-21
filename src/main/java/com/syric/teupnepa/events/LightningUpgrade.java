@@ -10,6 +10,7 @@ import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -63,7 +64,7 @@ public class LightningUpgrade {
                 SendMessageUtil.triggered(UpgradeType.LIGHTNING, event.getSource().getEntity());
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
                     && event.getSource().getDirectEntity() instanceof Arrow arrow
-                    && event.getSource().getDirectEntity().getTags().contains("LightningUpgradedNetheriteBow")) {
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.LIGHTNING)) {
                 int chargeLevel = getChargedLevel(arrow);
                 if (chargeLevel > 0) {
                     damage_boost *= 2;
@@ -79,6 +80,7 @@ public class LightningUpgrade {
         }
     }
 
+    //TODO delete the arrow after
     //Arrows with the "LightningStrike" tag spawn lightning on impact
     @SubscribeEvent
     public static void arrowImpact(ProjectileImpactEvent event) {
@@ -174,16 +176,20 @@ public class LightningUpgrade {
     public static void chargeArrow(AbstractArrow arrow) {
         if (!arrow.level().isClientSide()
             && arrow.getOwner() instanceof LivingEntity shooter
+            && Math.abs(arrow.getDeltaMovement().y()) < 0.1F
             && !arrow.getTags().contains("LightningStrikeFailed")
-            && arrow.getTags().contains("LightningUpgradedNetheriteBow")) {
+            && !arrow.getTags().contains("LightningStrike")
+            && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.LIGHTNING)) {
             boolean raining = arrow.level().isRaining();
             boolean thunder = arrow.level().isThundering();
 
             double vertical_distance = Math.abs(arrow.getY() - shooter.getY());
             double min_vertical_distance = thunder ? 50 : raining ? 55 : 60;
+//            min_vertical_distance = 0;
 
             double altitude = arrow.getY();
             double min_altitude = thunder ? 100 : raining ? 120 : 150;
+//            min_altitude = 0;
 
             if (vertical_distance > min_vertical_distance
                 && altitude > min_altitude) {
@@ -192,10 +198,14 @@ public class LightningUpgrade {
                 double base_chance = thunder ? 0.75 : raining ? 0.5 : 0.25;
                 double adjustment = (double) chargedLevel / (chargedLevel + 1);
                 double final_chance = Mth.lerp(adjustment, base_chance, 1);
+                final_chance = 1;
 
                 if (shooter.getRandom().nextDouble() < final_chance) {
                     arrow.addTag("LightningStrike");
-                    arrow.level().playSound(null, arrow.getX(), arrow.getY(), arrow.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.WEATHER, 1.0F, 1.0F);
+                    arrow.level().playSound(null, arrow.getX(), arrow.getY(), arrow.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.WEATHER, 10.0F, 1.0F);
+                    if (arrow.getOwner() instanceof Player player) {
+                        player.displayClientMessage(Component.literal("arrow charged"), false);
+                    }
                 } else {
                     arrow.addTag("LightningStrikeFailed");
                 }
@@ -205,21 +215,23 @@ public class LightningUpgrade {
     }
 
     //Needs to be called by a mixin every tick on an arrow.
-    public void particleCheck(AbstractArrow arrow, boolean inGround) {
-        if (inGround) {
-            if (arrow.tickCount % 5 == 0) {
-                for (int i = 0; i < 1; ++i) {
+    public static void particleCheck(AbstractArrow arrow, boolean inGround) {
+        if (arrow.getTags().contains("LightningStrike")) {
+            if (inGround) {
+                if (arrow.tickCount % 5 == 0) {
+                    for (int i = 0; i < 1; ++i) {
+                        spawnParticles(arrow);
+                    }
+                }
+            } else {
+                for (int i = 0; i < 2; ++i) {
                     spawnParticles(arrow);
                 }
-            }
-        } else {
-            for (int i = 0; i < 2; ++i) {
-                spawnParticles(arrow);
             }
         }
     }
 
-    private void spawnParticles(AbstractArrow arrow) {
+    private static void spawnParticles(AbstractArrow arrow) {
         if (arrow.level() instanceof ServerLevel serverLevel) {
             serverLevel.sendParticles(ParticleTypes.ELECTRIC_SPARK,
                     arrow.getX() + serverLevel.getRandom().nextGaussian() / 7.5,

@@ -1,6 +1,7 @@
 package com.syric.teupnepa;
 
 import com.syric.teupnepa.events.*;
+import com.syric.teupnepa.registry.TUNPLootModifiers;
 import com.syric.teupnepa.registry.TUNPMobEffects;
 import com.syric.teupnepa.registry.TUNPSounds;
 import com.syric.teupnepa.tetra_effects.Effects;
@@ -40,6 +41,7 @@ public class TeUpNePa {
         TUNPItems.ITEMS.register(modEventBus);
         TUNPMobEffects.MOB_EFFECTS.register(modEventBus);
         TUNPSounds.SOUND_EVENTS.register(modEventBus);
+        TUNPLootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

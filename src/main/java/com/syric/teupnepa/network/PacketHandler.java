@@ -2,6 +2,7 @@ package com.syric.teupnepa.network;
 
 import com.syric.teupnepa.TeUpNePa;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
@@ -22,10 +23,15 @@ public class PacketHandler {
                 .decoder(C2SFeatherTogglePacket::new)
                 .consumerMainThread(C2SFeatherTogglePacket::handle)
                 .add();
+        INSTANCE.messageBuilder(S2CWaterArrowTagPacket.class, NetworkDirection.PLAY_TO_CLIENT.ordinal())
+                .encoder(S2CWaterArrowTagPacket::encode)
+                .decoder(S2CWaterArrowTagPacket::new)
+                .consumerMainThread(S2CWaterArrowTagPacket::handle)
+                .add();
     }
 
-    public static void sendToServer(Object packet) {
-        INSTANCE.send(PacketDistributor.SERVER.noArg(), packet);
-    }
+    public static void sendToServer(Object packet) { INSTANCE.send(PacketDistributor.SERVER.noArg(), packet); }
+
+    public static void sendWithEntity(Object packet, Entity entity) { INSTANCE.send(PacketDistributor.TRACKING_ENTITY.with(() -> entity), packet); }
 
 }

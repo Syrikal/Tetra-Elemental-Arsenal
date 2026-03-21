@@ -6,7 +6,6 @@ import com.syric.teupnepa.registry.TUNPTags;
 import com.syric.teupnepa.util.FindShield;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
-import net.mehvahdjukaar.moonlight.api.events.forge.DropItemOnDeathEvent;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -16,6 +15,7 @@ import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.living.LivingExperienceDropEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
@@ -42,8 +42,8 @@ public class EchoUpgrade {
                 SendMessageUtil.triggered(UpgradeType.ECHO, event.getSource().getEntity());
                 event.setAmount(event.getAmount() * 1.2F);
             } else if (event.getSource().is(DamageTypes.ARROW) && event.getSource().isIndirect()
-                    && event.getSource().getDirectEntity() instanceof Arrow
-                    && event.getSource().getDirectEntity().getTags().contains("EchoUpgradedNetheriteBow")) {
+                    && event.getSource().getDirectEntity() instanceof Arrow arrow
+                    && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.ECHO)) {
                 SendMessageUtil.triggered(UpgradeType.ECHO, event.getSource().getEntity());
                 event.setAmount(event.getAmount() * 1.2F);
             }
@@ -79,9 +79,9 @@ public class EchoUpgrade {
 
     @SubscribeEvent
     public static void breakSpeed(PlayerEvent.BreakSpeed event) {
-        if (!event.getEntity().isCreative()
-                && ItemIdentificationUtil.isUpgradedTool(event.getEntity().getMainHandItem(), UpgradeType.ECHO)
-                && (event.getEntity().position().y() <= 0 || event.getEntity().level().getBiome(event.getEntity().blockPosition()).is(Biomes.DEEP_DARK) || event.getEntity().level().dimensionTypeId().toString().contains("otherside"))) {
+        if (ItemIdentificationUtil.isUpgradedTool(event.getEntity().getMainHandItem(), UpgradeType.ECHO)) {
+            if (!event.getEntity().isCreative()
+                    && (event.getEntity().position().y() <= 0 || event.getEntity().level().getBiome(event.getEntity().blockPosition()).is(Biomes.DEEP_DARK) || event.getEntity().level().dimensionTypeId().toString().contains("otherside"))) {
 
 //            TeUpNePa.LOGGER.debug("Detected candidate for echo mining speed boost");
 //            TeUpNePa.LOGGER.debug("Y-level: " + event.getEntity().position().y());
@@ -89,19 +89,23 @@ public class EchoUpgrade {
 //            TeUpNePa.LOGGER.debug("Otherside: " + event.getEntity().level().dimensionTypeId().toString().contains("otherside"));
 //            TeUpNePa.LOGGER.debug("Original speed: " + event.getOriginalSpeed());
 
-            float multiplier = 1;
-            //1.5x if Otherside, or if y<0 in the deep dark
-            if (event.getEntity().level().dimensionTypeId().toString().contains("otherside") ||
-                    (event.getEntity().position().y() <= 0 && event.getEntity().level().getBiome(event.getEntity().blockPosition()).is(Biomes.DEEP_DARK))) {
+                float multiplier = 1;
+                //1.5x if Otherside, or if y<0 in the deep dark
+                if (event.getEntity().level().dimensionTypeId().toString().contains("otherside") ||
+                        (event.getEntity().position().y() <= 0 && event.getEntity().level().getBiome(event.getEntity().blockPosition()).is(Biomes.DEEP_DARK))) {
 //                multiplier = 1.2F;
-                multiplier = 1.5F;
-            //1.25x if y<0 OR deep dark but not both
-            } else if (event.getEntity().position().y() <= 0 ^ event.getEntity().level().getBiome(event.getEntity().blockPosition()).is(Biomes.DEEP_DARK)) {
-                multiplier = 1.25F;
-            }
+                    multiplier = 1.5F;
+                    //1.25x if y<0 OR deep dark but not both
+                } else if (event.getEntity().position().y() <= 0 ^ event.getEntity().level().getBiome(event.getEntity().blockPosition()).is(Biomes.DEEP_DARK)) {
+                    multiplier = 1.25F;
+                }
 //            TeUpNePa.LOGGER.debug("Final multiplier: " + multiplier);
-            event.setNewSpeed(event.getOriginalSpeed() * multiplier);
+                event.setNewSpeed(event.getOriginalSpeed() * multiplier);
 //            TeUpNePa.LOGGER.debug("Final speed: " + event.getNewSpeed());
+            }
+
+            event.getEntity().getMainHandItem().getOrCreateTag().putBoolean("EchoUpgradeMuffled", true);
+
         }
     }
 
@@ -115,15 +119,19 @@ public class EchoUpgrade {
         }
     }
 
-    //This stops the items from dropping when a player dies
+    //Muffles echo-upgraded items when dropped
     @SubscribeEvent
-    public static void soulbind(DropItemOnDeathEvent event) {
-        if (!event.getPlayer().level().isClientSide()
-        && event.isBeforeDrop()
-        && ItemIdentificationUtil.isUpgradedItem(event.getItemStack(), UpgradeType.ECHO)) {
-            event.setCanceled(true);
-            event.setReturnItemStack(ItemStack.EMPTY);
-            event.getPlayer().getInventory().add(event.getItemStack());
+    public static void dropItem(ItemTossEvent event) {
+        if (ItemIdentificationUtil.isUpgradedItem(event.getEntity().getItem(), UpgradeType.ECHO)) {
+            event.getEntity().getItem().getOrCreateTag().putBoolean("EchoUpgradeMuffled", true);
+        }
+    }
+
+    //Removes muffling tag when item picked up
+    @SubscribeEvent
+    public static void unmuffleItem(PlayerEvent.ItemPickupEvent event) {
+        if (event.getStack().hasTag()) {
+            event.getStack().removeTagKey("EchoUpgradeMuffled");
         }
     }
 
@@ -136,7 +144,8 @@ public class EchoUpgrade {
 //                TeUpNePa.LOGGER.debug("Analyzing item: " + itemStack.getItem());
                 if (ItemIdentificationUtil.isUpgradedItem(itemStack, UpgradeType.ECHO)) {
 //                    TeUpNePa.LOGGER.debug("Detected echo item, returning to player");
-                    event.getEntity().getInventory().add(itemStack);
+                    event.getEntity().getInventory().add(event.getOriginal().getInventory().findSlotMatchingItem(itemStack), itemStack);
+
                 }
             }
         }
