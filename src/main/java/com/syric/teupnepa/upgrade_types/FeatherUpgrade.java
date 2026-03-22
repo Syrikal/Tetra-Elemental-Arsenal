@@ -21,6 +21,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
@@ -194,6 +195,12 @@ public class FeatherUpgrade {
                 });
     }
 
+    public static void arrowWeightless(AbstractArrow arrow) {
+        if (ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.FEATHER)) {
+            arrow.setNoGravity(true);
+        }
+    }
+
     //Toggle on sneak-right-click for all except bows, crossbows, and shields
     @SubscribeEvent
     public static void toggleAbilities(PlayerInteractEvent.RightClickItem event) {
@@ -250,26 +257,19 @@ public class FeatherUpgrade {
     }
 
     //Should only be run on server!
+    //Checks item for the tag. If it's a modular item without the tag, adds the tag.
     public static boolean isActive(ItemStack stack) {
-        if (stack.isEmpty()) {
-            return false;
-        }
-//        TeUpNePa.LOGGER.debug("Testing whether item " + stack.getDisplayName().getString() + " has active feather upgrade");
-        if (!(stack.getItem() instanceof ModularItem)) {
-//            TeUpNePa.LOGGER.debug("     Not modular item. Returning false.");
-            return false;
-        }
-        if (stack.hasTag() && stack.getTag() != null && stack.getTag().contains("FeatherUpgradeActive")) {
-//            TeUpNePa.LOGGER.debug("     Has relevant tag, returning " + stack.getTag().getBoolean("FeatherUpgradeActive"));
+        if (!stack.isEmpty()
+                && stack.getItem() instanceof ModularItem
+                && stack.hasTag()
+                && stack.getTag() != null
+                && stack.getTag().contains("FeatherUpgradeActive")) {
             return stack.getTag().getBoolean("FeatherUpgradeActive");
-        } else {
-//            if (ItemIdentificationUtil.isUpgradedItem(stack, UpgradeType.FEATHER)) {
-//                TeUpNePa.LOGGER.debug("     Has no tag, but is feather-upgraded item. Returning true.");
-//            } else {
-//                TeUpNePa.LOGGER.debug("     Has no tag and is not feather-upgraded item. Returning false.");
-//            }
+        } else if (stack.getItem() instanceof ModularItem) {
+            stack.getOrCreateTag().putBoolean("FeatherUpgradeActive", ItemIdentificationUtil.isUpgradedItem(stack, UpgradeType.FEATHER));
             return ItemIdentificationUtil.isUpgradedItem(stack, UpgradeType.FEATHER);
         }
+        return false;
     }
 
 }

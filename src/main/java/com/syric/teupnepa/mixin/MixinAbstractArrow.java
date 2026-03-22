@@ -8,8 +8,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static com.syric.teupnepa.upgrade_types.FeatherUpgrade.arrowWeightless;
 import static com.syric.teupnepa.upgrade_types.LightningUpgrade.chargeArrow;
 import static com.syric.teupnepa.upgrade_types.LightningUpgrade.particleCheck;
+import static com.syric.teupnepa.upgrade_types.RadiantUpgrade.radiantStormbreak;
 
 @Mixin(AbstractArrow.class)
 public abstract class MixinAbstractArrow {
@@ -27,6 +29,10 @@ public abstract class MixinAbstractArrow {
 
         chargeArrow(self());
         particleCheck(self(), this.inGround);
+
+        radiantStormbreak(self());
+
+        arrowWeightless(self());
 
     }
 

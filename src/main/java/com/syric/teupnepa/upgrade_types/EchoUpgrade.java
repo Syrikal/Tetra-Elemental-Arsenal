@@ -70,10 +70,10 @@ public class EchoUpgrade {
         if (!event.player.level().isClientSide()
                 && (event.player.level().getBiome(event.player.blockPosition()).is(Biomes.DEEP_DARK) || event.player.level().dimensionTypeId().toString().contains("otherside"))
                 && FindShield.getModularShield(event.player) != null
-                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.player))
+                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.player), UpgradeType.ECHO)
                 && event.player.tickCount % 100 == 0) {
             event.player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 51, 0, false, false));
-            TeUpNePa.LOGGER.debug("Detected player in valid biome holding echo-upgraded shield");
+//            TeUpNePa.LOGGER.debug("Detected player in valid biome holding echo-upgraded shield");
         }
     }
 

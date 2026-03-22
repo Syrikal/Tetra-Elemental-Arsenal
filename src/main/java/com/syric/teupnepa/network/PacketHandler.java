@@ -23,10 +23,10 @@ public class PacketHandler {
                 .decoder(C2SFeatherTogglePacket::new)
                 .consumerMainThread(C2SFeatherTogglePacket::handle)
                 .add();
-        INSTANCE.messageBuilder(S2CWaterArrowTagPacket.class, NetworkDirection.PLAY_TO_CLIENT.ordinal())
-                .encoder(S2CWaterArrowTagPacket::encode)
-                .decoder(S2CWaterArrowTagPacket::new)
-                .consumerMainThread(S2CWaterArrowTagPacket::handle)
+        INSTANCE.messageBuilder(S2CArrowTagPacket.class, NetworkDirection.PLAY_TO_CLIENT.ordinal())
+                .encoder(S2CArrowTagPacket::encode)
+                .decoder(S2CArrowTagPacket::new)
+                .consumerMainThread(S2CArrowTagPacket::handle)
                 .add();
     }
 

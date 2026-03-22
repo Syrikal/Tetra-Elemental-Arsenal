@@ -39,7 +39,6 @@ public class TUNPItems {
     @SubscribeEvent
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(CORRUPT_UPGRADED_NETHERITE_INGOT);
             event.accept(ECHO_UPGRADED_NETHERITE_INGOT);
             event.accept(ENDER_UPGRADED_NETHERITE_INGOT);
             event.accept(FEATHER_UPGRADED_NETHERITE_INGOT);
@@ -52,7 +51,6 @@ public class TUNPItems {
             event.accept(RADIANT_UPGRADED_NETHERITE_INGOT);
             event.accept(WATER_UPGRADED_NETHERITE_INGOT);
             event.accept(WITHER_UPGRADED_NETHERITE_INGOT);
-            event.accept(ULTIMATE_UPGRADED_NETHERITE_INGOT);
             event.accept(AETHERIC_UPGRADED_NETHERITE_INGOT);
             event.accept(FORGOTTEN_UPGRADED_NETHERITE_INGOT);
             event.accept(ARCANE_UPGRADED_NETHERITE_INGOT);

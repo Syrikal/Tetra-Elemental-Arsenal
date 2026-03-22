@@ -3,10 +3,12 @@ package com.syric.teupnepa.events;
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
 import com.syric.teupnepa.network.PacketHandler;
-import com.syric.teupnepa.network.S2CWaterArrowTagPacket;
+import com.syric.teupnepa.network.S2CArrowTagPacket;
 import com.syric.teupnepa.upgrade_types.FeatherUpgrade;
+import com.syric.teupnepa.upgrade_types.LightningUpgrade;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -155,6 +157,18 @@ public class AddArrowTags {
                     arrow.addTag("LightningUpgradedNetheriteBow");
                     return arrow;
                 });
+
+                if (event.getShooter().hasEffect(LightningUpgrade.getChargedEffect())) {
+                    MobEffectInstance instance = event.getShooter().getEffect(LightningUpgrade.getChargedEffect());
+                    if (instance != null) {
+                        int chargeLevel = instance.getAmplifier() + 1;
+                        event.addProjectileRemapper(arrow -> {
+                            arrow.addTag("ChargedArrow_" + chargeLevel);
+                            return arrow;
+                        });
+                    }
+                }
+
             }
         }
     }
@@ -162,7 +176,13 @@ public class AddArrowTags {
     @SubscribeEvent
     public void projectileSpawn(ModularProjectileSpawnEvent event) {
         if (!event.getLevel().isClientSide() && ItemIdentificationUtil.isUpgradedProjectile(event.getProjectileEntity(), UpgradeType.WATER)) {
-            PacketHandler.sendWithEntity(new S2CWaterArrowTagPacket(event.getProjectileEntity().getId()), event.getProjectileEntity());
+            PacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 0), event.getProjectileEntity());
+        }
+        if (!event.getLevel().isClientSide() && ItemIdentificationUtil.isUpgradedProjectile(event.getProjectileEntity(), UpgradeType.FEATHER)) {
+            PacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 1), event.getProjectileEntity());
+        }
+        if (!event.getLevel().isClientSide() && ItemIdentificationUtil.isUpgradedProjectile(event.getProjectileEntity(), UpgradeType.RADIANT)) {
+            PacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 2), event.getProjectileEntity());
         }
     }
 

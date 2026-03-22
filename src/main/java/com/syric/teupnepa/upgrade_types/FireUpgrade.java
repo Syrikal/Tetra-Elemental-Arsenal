@@ -6,8 +6,10 @@ import com.syric.teupnepa.util.FindShield;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -19,16 +21,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.ServerScheduler;
+import se.mickelus.tetra.items.modular.ModularItem;
+import se.mickelus.tetra.items.modular.impl.ModularBladedItem;
+import se.mickelus.tetra.items.modular.impl.ModularDoubleHeadedItem;
+import se.mickelus.tetra.items.modular.impl.ModularSingleHeadedItem;
 
 import java.util.List;
 import java.util.Optional;
@@ -38,31 +44,6 @@ import java.util.Optional;
         bus = Mod.EventBusSubscriber.Bus.FORGE
 )
 public class FireUpgrade {
-
-    //Shield prevents zombies setting you on fire
-    @SubscribeEvent
-    public static void ZombieAttackEvent(LivingHurtEvent event) {
-        if (event.getSource().getEntity() == null) {
-            return;
-        }
-//        TeUpNePa.LOGGER.debug("LivingHurtEvent triggered");
-//        TeUpNePa.LOGGER.debug("ClientSide: " + event.getEntity().level().isClientSide
-//                + "; Attacker: " + event.getSource().getEntity().getType()
-//                + "; Attacker on fire: " + event.getSource().getEntity().isOnFire()
-//                + "; Defender on fire: " + event.getEntity().isOnFire()
-//                + "; fire shield: " + ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.FIRE));
-        if (!event.getEntity().level().isClientSide
-                && event.getSource().getEntity() instanceof Zombie
-                && event.getSource().getEntity().isOnFire()
-                && !event.getEntity().isOnFire()
-                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.FIRE)) {
-//            TeUpNePa.LOGGER.debug("Non-burning creature attacked by burning zombie while holding fire-upgraded shield");
-            ServerScheduler.schedule(0, () -> event.getEntity().setRemainingFireTicks(0));
-            ServerScheduler.schedule(0, () -> event.getEntity().clearFire());
-//            ServerScheduler.schedule(0, () -> event.getEntity().push(0, 5, 0));
-            SendMessageUtil.triggered(UpgradeType.FIRE, event.getEntity());
-        }
-    }
 
     //Increase damage dealt to burning targets
     @SubscribeEvent
@@ -120,20 +101,37 @@ public class FireUpgrade {
         }
     }
 
+
+    //Shield prevents zombies setting you on fire
+    @SubscribeEvent
+    public static void ZombieAttackEvent(LivingHurtEvent event) {
+        if (!event.getEntity().level().isClientSide
+                && event.getSource().getEntity() != null
+                && event.getSource().getEntity() instanceof Zombie zombie
+                && zombie.isOnFire()
+                && !event.getEntity().isOnFire()
+                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.FIRE)) {
+//            TeUpNePa.LOGGER.debug("Non-burning creature attacked by burning zombie while holding fire-upgraded shield");
+            ServerScheduler.schedule(0, () -> event.getEntity().setRemainingFireTicks(0));
+            ServerScheduler.schedule(0, () -> event.getEntity().clearFire());
+//            ServerScheduler.schedule(0, () -> event.getEntity().push(0, 5, 0));
+            SendMessageUtil.triggered(UpgradeType.FIRE, event.getEntity());
+        }
+    }
+
     //Fire tools smelt block drops
     @SubscribeEvent
     public static void destroyBlock(BlockEvent.BreakEvent event) {
-        LevelAccessor levelAccessor = event.getLevel();
-
-        if (levelAccessor instanceof ServerLevel level) {
+        if (event.getLevel() instanceof ServerLevel level) {
             Player player = event.getPlayer();
             BlockState state = event.getState();
             BlockPos pos = event.getPos();
             ItemStack heldStack = player.getMainHandItem();
 
-            if (!player.isCreative() &&
-                    player.hasCorrectToolForDrops(state) &&
-                    ItemIdentificationUtil.isUpgradedTool(heldStack, UpgradeType.FIRE)) {
+            if (!player.isCreative()
+                    && player.hasCorrectToolForDrops(state)
+                    && isActive(heldStack)
+                    && ItemIdentificationUtil.isUpgradedTool(heldStack, UpgradeType.FIRE)) {
                 if (event.getExpToDrop() > 0) {
                     state.getBlock().popExperience(level, pos, event.getExpToDrop());
                 }
@@ -154,6 +152,41 @@ public class FireUpgrade {
                 level.getLevel().setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
             }
         }
+    }
+
+    //Toggle auto smelting on sneak=right-click
+    @SubscribeEvent
+    public static void toggleAbilities(PlayerInteractEvent.RightClickItem event) {
+        if (event.getEntity().isCrouching()
+                && !event.getItemStack().isEmpty()
+                && event.getItemStack().getItem() instanceof ModularItem
+                && (event.getItemStack().getItem() instanceof ModularBladedItem
+                || event.getItemStack().getItem() instanceof ModularDoubleHeadedItem
+                || event.getItemStack().getItem() instanceof ModularSingleHeadedItem)
+                && ItemIdentificationUtil.isUpgradedTool(event.getItemStack(), UpgradeType.FIRE)) {
+
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.SUCCESS);
+            toggleActive(event.getItemStack(), event.getEntity());
+        }
+    }
+
+    public static void toggleActive(ItemStack stack, Player player) {
+        if (isActive(stack)) {
+            stack.getOrCreateTag().putBoolean("FireUpgradeSmeltingDisabled", true);
+        } else {
+            stack.removeTagKey("FireUpgradeSmeltingDisabled");
+        }
+        if (player.level().isClientSide()) {
+            player.sendSystemMessage(Component.translatable(isActive(stack) ? "message.teupnepa.fire_toggled_on" : "message.teupnepa.fire_toggled_off"));
+        }
+    }
+
+    private static boolean isActive(ItemStack stack) {
+        return ItemIdentificationUtil.isUpgradedTool(stack, UpgradeType.FIRE) &&
+                (stack.getTag() == null
+                        || !stack.getTag().contains("FireUpgradeSmeltingDisabled")
+                        || !stack.getTag().getBoolean("FireUpgradeSmeltingDisabled"));
     }
 
 }

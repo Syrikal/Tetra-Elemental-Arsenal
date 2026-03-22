@@ -124,6 +124,9 @@ public class ItemIdentificationUtil {
     }
 
     public static boolean isUpgradedProjectile(AbstractArrow arrow, UpgradeType upgradeType) {
+        if (arrow.getTags().contains("UltimateUpgradedNetheriteBow")) {
+            return true;
+        }
         switch (upgradeType) {
             case CORRUPT -> {
                 return arrow.getTags().contains("CorruptUpgradedNetheriteBow");

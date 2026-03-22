@@ -20,6 +20,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec2;
@@ -89,42 +90,59 @@ public class PhantomUpgrade {
 
     @SubscribeEvent
     public static void projectileDeflect(ProjectileImpactEvent event) {
-//        TeUpNePa.LOGGER.debug("ProjectileImpactEvent has triggered");
-
         if (event.getRayTraceResult() instanceof EntityHitResult entityHitResult
-                && entityHitResult.getEntity() instanceof LivingEntity livingEntity
+                && entityHitResult.getEntity() instanceof Player player
                 && !event.getProjectile().getTags().contains("reflected")
-                && livingEntity.isBlocking()
-                && FindShield.getModularShield(livingEntity) != null
-                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(livingEntity), UpgradeType.PHANTOM)
-                && isBlocked(livingEntity, event.getProjectile())) {
+                && player.isUsingItem()
+                && player.getTicksUsingItem() < 10
+                && ItemIdentificationUtil.isUpgradedShield(player.getUseItem(), UpgradeType.PHANTOM)
+                && isBlocked(player, event.getProjectile())) {
 
-            boolean sneaking = livingEntity.isShiftKeyDown();
-            int sneaking_durability_mult = sneaking ? 2 : 1;
+            player.playNotifySound(SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 0.8F, 1.0F);
+            player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.SHIELD_BLOCK, SoundSource.PLAYERS, 1F, 1F);
 
-//                TeUpNePa.LOGGER.debug("Phantom shield projectile deflection checks passed");
             event.setImpactResult(ProjectileImpactEvent.ImpactResult.SKIP_ENTITY);
             Projectile projectile = event.getProjectile();
+            projectile.hasImpulse = true;
+            projectile.setOwner(player);
+            projectile.addTag("reflected");
 
+            boolean sneaking = player.isShiftKeyDown();
+            int sneaking_durability_mult = sneaking ? 2 : 1;
+
+            //If not sneaking, flip it around.
             if (!sneaking) {
                 projectile.setDeltaMovement(projectile.getDeltaMovement().scale(-1));
                 projectile.setYRot(projectile.getYRot() + 180);
                 projectile.setXRot(projectile.getXRot() * -1);
+
+                if (projectile instanceof AbstractArrow arrow) {
+                    arrow.setCritArrow(true);
+                    arrow.setBaseDamage(arrow.getBaseDamage() * 1.4);
+                }
 
                 if (projectile instanceof AbstractHurtingProjectile abstractHurtingProjectile) {
                     abstractHurtingProjectile.xPower *= -1;
                     abstractHurtingProjectile.yPower *= -1;
                     abstractHurtingProjectile.zPower *= -1;
                 }
+
+            //If sneaking, fire it in the direction the player is looking.
             } else {
-                Vec2 accurateAimVector = new Vec2(livingEntity.getViewXRot(1.0F), livingEntity.getViewYRot(1.0F));
-                Vec2 inaccurateAimVector = new Vec2(livingEntity.getViewXRot(1.0F), livingEntity.getViewYRot(1.0F)).add(new Vec2(6 * livingEntity.getRandom().nextFloat() - 3, 6 * livingEntity.getRandom().nextFloat() - 3));
+                Vec2 accurateAimVector = new Vec2(player.getViewXRot(1.0F), player.getViewYRot(1.0F));
+                Vec2 inaccurateAimVector = new Vec2(player.getViewXRot(1.0F), player.getViewYRot(1.0F)).add(new Vec2(6 * player.getRandom().nextFloat() - 3, 6 * player.getRandom().nextFloat() - 3));
                 boolean accurate = true;
-                Vec3 finalAimVector = Vec3.directionFromRotation(accurate ? accurateAimVector.x : inaccurateAimVector.x, accurate ? accurateAimVector.y : inaccurateAimVector.y);
+                Vec3 finalAimVector = Vec3.directionFromRotation(
+                        accurate ? accurateAimVector.x : inaccurateAimVector.x,
+                        accurate ? accurateAimVector.y : inaccurateAimVector.y);
 
                 projectile.setDeltaMovement(finalAimVector.normalize().scale(projectile.getDeltaMovement().length() * 1.5));
-                projectile.setYRot(inaccurateAimVector.y);
-                projectile.setXRot(inaccurateAimVector.x);
+                projectile.setYRot(accurate ? accurateAimVector.y : inaccurateAimVector.y);
+                projectile.setXRot(accurate ? accurateAimVector.x : inaccurateAimVector.x);
+
+                if (projectile instanceof AbstractArrow arrow) {
+                    arrow.setBaseDamage(arrow.getBaseDamage() * 1.4);
+                }
 
                 if (projectile instanceof AbstractHurtingProjectile abstractHurtingProjectile) {
                     Vec3 originalPowerVector = new Vec3(abstractHurtingProjectile.xPower, abstractHurtingProjectile.yPower, abstractHurtingProjectile.zPower);
@@ -135,21 +153,15 @@ public class PhantomUpgrade {
                 }
             }
 
-
-            projectile.hasImpulse = true;
-            projectile.setOwner(livingEntity);
-            projectile.addTag("reflected");
-            livingEntity.level().playSound(livingEntity, livingEntity.getOnPos().above(), SoundEvents.SHIELD_BLOCK, (livingEntity instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE), 1F, 1F);
+            //Damage the shield
+            ItemStack shield = player.getUseItem();
             if (projectile instanceof AbstractArrow arrow) {
-                arrow.setCritArrow(true);
-                if (livingEntity instanceof Player player && !player.isCreative()) {
-//                    TeUpNePa.LOGGER.debug("Damaging item used");
-                    FindShield.getModularShield(livingEntity).hurtAndBreak((int) (arrow.getBaseDamage() * 2 * sneaking_durability_mult), livingEntity, (x) -> {});
+                if (!player.isCreative()) {
+                    shield.hurtAndBreak((int) (arrow.getBaseDamage() * 2 * sneaking_durability_mult), player, (x) -> {});
                 }
             } else {
-                if (livingEntity instanceof Player player && !player.isCreative()) {
-//                    TeUpNePa.LOGGER.debug("Damaging item used");
-                    FindShield.getModularShield(livingEntity).hurtAndBreak(6 * sneaking_durability_mult, livingEntity, (x) -> {});
+                if (!player.isCreative()) {
+                    shield.hurtAndBreak(6 * sneaking_durability_mult, player, (x) -> {});
                 }
             }
 
@@ -173,7 +185,7 @@ public class PhantomUpgrade {
 
     @SubscribeEvent
     public static void rightClickEvent(PlayerInteractEvent.RightClickBlock event) {
-        if (ItemIdentificationUtil.isUpgradedTool(event.getItemStack(), UpgradeType.PHANTOM)) {
+        if (event.getEntity().isCrouching() && ItemIdentificationUtil.isUpgradedTool(event.getItemStack(), UpgradeType.PHANTOM)) {
             Vec3 originPos = event.getPos().getCenter();
             List<Entity> entities = event.getEntity().level().getEntities(event.getEntity(), new AABB(originPos.x() - 40, originPos.y() - 40, originPos.z() - 40, originPos.x() + 40, originPos.y() + 40, originPos.z() + 40));
             for (Entity entity : entities) {

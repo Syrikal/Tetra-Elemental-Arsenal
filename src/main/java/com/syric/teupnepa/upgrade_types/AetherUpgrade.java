@@ -2,7 +2,6 @@ package com.syric.teupnepa.upgrade_types;
 
 import com.syric.teupnepa.TeUpNePa;
 import com.syric.teupnepa.enums.UpgradeType;
-import com.syric.teupnepa.registry.TUNPTags;
 import com.syric.teupnepa.util.FindShield;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
@@ -29,18 +28,8 @@ public class AetherUpgrade {
     @SubscribeEvent
     public static void aetherAttack(LivingHurtEvent event) {
         if (!event.getEntity().level().isClientSide
-                && !event.getSource().isIndirect()
-                && event.getSource().getDirectEntity() instanceof LivingEntity
-                && ItemIdentificationUtil.isUpgradedMeleeWeapon(((LivingEntity) event.getSource().getDirectEntity()).getMainHandItem(), UpgradeType.AETHERIC)) {
-
-            TeUpNePa.LOGGER.debug("Detected attack with aetheric-upgraded weapon");
-            TeUpNePa.LOGGER.debug("Aether native: {}", event.getEntity().getType().is(TUNPTags.EntityTypes.AETHER_NATIVE));
-            TeUpNePa.LOGGER.debug("Namespace contains aether: {}, namespace: {}", Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace().contains("aether"), Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace());
-
-        }
-
-        if (!event.getEntity().level().isClientSide
-            && (event.getEntity().getType().is(TUNPTags.EntityTypes.AETHER_NATIVE) || Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace().contains("aether"))) {
+            && (Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace().contains("aether")
+                || event.getEntity().level().dimension().location().getPath().equals("the_aether"))) {
             if ((event.getSource().is(DamageTypes.MOB_ATTACK) || event.getSource().is(DamageTypes.PLAYER_ATTACK))
                     && !event.getSource().isIndirect()
                     && event.getSource().getDirectEntity() instanceof LivingEntity
@@ -59,11 +48,14 @@ public class AetherUpgrade {
     //Shield damages aetheric mobs
     @SubscribeEvent
     public static void ShieldBlock(ShieldBlockEvent event) {
-        if (!event.getEntity().level().isClientSide && FindShield.getModularShield(event.getEntity()) != null && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.AETHERIC)) {
+        if (!event.getEntity().level().isClientSide
+                && event.getDamageSource().getDirectEntity() != null
+                && FindShield.getModularShield(event.getEntity()) != null
+                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.AETHERIC)) {
             Entity attacker = event.getDamageSource().getDirectEntity();
             LivingEntity defender = event.getEntity();
-            TeUpNePa.LOGGER.debug("Attacker Namespace: {}", Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace());
-            if (attacker != null && (attacker.getType().is(TUNPTags.EntityTypes.AETHER_NATIVE) || Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(event.getEntity().getType())).getNamespace().contains("aether")) && defender.getRandom().nextFloat() < 0.5) {
+            TeUpNePa.LOGGER.debug("Attacker Namespace: {}", Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(attacker.getType())).getNamespace());
+            if (Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(attacker.getType())).getNamespace().contains("aether") && defender.getRandom().nextFloat() < 0.5) {
                 attacker.hurt(attacker.damageSources().thorns(defender), defender.getRandom().nextFloat() * 4 + 2);
                 FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {});
                 SendMessageUtil.triggered(UpgradeType.AETHERIC, defender);
@@ -72,15 +64,11 @@ public class AetherUpgrade {
     }
 
     @SubscribeEvent
-    public void breakSpeed(PlayerEvent.BreakSpeed event) {
-        TeUpNePa.LOGGER.debug("Detected BreakSpeed event.");
-        TeUpNePa.LOGGER.debug("Aether dimension: {}, (id: '{}', path: '{}')", event.getEntity().level().dimension().location().getPath().equals("the_aether"), event.getEntity().level().dimensionTypeId(), event.getEntity().level().dimension().location().getPath());
-        TeUpNePa.LOGGER.debug("Aether block: {}, (namespace: {})", Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether"), Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace());
+    public static void breakSpeed(PlayerEvent.BreakSpeed event) {
         if (!event.getEntity().isCreative()
                 && ItemIdentificationUtil.isUpgradedTool(event.getEntity().getMainHandItem(), UpgradeType.AETHERIC)
-                && (event.getEntity().level().dimension().location().getPath().equals("the_aether") || Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether"))) {
-            TeUpNePa.LOGGER.debug("Activated aetheric speed boost");
-            TeUpNePa.LOGGER.debug("Dimension: {}; Block namespace: {}", event.getEntity().level().dimensionTypeId().toString().contains("aether"), Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether"));
+                && (event.getEntity().level().dimension().location().getPath().equals("the_aether")
+                || Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(event.getState().getBlock())).getNamespace().contains("aether"))) {
             event.setNewSpeed(event.getOriginalSpeed() * 1.33F);
         }
     }

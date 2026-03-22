@@ -6,6 +6,8 @@ import com.syric.teupnepa.registry.TUNPTags;
 import com.syric.teupnepa.util.FindShield;
 import com.syric.teupnepa.util.ItemIdentificationUtil;
 import com.syric.teupnepa.util.SendMessageUtil;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -14,8 +16,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.storage.ServerLevelData;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -156,6 +160,35 @@ public class RadiantUpgrade {
                 livingEntity.addEffect(instance);
             }
 
+        }
+    }
+
+    //Needs to be called by a mixin every tick on an arrow. Banishes storms.
+    public static void radiantStormbreak(AbstractArrow arrow) {
+        if (!arrow.level().isClientSide()
+                && ItemIdentificationUtil.isUpgradedProjectile(arrow, UpgradeType.RADIANT)
+                && arrow.getOwner() instanceof LivingEntity
+                && Math.abs(arrow.getDeltaMovement().y()) < 0.05F
+                && !arrow.level().dimensionType().hasCeiling()
+                && arrow.level().dimensionType().hasSkyLight()
+                && !arrow.level().dimension().location().getPath().equals("the_end")
+                && arrow.level().getLevelData() instanceof ServerLevelData serverLevelData) {
+
+
+            boolean raining = serverLevelData.isRaining();
+            boolean thundering = serverLevelData.isThundering() && serverLevelData.isRaining();
+
+            if (raining || thundering) {
+
+                arrow.level().playSound(null, arrow.getX(), arrow.getY(), arrow.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.WEATHER, 10.0F, 1.0F);
+                arrow.kill();
+                if (raining) {
+                    serverLevelData.setRainTime(Math.min(serverLevelData.getRainTime(), 80));
+                }
+                if (thundering) {
+                    serverLevelData.setThunderTime(Math.min(serverLevelData.getThunderTime(), 40));
+                }
+            }
         }
     }
 
