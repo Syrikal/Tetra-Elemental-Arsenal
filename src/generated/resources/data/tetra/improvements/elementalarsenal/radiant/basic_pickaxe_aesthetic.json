@@ -1,0 +1,12 @@
+[ {
+  "key" : "elementalarsenal/radiant_aesthetic",
+  "aspects" : {
+    "aesthetic_upgraded" : 1
+  },
+  "group" : "aesthetic_elemental_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 16,
+    "location" : "tetra:item/module/elementalarsenal/radiant/basic_pickaxe"
+  } ]
+} ]

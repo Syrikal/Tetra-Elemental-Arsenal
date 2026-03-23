@@ -1,0 +1,16 @@
+[ {
+  "key" : "elementalarsenal/frost_weapon",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:frost_weapon" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/frost/short_blade"
+  } ]
+} ]

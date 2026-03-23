@@ -4,32 +4,32 @@ license = "${mod_license}"
 issueTrackerURL = "http://my.issue.tracker/" #optional
 
 [[mods]] #mandatory
-modId = "teupnepa" #mandatory
+modId = "elementalarsenal" #mandatory
 version = "${mod_version}" #mandatory
 displayName = "${mod_name}" #mandatory
 #updateJSONURL="http://myurl.me/" #optional
 #displayURL="http://example.com/" #optional
-logoFile="TeUpNePa Icon.png" #optional
+logoFile= "elemental arsenal icon.png" #optional
 credits = "Thanks to Mickelus and Rolfmao, the authors of Tetra and Upgraded Netherite, for their assistance and permission to create this mod." #optional
 authors = "${mod_authors}" #optional
 description = '''${mod_description}'''
 
-[[dependencies.teupnepa]] #optional
+[[dependencies.elementalarsenal]] #optional
 modId = "forge" #mandatory
 mandatory = true #mandatory
 versionRange = "${forge_version_range}" #mandatory
 ordering = "NONE"
 side = "BOTH"
 # Here's another dependency
-[[dependencies.teupnepa]]
+[[dependencies.elementalarsenal]]
 modId = "minecraft"
 mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
-[[dependencies.teupnepa]]
+[[dependencies.elementalarsenal]]
 modId = "tetra"
 mandatory = true
-versionRange = "[6.0.0,)"
+versionRange = "[6.12.0,)"
 ordering = "AFTER"
 side = "BOTH"

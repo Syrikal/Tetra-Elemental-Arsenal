@@ -1,0 +1,17 @@
+[ {
+  "key" : "elementalarsenal/gold_shield",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:gold" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/gold/buckler",
+    "type" : "tetra:plate/buckler"
+  } ]
+} ]

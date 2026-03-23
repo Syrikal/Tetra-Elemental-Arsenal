@@ -1,0 +1,16 @@
+[ {
+  "key" : "elementalarsenal/ultimate_weapon",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:ultimate_weapon" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 16,
+    "location" : "tetra:item/module/elementalarsenal/ultimate/throwing_knife"
+  } ]
+} ]

@@ -1,0 +1,35 @@
+[ {
+  "key" : "elementalarsenal/phantom_bow",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:phantom" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/phantom/straight_stave"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/phantom/straight_stave_0",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/phantom/straight_stave_1",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/phantom/straight_stave_2",
+    "type" : "draw_2"
+  } ],
+  "attributes" : {
+    "generic.block_interaction_range" : 1.5,
+    "generic.entity_interaction_range" : 1.5
+  }
+} ]

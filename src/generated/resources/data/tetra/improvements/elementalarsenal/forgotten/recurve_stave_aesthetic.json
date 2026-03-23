@@ -1,0 +1,27 @@
+[ {
+  "key" : "elementalarsenal/forgotten_aesthetic",
+  "aspects" : {
+    "aesthetic_upgraded" : 1
+  },
+  "group" : "aesthetic_elemental_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/forgotten/recurve_stave"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/forgotten/recurve_stave",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/forgotten/recurve_stave_1",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/forgotten/recurve_stave_1",
+    "type" : "draw_2"
+  } ]
+} ]

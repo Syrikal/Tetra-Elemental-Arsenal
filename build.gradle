@@ -112,8 +112,8 @@ repositories {
 
 mixin {
     // MixinGradle Settings
-    add sourceSets.main, 'mixins.teupnepa.refmap.json'
-    config 'mixins.teupnepa.json'
+    add sourceSets.main, 'mixins.elementalarsenal.refmap.json'
+    config 'mixins.elementalarsenal.json'
 
     debug.verbose = true
     debug.export = true

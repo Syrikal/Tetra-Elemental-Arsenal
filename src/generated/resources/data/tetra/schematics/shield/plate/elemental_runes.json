@@ -1,0 +1,199 @@
+{
+  "replace" : true,
+  "slots" : [ "shield/plate" ],
+  "materialSlotCount" : 1,
+  "rarity" : "hone",
+  "displayType" : "major",
+  "materialRevealSlot" : 0,
+  "glyph" : {
+    "textureX" : 32,
+    "textureY" : 240
+  },
+  "outcomes" : [ {
+    "material" : {
+      "items" : [ "elementalarsenal:corrupt_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/corrupt_shield" : 0,
+      "elementalarsenal/blood_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:echo_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/echo_shield" : 0,
+      "elementalarsenal/eldritch_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:ender_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/ender_shield" : 0,
+      "elementalarsenal/ender_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:feather_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/feather_shield" : 0,
+      "elementalarsenal/evocation_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:fire_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/fire_shield" : 0,
+      "elementalarsenal/fire_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:frost_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/frost_shield" : 0,
+      "elementalarsenal/ice_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:lightning_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/lightning_shield" : 0,
+      "elementalarsenal/lightning_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:gold_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/gold_shield" : 0,
+      "elementalarsenal/evocation_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:phantom_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/phantom_shield" : 0,
+      "elementalarsenal/evocation_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:poison_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/poison_shield" : 0,
+      "elementalarsenal/nature_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:radiant_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/radiant_shield" : 0,
+      "elementalarsenal/holy_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:water_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/water_shield" : 0,
+      "elementalarsenal/lightning_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:wither_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/wither_shield" : 0,
+      "elementalarsenal/blood_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:ultimate_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/ultimate_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:aetheric_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/aetheric_shield" : 0,
+      "elementalarsenal/lightning_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:forgotten_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/forgotten_shield" : 0,
+      "elementalarsenal/nature_magic_shield" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:arcane_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/arcane_shield" : 0,
+      "elementalarsenal/arcane_magic_shield" : 0
+    }
+  } ]
+}

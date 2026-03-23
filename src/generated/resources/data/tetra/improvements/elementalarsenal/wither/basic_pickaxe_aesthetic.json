@@ -1,0 +1,12 @@
+[ {
+  "key" : "elementalarsenal/wither_aesthetic",
+  "aspects" : {
+    "aesthetic_upgraded" : 1
+  },
+  "group" : "aesthetic_elemental_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/wither/basic_pickaxe"
+  } ]
+} ]

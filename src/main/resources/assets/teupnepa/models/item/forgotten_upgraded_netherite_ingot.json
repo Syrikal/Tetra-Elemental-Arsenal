@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "teupnepa:item/forgotten_upgraded_netherite_ingot"
-  }
-}

@@ -1,0 +1,17 @@
+[ {
+  "key" : "elementalarsenal/wither_shield",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:wither" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/wither/heater",
+    "type" : "tetra:plate/heater"
+  } ]
+} ]

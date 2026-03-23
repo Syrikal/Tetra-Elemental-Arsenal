@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "imbued_netherite_ingot",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "aetheric_tetranomicon:valkyrian_scrap"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aetheric_tetranomicon"
+    }
+  ],
+  "result": {
+    "item": "elementalarsenal:aetheric_imbued_netherite_ingot"
+  }
+}

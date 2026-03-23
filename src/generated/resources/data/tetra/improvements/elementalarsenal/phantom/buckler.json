@@ -1,0 +1,21 @@
+[ {
+  "key" : "elementalarsenal/phantom_shield",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:phantom" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/phantom/buckler",
+    "type" : "tetra:plate/buckler"
+  } ],
+  "attributes" : {
+    "generic.block_interaction_range" : 1.5,
+    "generic.entity_interaction_range" : 1.5
+  }
+} ]

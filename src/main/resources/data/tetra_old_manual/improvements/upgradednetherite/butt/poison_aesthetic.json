@@ -1,9 +1,0 @@
-[
-    {
-        "key": "upgradednetherite/aesthetic_poison",
-        "group": "netherite_runes",
-        "models": [{
-            "location": "tetra:item/module/upgradednetherite/butt/poison"
-        }]
-    }
-]

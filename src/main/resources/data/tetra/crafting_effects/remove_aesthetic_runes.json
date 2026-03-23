@@ -1,0 +1,56 @@
+{
+  "replace": true,
+  "requirement": {
+    "type": "tetra:or",
+    "requirements": [
+      {
+        "type": "tetra:schematic",
+        "schematic": "bow/stave/z_remove_aesthetic_runes"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "crossbow/stock/z_remove_aesthetic_runes"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "double/shared_head/z_remove_aesthetic_runes"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "shield/plate/z_remove_aesthetic_runes"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "single/head/z_remove_aesthetic_runes"
+      },
+      {
+        "type": "tetra:schematic",
+        "schematic": "sword/shared_blade/z_remove_aesthetic_runes"
+      }
+    ]
+  },
+  "outcomes": [
+    {
+      "type": "tetra:remove_improvements",
+      "improvements": [
+        "elementalarsenal/corrupt_aesthetic",
+        "elementalarsenal/echo_aesthetic",
+        "elementalarsenal/ender_aesthetic",
+        "elementalarsenal/feather_aesthetic",
+        "elementalarsenal/fire_aesthetic",
+        "elementalarsenal/frost_aesthetic",
+        "elementalarsenal/lightning_aesthetic",
+        "elementalarsenal/gold_aesthetic",
+        "elementalarsenal/phantom_aesthetic",
+        "elementalarsenal/poison_aesthetic",
+        "elementalarsenal/radiant_aesthetic",
+        "elementalarsenal/water_aesthetic",
+        "elementalarsenal/wither_aesthetic",
+        "elementalarsenal/ultimate_aesthetic",
+        "elementalarsenal/aetheric_aesthetic",
+        "elementalarsenal/forgotten_aesthetic",
+        "elementalarsenal/arcane_aesthetic"
+      ]
+    }
+  ]
+}

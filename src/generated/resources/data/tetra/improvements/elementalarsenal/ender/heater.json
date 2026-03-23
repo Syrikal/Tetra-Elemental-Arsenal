@@ -1,0 +1,17 @@
+[ {
+  "key" : "elementalarsenal/ender_shield",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:ender" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/heater",
+    "type" : "tetra:plate/heater"
+  } ]
+} ]

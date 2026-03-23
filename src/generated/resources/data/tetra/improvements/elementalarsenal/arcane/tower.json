@@ -1,0 +1,21 @@
+[ {
+  "key" : "elementalarsenal/arcane_shield",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:arcane" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/arcane/tower",
+    "type" : "tetra:plate/tower"
+  } ],
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "irons_spellbooks"
+  } ]
+} ]

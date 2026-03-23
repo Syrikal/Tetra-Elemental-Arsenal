@@ -1,0 +1,13 @@
+{
+  "replace" : true,
+  "slots" : [ "single/head" ],
+  "rarity" : "hone",
+  "displayType" : "minor",
+  "requirement": {
+    "type": "tetra:aspect",
+    "aspect": "elemental_upgraded",
+    "level": {
+      "min": 1
+    }
+  }
+}

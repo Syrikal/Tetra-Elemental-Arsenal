@@ -1,0 +1,6 @@
+{
+  "parent" : "minecraft:item/generated",
+  "textures" : {
+    "layer0" : "elementalarsenal:item/gold_imbued_netherite_ingot"
+  }
+}

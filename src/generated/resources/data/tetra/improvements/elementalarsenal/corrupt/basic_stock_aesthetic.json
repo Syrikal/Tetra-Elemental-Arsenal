@@ -1,0 +1,32 @@
+[ {
+  "key" : "elementalarsenal/corrupt_aesthetic",
+  "aspects" : {
+    "aesthetic_upgraded" : 1
+  },
+  "group" : "aesthetic_elemental_runes",
+  "models" : [ {
+    "renderLayer" : "highest",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/corrupt/basic_stock"
+  }, {
+    "renderLayer" : "highest",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/corrupt/basic_stock",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "highest",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/corrupt/basic_stock",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "highest",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/corrupt/basic_stock",
+    "type" : "draw_2"
+  }, {
+    "renderLayer" : "highest",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/corrupt/basic_stock",
+    "type" : "loaded"
+  } ]
+} ]

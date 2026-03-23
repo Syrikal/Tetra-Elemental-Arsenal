@@ -1,0 +1,28 @@
+[ {
+  "key" : "elementalarsenal/aetheric_shield",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:aetheric" : 1,
+    "aetheric_tetranomicon:aetheric" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/aetheric/tower",
+    "type" : "tetra:plate/tower"
+  } ],
+  "conditions" : [ {
+    "type" : "forge:or",
+    "values" : [ {
+      "type" : "forge:mod_loaded",
+      "modid" : "aether_treasure_reforging"
+    }, {
+      "type" : "forge:mod_loaded",
+      "modid" : "aetheric_tetranomicon"
+    } ]
+  } ]
+} ]

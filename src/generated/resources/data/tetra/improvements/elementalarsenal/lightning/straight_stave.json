@@ -1,0 +1,31 @@
+[ {
+  "key" : "elementalarsenal/lightning_bow",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:lightning" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave_0",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave_1",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave_2",
+    "type" : "draw_2"
+  } ]
+} ]

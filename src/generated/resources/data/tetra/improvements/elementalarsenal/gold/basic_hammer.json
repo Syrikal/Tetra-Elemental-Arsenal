@@ -1,0 +1,16 @@
+[ {
+  "key" : "elementalarsenal/gold_tool",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:gold_tool" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/gold/basic_hammer"
+  } ]
+} ]

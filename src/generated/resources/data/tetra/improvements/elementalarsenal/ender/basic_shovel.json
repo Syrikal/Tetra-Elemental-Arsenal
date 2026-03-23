@@ -1,0 +1,16 @@
+[ {
+  "key" : "elementalarsenal/ender_tool",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:ender_tool" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/basic_shovel"
+  } ]
+} ]

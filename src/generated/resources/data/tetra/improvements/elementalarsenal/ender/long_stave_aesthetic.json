@@ -1,0 +1,27 @@
+[ {
+  "key" : "elementalarsenal/ender_aesthetic",
+  "aspects" : {
+    "aesthetic_upgraded" : 1
+  },
+  "group" : "aesthetic_elemental_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/long_stave"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/long_stave_0",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/long_stave_1",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/long_stave_2",
+    "type" : "draw_2"
+  } ]
+} ]

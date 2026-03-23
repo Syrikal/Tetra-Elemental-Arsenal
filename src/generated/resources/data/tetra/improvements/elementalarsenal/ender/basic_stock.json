@@ -1,0 +1,36 @@
+[ {
+  "key" : "elementalarsenal/ender_bow",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:ender" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/basic_stock"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
+    "type" : "draw_0"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
+    "type" : "draw_1"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
+    "type" : "draw_2"
+  }, {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
+    "type" : "loaded"
+  } ]
+} ]

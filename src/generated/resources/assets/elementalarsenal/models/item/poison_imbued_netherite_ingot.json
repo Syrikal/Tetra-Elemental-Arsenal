@@ -1,0 +1,6 @@
+{
+  "parent" : "minecraft:item/generated",
+  "textures" : {
+    "layer0" : "elementalarsenal:item/poison_imbued_netherite_ingot"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "replace" : true,
+  "slots" : [ "double/head_left" ],
+  "materialSlotCount" : 1,
+  "rarity" : "hone",
+  "displayType" : "major",
+  "materialRevealSlot" : 0,
+  "glyph" : {
+    "textureX" : 32,
+    "textureY" : 240
+  },
+  "outcomes" : [ {
+    "material" : {
+      "items" : [ "elementalarsenal:corrupt_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/corrupt" : 0,
+      "elementalarsenal/corrupt_tool" : 0,
+      "elementalarsenal/corrupt_weapon" : 0,
+      "elementalarsenal/corrupt_both" : 0,
+      "elementalarsenal/blood_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:echo_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/echo" : 0,
+      "elementalarsenal/echo_tool" : 0,
+      "elementalarsenal/echo_weapon" : 0,
+      "elementalarsenal/echo_both" : 0,
+      "elementalarsenal/eldritch_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:ender_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/ender" : 0,
+      "elementalarsenal/ender_tool" : 0,
+      "elementalarsenal/ender_weapon" : 0,
+      "elementalarsenal/ender_both" : 0,
+      "elementalarsenal/ender_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:feather_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/feather" : 0,
+      "elementalarsenal/feather_tool" : 0,
+      "elementalarsenal/feather_weapon" : 0,
+      "elementalarsenal/feather_both" : 0,
+      "elementalarsenal/evocation_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:fire_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/fire" : 0,
+      "elementalarsenal/fire_tool" : 0,
+      "elementalarsenal/fire_weapon" : 0,
+      "elementalarsenal/fire_both" : 0,
+      "elementalarsenal/fire_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:frost_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/frost" : 0,
+      "elementalarsenal/frost_tool" : 0,
+      "elementalarsenal/frost_weapon" : 0,
+      "elementalarsenal/frost_both" : 0,
+      "elementalarsenal/ice_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:lightning_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/lightning" : 0,
+      "elementalarsenal/lightning_weapon" : 0,
+      "elementalarsenal/lightning_both" : 0,
+      "elementalarsenal/lightning_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:gold_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/gold" : 0,
+      "elementalarsenal/gold_tool" : 0,
+      "elementalarsenal/gold_weapon" : 0,
+      "elementalarsenal/gold_both" : 0,
+      "elementalarsenal/evocation_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:phantom_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/phantom" : 0,
+      "elementalarsenal/phantom_tool" : 0,
+      "elementalarsenal/phantom_weapon" : 0,
+      "elementalarsenal/phantom_both" : 0,
+      "elementalarsenal/evocation_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:poison_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/poison" : 0,
+      "elementalarsenal/poison_weapon" : 0,
+      "elementalarsenal/poison_both" : 0,
+      "elementalarsenal/nature_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:radiant_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/radiant" : 0,
+      "elementalarsenal/radiant_weapon" : 0,
+      "elementalarsenal/radiant_both" : 0,
+      "elementalarsenal/holy_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:water_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/water" : 0,
+      "elementalarsenal/water_tool" : 0,
+      "elementalarsenal/water_weapon" : 0,
+      "elementalarsenal/water_both" : 0,
+      "elementalarsenal/lightning_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:wither_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/wither" : 0,
+      "elementalarsenal/wither_weapon" : 0,
+      "elementalarsenal/wither_both" : 0,
+      "elementalarsenal/blood_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:ultimate_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/ultimate" : 0,
+      "elementalarsenal/ultimate_tool" : 0,
+      "elementalarsenal/ultimate_weapon" : 0,
+      "elementalarsenal/ultimate_both" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:aetheric_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/aetheric" : 0,
+      "elementalarsenal/aetheric_tool" : 0,
+      "elementalarsenal/aetheric_weapon" : 0,
+      "elementalarsenal/aetheric_both" : 0,
+      "elementalarsenal/lightning_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:forgotten_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/forgotten" : 0,
+      "elementalarsenal/forgotten_tool" : 0,
+      "elementalarsenal/forgotten_weapon" : 0,
+      "elementalarsenal/forgotten_both" : 0,
+      "elementalarsenal/nature_spell_power" : 0
+    }
+  }, {
+    "material" : {
+      "items" : [ "elementalarsenal:arcane_imbued_netherite_ingot" ]
+    },
+    "requiredTools" : {
+      "hammer_dig" : "minecraft:diamond"
+    },
+    "improvements" : {
+      "elementalarsenal/arcane" : 0,
+      "elementalarsenal/arcane_tool" : 0,
+      "elementalarsenal/arcane_weapon" : 0,
+      "elementalarsenal/arcane_both" : 0,
+      "elementalarsenal/arcane_spell_power" : 0
+    }
+  } ]
+}

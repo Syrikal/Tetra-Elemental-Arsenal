@@ -1,0 +1,13 @@
+[ {
+  "key" : "elementalarsenal/lightning_aesthetic",
+  "aspects" : {
+    "aesthetic_upgraded" : 1
+  },
+  "group" : "aesthetic_elemental_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/lightning/buckler",
+    "type" : "tetra:plate/buckler"
+  } ]
+} ]

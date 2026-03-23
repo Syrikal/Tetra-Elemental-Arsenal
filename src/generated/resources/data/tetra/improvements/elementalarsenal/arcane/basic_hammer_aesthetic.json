@@ -1,0 +1,12 @@
+[ {
+  "key" : "elementalarsenal/arcane_aesthetic",
+  "aspects" : {
+    "aesthetic_upgraded" : 1
+  },
+  "group" : "aesthetic_elemental_runes",
+  "models" : [ {
+    "renderLayer" : "higher",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/arcane/basic_hammer"
+  } ]
+} ]

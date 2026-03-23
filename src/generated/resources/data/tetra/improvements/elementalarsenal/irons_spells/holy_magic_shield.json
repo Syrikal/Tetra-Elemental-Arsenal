@@ -1,0 +1,17 @@
+[ {
+  "key" : "elementalarsenal/holy_magic_shield",
+  "group" : "spell_upgrades",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "irons_spellbooks"
+  } ],
+  "attributes" : {
+    "**irons_spellbooks:holy_magic_resist" : 0.4,
+    "**irons_spellbooks:spell_resist" : 0.1,
+    "**irons_spellbooks:mana_regen" : 0.1,
+    "irons_spellbooks:max_mana" : 50
+  }
+} ]

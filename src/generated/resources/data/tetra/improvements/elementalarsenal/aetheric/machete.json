@@ -1,0 +1,27 @@
+[ {
+  "key" : "elementalarsenal/aetheric_tool",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:aetheric_tool" : 1,
+    "aetheric_tetranomicon:aetheric" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 8,
+    "location" : "tetra:item/module/elementalarsenal/aetheric/machete"
+  } ],
+  "conditions" : [ {
+    "type" : "forge:or",
+    "values" : [ {
+      "type" : "forge:mod_loaded",
+      "modid" : "aether_treasure_reforging"
+    }, {
+      "type" : "forge:mod_loaded",
+      "modid" : "aetheric_tetranomicon"
+    } ]
+  } ]
+} ]

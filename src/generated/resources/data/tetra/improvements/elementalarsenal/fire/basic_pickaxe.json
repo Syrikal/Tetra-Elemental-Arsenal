@@ -1,0 +1,16 @@
+[ {
+  "key" : "elementalarsenal/fire_tool",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:fire_tool" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 12,
+    "location" : "tetra:item/module/elementalarsenal/fire/basic_pickaxe"
+  } ]
+} ]

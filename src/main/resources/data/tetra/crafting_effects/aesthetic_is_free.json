@@ -5,38 +5,38 @@
     "requirements": [
       {
         "type": "tetra:schematic",
-        "schematic": "bow/stave/z_aesthetic_netherite"
+        "schematic": "bow/stave/z_aesthetic_runes"
       },
       {
         "type": "tetra:schematic",
-        "schematic": "crossbow/stock/z_aesthetic_netherite"
+        "schematic": "crossbow/stock/z_aesthetic_runes"
       },
       {
         "type": "tetra:schematic",
-        "schematic": "double/shared_head/z_aesthetic_netherite_left"
+        "schematic": "double/shared_head/z_aesthetic_runes_left"
       },
       {
         "type": "tetra:schematic",
-        "schematic": "double/shared_head/z_aesthetic_netherite_right"
+        "schematic": "double/shared_head/z_aesthetic_runes_right"
       },
       {
         "type": "tetra:schematic",
-        "schematic": "shield/plate/z_aesthetic_netherite"
+        "schematic": "shield/plate/z_aesthetic_runes"
       },
       {
         "type": "tetra:schematic",
-        "schematic": "single/head/z_aesthetic_netherite"
+        "schematic": "single/head/z_aesthetic_runes"
       },
       {
         "type": "tetra:schematic",
-        "schematic": "sword/shared_blade/z_aesthetic_netherite"
+        "schematic": "sword/shared_blade/z_aesthetic_runes"
       }
     ]
   },
   "outcomes": [
     {
       "type": "tetra:material_reduction",
-      "probability": 0.5
+      "probability": 1
     }
   ]
 }
