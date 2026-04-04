@@ -6,7 +6,8 @@
     "elemental_upgraded" : 1
   },
   "effects" : {
-    "elementalarsenal:frost" : 1
+    "elementalarsenal:frost" : 1,
+    "elementalarsenal:ice_dragon_protection" : [ 1, 10 ]
   },
   "models" : [ {
     "renderLayer" : "high",

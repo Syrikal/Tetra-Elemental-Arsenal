@@ -24,7 +24,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -133,7 +136,7 @@ public class FeatherUpgrade {
     public static void ShieldBlock(ShieldBlockEvent event) {
         if (!event.getEntity().level().isClientSide
                 && FindShield.getModularShield(event.getEntity()) != null) {
-            ElementalArsenal.LOGGER.debug("Detected block with modular shield. Testing for active feather upgrade");
+//            ElementalArsenal.LOGGER.debug("Detected block with modular shield. Testing for active feather upgrade");
             ItemStack modularShield = FindShield.getModularShield(event.getEntity());
             assert modularShield != null;
             if (isActive(modularShield)) {
@@ -212,9 +215,14 @@ public class FeatherUpgrade {
                     || event.getItemStack().getItem() instanceof ModularSingleHeadedItem)
                 && ItemIdentificationUtil.isUpgradedItem(event.getItemStack(), UpgradeType.FEATHER)) {
 
+            BlockHitResult traceResult = event.getEntity().level().clip(new ClipContext(event.getEntity().getEyePosition(1f),
+                    (event.getEntity().getEyePosition(1f).add(event.getEntity().getViewVector(1f).scale(event.getEntity().getBlockReach()))),
+                    ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, event.getEntity()));
+            if (traceResult.getType() == HitResult.Type.MISS) {
                 event.setCanceled(true);
                 event.setCancellationResult(InteractionResult.SUCCESS);
                 toggleActive(event.getItemStack(), event.getEntity());
+            }
         }
     }
 

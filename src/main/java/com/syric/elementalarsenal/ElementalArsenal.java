@@ -1,6 +1,7 @@
 package com.syric.elementalarsenal;
 
 import com.syric.elementalarsenal.events.AddArrowTags;
+import com.syric.elementalarsenal.events.DragonProtection;
 import com.syric.elementalarsenal.registry.EAItems;
 import com.syric.elementalarsenal.registry.EALootModifiers;
 import com.syric.elementalarsenal.registry.EAMobEffects;
@@ -8,6 +9,7 @@ import com.syric.elementalarsenal.registry.EASounds;
 import com.syric.elementalarsenal.tetra_effects.Effects;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -24,8 +26,6 @@ public class ElementalArsenal {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public ElementalArsenal(FMLJavaModLoadingContext context) {
-        // Register the setup method for modloading
-        context.getModEventBus().addListener(this::setup);
         // Register the doClientStuff method for modloading
         context.getModEventBus().addListener(this::doClientStuff);
 
@@ -44,10 +44,12 @@ public class ElementalArsenal {
         EALootModifiers.LOOT_MODIFIER_SERIALIZERS.register(modEventBus);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
-    }
-
     private void doClientStuff(final FMLClientSetupEvent event) {
+
+        if (ModList.get().isLoaded("iceandfire") && !ModList.get().isLoaded("amm")) {
+            DragonProtection.addBars(event);
+        }
+
     }
 
 }

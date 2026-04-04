@@ -334,6 +334,13 @@
   "tetra/schematic/sword/basic_hilt/z_remove_soot.name": "Remove Soot",
   "tetra/schematic/sword/basic_hilt/z_remove_soot.description": "Remove soot from the hilt.",
 
+  "tetra.stats.fire_dragon_protection": "Fire Dragon Protection",
+  "tetra.stats.fire_dragon_protection.tooltip": "Reduces damage from fire dragons' breath weapons by §e%s§r",
+  "tetra.stats.ice_dragon_protection": "Ice Dragon Protection",
+  "tetra.stats.ice_dragon_protection.tooltip": "Reduces damage from ice dragons' breath weapons by §e%s§r",
+  "tetra.stats.lightning_dragon_protection": "Lightning Dragon Protection",
+  "tetra.stats.lightning_dragon_protection.tooltip": "Reduces damage from lightning dragons' breath weapons by §e%s§r",
+
   "message.elementalarsenal.feather_toggled_on": "Activated skyseeker abilities",
   "message.elementalarsenal.feather_toggled_off": "Deactivated skyseeker abilities",
   "message.elementalarsenal.fire_toggled_on": "Activated magmatic abilities",

@@ -194,6 +194,19 @@ public class DataManagement {
             main_node.set("attributes", attribute_node);
         }
 
+        if (moduleType.upgradeCategory == UpgradeCategory.SHIELD) {
+            if (upgradeType == UpgradeType.FIRE) {
+                effectsNode.set("elementalarsenal:fire_dragon_protection", mapper.createArrayNode()
+                        .add(1).add(10));
+            } else if (upgradeType == UpgradeType.LIGHTNING) {
+                effectsNode.set("elementalarsenal:lightning_dragon_protection", mapper.createArrayNode()
+                        .add(1).add(10));
+            } else if (upgradeType == UpgradeType.FROST) {
+                effectsNode.set("elementalarsenal:ice_dragon_protection", mapper.createArrayNode()
+                        .add(1).add(10));
+            }
+        }
+
         File file = filepath.toFile();
         mapper.writerWithDefaultPrettyPrinter().writeValue(file, outer_array);
 

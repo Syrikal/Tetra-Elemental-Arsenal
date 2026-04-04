@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "imbued_netherite_ingot",
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_ingot"
+    },
+    {
+      "item": "irons_spellbooks:lightning_bottle"
+    },
+    {
+      "item": "irons_spellbooks:lightning_bottle"
+    },
+    {
+      "item": "irons_spellbooks:lightning_bottle"
+    },
+    {
+      "item": "irons_spellbooks:lightning_bottle"
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "irons_spellbooks"
+    }
+  ],
+  "result": {
+    "item": "elementalarsenal:lightning_imbued_netherite_ingot"
+  }
+}

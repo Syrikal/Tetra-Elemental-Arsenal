@@ -6,7 +6,8 @@
     "elemental_upgraded" : 1
   },
   "effects" : {
-    "elementalarsenal:fire" : 1
+    "elementalarsenal:fire" : 1,
+    "elementalarsenal:fire_dragon_protection" : [ 1, 10 ]
   },
   "models" : [ {
     "renderLayer" : "high",

@@ -21,9 +21,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -165,9 +168,14 @@ public class FireUpgrade {
                 || event.getItemStack().getItem() instanceof ModularSingleHeadedItem)
                 && ItemIdentificationUtil.isUpgradedTool(event.getItemStack(), UpgradeType.FIRE)) {
 
-            event.setCanceled(true);
-            event.setCancellationResult(InteractionResult.SUCCESS);
-            toggleActive(event.getItemStack(), event.getEntity());
+            BlockHitResult traceResult = event.getEntity().level().clip(new ClipContext(event.getEntity().getEyePosition(1f),
+                    (event.getEntity().getEyePosition(1f).add(event.getEntity().getViewVector(1f).scale(event.getEntity().getBlockReach()))),
+                    ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, event.getEntity()));
+            if (traceResult.getType() == HitResult.Type.MISS) {
+                event.setCanceled(true);
+                event.setCancellationResult(InteractionResult.SUCCESS);
+                toggleActive(event.getItemStack(), event.getEntity());
+            }
         }
     }
 

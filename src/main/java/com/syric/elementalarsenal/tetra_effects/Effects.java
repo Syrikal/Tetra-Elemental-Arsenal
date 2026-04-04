@@ -105,5 +105,8 @@ public class Effects {
     public static final ItemEffect ultimate_weapon = ItemEffect.get("elementalarsenal:ultimate_weapon");
     public static final ItemEffect ultimate_both = ItemEffect.get("elementalarsenal:ultimate_both");
 
+    public static final ItemEffect FIRE_DRAGON_PROTECTION = ItemEffect.get("elementalarsenal:fire_dragon_protection");
+    public static final ItemEffect ICE_DRAGON_PROTECTION = ItemEffect.get("elementalarsenal:ice_dragon_protection");
+    public static final ItemEffect LIGHTNING_DRAGON_PROTECTION = ItemEffect.get("elementalarsenal:lightning_dragon_protection");
 
 }
