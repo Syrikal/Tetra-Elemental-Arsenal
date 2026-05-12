@@ -2,7 +2,7 @@ package com.syric.elementalarsenal.events;
 
 import com.syric.elementalarsenal.ElementalArsenal;
 import com.syric.elementalarsenal.enums.UpgradeType;
-import com.syric.elementalarsenal.network.PacketHandler;
+import com.syric.elementalarsenal.network.EAPacketHandler;
 import com.syric.elementalarsenal.network.S2CArrowTagPacket;
 import com.syric.elementalarsenal.upgrade_types.FeatherUpgrade;
 import com.syric.elementalarsenal.upgrade_types.LightningUpgrade;
@@ -176,13 +176,13 @@ public class AddArrowTags {
     @SubscribeEvent
     public void projectileSpawn(ModularProjectileSpawnEvent event) {
         if (!event.getLevel().isClientSide() && ItemIdentificationUtil.isUpgradedProjectile(event.getProjectileEntity(), UpgradeType.WATER)) {
-            PacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 0), event.getProjectileEntity());
+            EAPacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 0), event.getProjectileEntity());
         }
         if (!event.getLevel().isClientSide() && ItemIdentificationUtil.isUpgradedProjectile(event.getProjectileEntity(), UpgradeType.FEATHER)) {
-            PacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 1), event.getProjectileEntity());
+            EAPacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 1), event.getProjectileEntity());
         }
         if (!event.getLevel().isClientSide() && ItemIdentificationUtil.isUpgradedProjectile(event.getProjectileEntity(), UpgradeType.RADIANT)) {
-            PacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 2), event.getProjectileEntity());
+            EAPacketHandler.sendWithEntity(new S2CArrowTagPacket(event.getProjectileEntity().getId(), 2), event.getProjectileEntity());
         }
     }
 

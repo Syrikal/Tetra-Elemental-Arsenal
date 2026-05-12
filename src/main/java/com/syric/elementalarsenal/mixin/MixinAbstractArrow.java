@@ -1,5 +1,7 @@
 package com.syric.elementalarsenal.mixin;
 
+import com.syric.elementalarsenal.enums.UpgradeType;
+import com.syric.elementalarsenal.util.ItemIdentificationUtil;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -19,6 +21,12 @@ public abstract class MixinAbstractArrow {
     @Shadow
     protected boolean inGround;
 
+    @Shadow
+    public int shakeTime;
+
+    @Shadow
+    protected abstract void tickDespawn();
+
     @Unique
     private AbstractArrow self() {
         return (AbstractArrow) (Object) this;
@@ -33,6 +41,9 @@ public abstract class MixinAbstractArrow {
         radiantStormbreak(self());
 
         arrowWeightless(self());
+        if (ItemIdentificationUtil.isUpgradedProjectile(self(), UpgradeType.FEATHER) && self().getDeltaMovement().length() < 0.1f) {
+            this.tickDespawn();
+        }
 
     }
 

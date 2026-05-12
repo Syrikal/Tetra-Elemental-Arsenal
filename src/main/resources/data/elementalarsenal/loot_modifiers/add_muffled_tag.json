@@ -9,11 +9,7 @@
           "tetra:modular_single",
           "tetra:modular_sword"
         ],
-        "components": {
-          "minecraft:custom_data": {
-            "EchoUpgradeMuffled": true
-          }
-        }
+        "nbt": "{EchoUpgradeMuffledMiner:1b}"
       }
     }
   ]

@@ -132,14 +132,14 @@ public class TagManagement {
                 .addModdedTag("aether", "treated_as_aether_entity"));
 
         printMobEffectTagFile("radiant_reduces_strong", new Tag()
-                .addVanillaList("wither", "poison")
+                .addVanillaList("wither", "poison", "blindness", "darkness")
                 .addModdedList("sculkhorde", "sculk_infected")
                 .addModdedList("spore", "mycelium_ef")
                 .addModdedList("undergarden", "virulence")
                 .addModdedList("alexscaves", "irradiated"));
 
         printMobEffectTagFile("radiant_reduces", new Tag()
-                .addVanillaList("blindness", "darkness", "hunger", "mining_fatigue", "nausea", "slowness", "unluck", "weakness")
+                .addVanillaList("hunger", "mining_fatigue", "nausea", "slowness", "unluck", "weakness")
                 .addModdedList("sculkhorde", "corroded", "sculk_lure", "rooted", "sculk_fog")
                 .addModdedList("spore", "corrosion", "madness", "marker")
                 .addModdedList("aether", "inebriation")

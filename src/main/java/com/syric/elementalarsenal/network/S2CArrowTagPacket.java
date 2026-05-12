@@ -1,16 +1,15 @@
 package com.syric.elementalarsenal.network;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.Level;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
 public class S2CArrowTagPacket {
-    private final int arrowId;
-    private final int arrowType; //0 for water, 1 for feather
+    final int arrowId;
+    final int arrowType; //0 for water, 1 for feather
 
     public S2CArrowTagPacket(int id, int type) {
         this.arrowId = id;
@@ -27,19 +26,12 @@ public class S2CArrowTagPacket {
     }
 
     public void handle(Supplier<NetworkEvent.Context> contextSupplier) {
-        Level level = Minecraft.getInstance().level;
-        if (level != null) {
-            Entity arrow = level.getEntity(arrowId);
-            if (arrow != null) {
-                if (arrowType == 0) {
-                    arrow.addTag("WaterImbuedArrow");
-                } else if (arrowType == 1) {
-                    arrow.addTag("FeatherImbuedArrow");
-                } else if (arrowType == 2) {
-                    arrow.addTag("RadiantImbuedArrow");
-                }
-            }
-        }
+        contextSupplier.get().enqueueWork(() ->
+                // Make sure it's only executed on the physical client
+                DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {ClientPacketHandler.handleS2CArrowTagPacket(this, contextSupplier);})
+        );
+        contextSupplier.get().setPacketHandled(true);
+
     }
 
 }

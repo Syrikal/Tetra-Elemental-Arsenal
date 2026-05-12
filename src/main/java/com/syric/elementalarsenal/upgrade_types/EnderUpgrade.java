@@ -157,10 +157,10 @@ public class EnderUpgrade {
             double d1 = target.getY();
             double d2 = target.getZ();
 
-            for(int i = 0; i < 16; i++) {
-                double d3 = target.getX() + (victim.getRandom().nextDouble() - 0.5D) * 8.0D;
+            for(int i = 0; i < 24; i++) {
+                double d3 = target.getX() + (victim.getRandom().nextDouble() - 0.5D) * 5.0D;
                 double d4 = Mth.clamp(target.getY() + (double)(victim.getRandom().nextInt(8) - 4), victim.level().getMinBuildHeight(), victim.level().getMinBuildHeight() + ((ServerLevel)victim.level()).getLogicalHeight() - 1);
-                double d5 = target.getZ() + (victim.getRandom().nextDouble() - 0.5D) * 8.0D;
+                double d5 = target.getZ() + (victim.getRandom().nextDouble() - 0.5D) * 5.0D;
                 if (victim.isPassenger()) {
                     victim.stopRiding();
                 }

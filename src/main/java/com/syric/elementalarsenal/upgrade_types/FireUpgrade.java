@@ -8,6 +8,7 @@ import com.syric.elementalarsenal.util.SendMessageUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Container;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
@@ -98,27 +99,10 @@ public class FireUpgrade {
             LivingEntity defender = event.getEntity();
             if (attacker != null && !attacker.fireImmune() && attacker.isOnFire() && defender.getRandom().nextFloat() < 0.5) {
                 attacker.hurt(attacker.damageSources().thorns(defender), defender.getRandom().nextFloat() * 4 + 2);
-                FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {});
+                FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {
+                });
                 SendMessageUtil.triggered(UpgradeType.FIRE, defender);
             }
-        }
-    }
-
-
-    //Shield prevents zombies setting you on fire
-    @SubscribeEvent
-    public static void ZombieAttackEvent(LivingHurtEvent event) {
-        if (!event.getEntity().level().isClientSide
-                && event.getSource().getEntity() != null
-                && event.getSource().getEntity() instanceof Zombie zombie
-                && zombie.isOnFire()
-                && !event.getEntity().isOnFire()
-                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.FIRE)) {
-//            ElementalArsenal.LOGGER.debug("Non-burning creature attacked by burning zombie while holding fire-upgraded shield");
-            ServerScheduler.schedule(0, () -> event.getEntity().setRemainingFireTicks(0));
-            ServerScheduler.schedule(0, () -> event.getEntity().clearFire());
-//            ServerScheduler.schedule(0, () -> event.getEntity().push(0, 5, 0));
-            SendMessageUtil.triggered(UpgradeType.FIRE, event.getEntity());
         }
     }
 

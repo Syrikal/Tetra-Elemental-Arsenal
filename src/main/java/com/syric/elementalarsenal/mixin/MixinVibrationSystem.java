@@ -30,9 +30,7 @@ public abstract class MixinVibrationSystem {
 //            cir.cancel();
         } else if (event == GameEvent.HIT_GROUND
                 && context.sourceEntity() instanceof ItemEntity itemEntity
-                && itemEntity.getItem().hasTag()
-                && itemEntity.getItem().getTag().getBoolean("EchoUpgradeMuffled")) {
-            itemEntity.getItem().removeTagKey("EchoUpgradeMuffled");
+                && itemEntity.getTags().contains("EchoUpgradeMuffled")) {
             cir.setReturnValue(false);
             cir.cancel();
         }

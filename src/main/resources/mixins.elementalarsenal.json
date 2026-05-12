@@ -13,7 +13,10 @@
     "MixinEntity",
     "MixinInventory",
     "MixinItemEntity",
+    "MixinMob",
+    "MixinPlayer",
     "MixinVibrationSystem",
-    "MixinWither"
+    "MixinWither",
+    "MixinZombie"
   ]
 }

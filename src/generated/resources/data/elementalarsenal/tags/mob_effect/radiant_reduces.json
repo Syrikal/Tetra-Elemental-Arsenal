@@ -1,7 +1,5 @@
 {
   "values" : [
-    "minecraft:blindness",
-    "minecraft:darkness",
     "minecraft:hunger",
     "minecraft:mining_fatigue",
     "minecraft:nausea",

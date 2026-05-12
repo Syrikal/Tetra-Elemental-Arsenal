@@ -72,7 +72,8 @@ public class WitherUpgrade {
             LivingEntity defender = event.getEntity();
             if (attacker instanceof LivingEntity livingAttacker && defender.getRandom().nextFloat() < 0.5) {
 //                ElementalArsenal.LOGGER.debug("Wither shield retaliation activated");
-                livingAttacker.addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1));
+                int ticks = defender.getRandom().nextInt(50, 101);
+                livingAttacker.addEffect(new MobEffectInstance(MobEffects.WITHER, ticks, 1));
                 FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {});
                 SendMessageUtil.triggered(UpgradeType.WITHER, event.getEntity());
             }

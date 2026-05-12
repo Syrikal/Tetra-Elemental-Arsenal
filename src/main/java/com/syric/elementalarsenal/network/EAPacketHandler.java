@@ -8,7 +8,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
-public class PacketHandler {
+public class EAPacketHandler {
 
     private static final SimpleChannel INSTANCE = NetworkRegistry.ChannelBuilder.named(
             ResourceLocation.fromNamespaceAndPath(ElementalArsenal.MODID, "main"))

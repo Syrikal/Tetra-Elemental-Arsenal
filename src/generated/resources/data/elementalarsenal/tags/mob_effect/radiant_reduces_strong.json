@@ -2,6 +2,8 @@
   "values" : [
     "minecraft:wither",
     "minecraft:poison",
+    "minecraft:blindness",
+    "minecraft:darkness",
     {
       "required" : false,
       "id" : "sculkhorde:sculk_infected"

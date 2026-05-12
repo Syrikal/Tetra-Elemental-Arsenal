@@ -73,7 +73,8 @@ public class PoisonUpgrade {
             if (attacker instanceof LivingEntity livingAttacker && defender.getRandom().nextFloat() < 0.5) {
                 FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {});
 //                ElementalArsenal.LOGGER.debug("Poison shield retaliation activated");
-                livingAttacker.addEffect(new MobEffectInstance(MobEffects.POISON, 100, 1));
+                int ticks = defender.getRandom().nextInt(50, 101);
+                livingAttacker.addEffect(new MobEffectInstance(MobEffects.POISON, ticks, 1));
                 SendMessageUtil.triggered(UpgradeType.POISON, event.getEntity());
             }
         }

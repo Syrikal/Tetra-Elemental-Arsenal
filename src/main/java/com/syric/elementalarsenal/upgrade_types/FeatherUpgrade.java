@@ -3,7 +3,7 @@ package com.syric.elementalarsenal.upgrade_types;
 import com.syric.elementalarsenal.ElementalArsenal;
 import com.syric.elementalarsenal.enums.UpgradeType;
 import com.syric.elementalarsenal.network.C2SFeatherTogglePacket;
-import com.syric.elementalarsenal.network.PacketHandler;
+import com.syric.elementalarsenal.network.EAPacketHandler;
 import com.syric.elementalarsenal.util.FindShield;
 import com.syric.elementalarsenal.util.ItemIdentificationUtil;
 import net.minecraft.nbt.CompoundTag;
@@ -241,7 +241,7 @@ public class FeatherUpgrade {
                 event.setCancellationResult(InteractionResult.SUCCESS);
 //                ElementalArsenal.LOGGER.debug("toggleAbilities sending packet to server");
                 toggleActive(event.getItemStack(), event.getEntity());
-                PacketHandler.sendToServer(new C2SFeatherTogglePacket());
+                EAPacketHandler.sendToServer(new C2SFeatherTogglePacket());
         }
     }
 

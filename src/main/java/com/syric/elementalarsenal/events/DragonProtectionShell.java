@@ -1,6 +1,7 @@
 package com.syric.elementalarsenal.events;
 
 import com.syric.elementalarsenal.ElementalArsenal;
+import com.syric.elementalarsenal.compat.IFCompat;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,11 +19,12 @@ public class DragonProtectionShell {
     @SubscribeEvent
     public static void dragonscaleShieldCheck(LivingHurtEvent event) {
         if (!event.getEntity().level().isClientSide()
-                && event.getEntity() instanceof Player player
+                && event.getEntity() instanceof Player
                 && (event.getEntity().getMainHandItem().getItem() instanceof ModularShieldItem
                 || event.getEntity().getOffhandItem().getItem() instanceof  ModularShieldItem)
-                && ModList.get().isLoaded("iceandfire")) {
-            DragonProtection.dragonscaleShieldCheck(event);
+                && ModList.get().isLoaded("iceandfire")
+                && !ModList.get().isLoaded("amm")) {
+            IFCompat.dragonscaleShieldCheck(event);
         }
     }
 

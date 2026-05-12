@@ -1,6 +1,7 @@
 package com.syric.elementalarsenal.file_management;
 
 import org.apache.commons.lang3.StringUtils;
+import org.checkerframework.checker.units.qual.C;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -79,17 +80,107 @@ public class TextureManagement {
             new Color(251, 254, 254)
     };
 
+    static final Color[] witherColors = new Color[] {
+            new Color(17, 17, 17),
+            new Color(27, 27, 27),
+            new Color(52, 52, 52),
+            new Color(60, 65, 65),
+            new Color(81, 83, 83)
+    };
+
+    static final Color[] waterColors = new Color[] {
+            new Color(72, 100, 92),
+            new Color(111, 163, 152),
+            new Color(142, 196, 182),
+            new Color(178, 216, 201),
+            new Color(223, 233, 219)
+    };
+
+    static final Color[] ultimateColors = new Color[] {
+            new Color(42, 2, 0),
+            new Color(64, 5, 0),
+            new Color(112, 11, 0),
+            new Color(160, 27, 0),
+            new Color(253, 51, 5)
+    };
+
+    static final Color[] poisonColors = new Color[] {
+            new Color(0, 19, 19),
+            new Color(10, 27, 24),
+            new Color(17, 38, 32),
+            new Color(56, 68, 56),
+            new Color(70, 82, 70)
+    };
+
+    static final Color[] phantomColors = new Color[] {
+            new Color(99, 78, 66),
+            new Color(149, 141, 119),
+            new Color(169, 156, 133),
+            new Color(195, 186, 159),
+            new Color(220, 218, 190)
+    };
+
+    static final Color[] goldColors = new Color[] {
+            new Color(70, 29, 0),
+            new Color(128, 72, 0),
+            new Color(222, 154, 0),
+            new Color(235, 181, 0),
+            new Color(251, 217, 37)
+    };
+
+    static final Color[] fireColors = new Color[] {
+            new Color(97, 10, 0),
+            new Color(141, 56, 0),
+            new Color(211, 124, 0),
+            new Color(255, 155, 0),
+            new Color(255, 217, 0)
+    };
+
+    static final Color[] featherColors = new Color[] {
+            new Color(150, 150, 150),
+            new Color(190, 190, 190),
+            new Color(211, 211, 211),
+            new Color(239, 239, 239),
+            new Color(255, 255, 255)
+    };
+
+    static final Color[] enderColors = new Color[] {
+            new Color(1, 38, 32),
+            new Color(1, 57, 49),
+            new Color(3, 93, 81),
+            new Color(25, 131, 115),
+            new Color(4, 204, 176)
+    };
+
 
     public static void main(String[] args) throws IOException {
 
 //        reorganizeTextures();
-        makeNewTextures("radiant", radiantColors, true);
-        makeNewTextures("echo", echoColors, true);
-        makeNewTextures("forgotten", forgottenColors, true);
-        makeNewTextures("aetheric", aethericColors, true);
-        makeNewTextures("frost", frostColors, true);
-        makeNewTextures("arcane", arcaneColors, true);
-        makeNewTextures("lightning", lightningColors, true);
+
+//        makeNewTextures("radiant", radiantColors, true);
+//        makeNewTextures("echo", echoColors, true);
+//        makeNewTextures("forgotten", forgottenColors, true);
+//        makeNewTextures("aetheric", aethericColors, true);
+//        makeNewTextures("frost", frostColors, true);
+//        makeNewTextures("arcane", arcaneColors, true);
+//        makeNewTextures("lightning", lightningColors, true);
+        
+        makeIngotTexture("radiant", radiantColors);
+        makeIngotTexture("echo", echoColors);
+        makeIngotTexture("forgotten", forgottenColors);
+        makeIngotTexture("aetheric", aethericColors);
+        makeIngotTexture("frost", frostColors);
+        makeIngotTexture("arcane", arcaneColors);
+        makeIngotTexture("lightning", lightningColors);
+        makeIngotTexture("wither", witherColors);
+        makeIngotTexture("water", waterColors);
+        makeIngotTexture("ultimate", ultimateColors);
+        makeIngotTexture("poison", poisonColors);
+        makeIngotTexture("phantom", phantomColors);
+        makeIngotTexture("gold", goldColors);
+        makeIngotTexture("fire", fireColors);
+        makeIngotTexture("feather", featherColors);
+        makeIngotTexture("ender", enderColors);
 
     }
 
@@ -182,6 +273,43 @@ public class TextureManagement {
 
             ImageIO.write(output_image, "png", ingot_destination.toFile());
         }
+
+
+    }
+
+    private static void makeIngotTexture(String upgrade_type, Color[] colors) throws IOException {
+
+        Path destination_folder = Path.of(destinationFolder, upgrade_type);
+        if (!destination_folder.toFile().exists()) {
+            destination_folder.toFile().mkdirs();
+        }
+
+        if (colors.length != 5) {
+            throw new IllegalArgumentException("makeNewTextures requires 5 colors");
+        }
+        Map<Color, Color> colorMap = new HashMap<>();
+        colorMap.put(new Color(29, 1, 8), colors[0]);
+        colorMap.put(new Color(41, 8, 16), colors[1]);
+        colorMap.put(new Color(72, 10, 25), colors[2]);
+        colorMap.put(new Color(100, 26, 44), colors[3]);
+        colorMap.put(new Color(111, 33, 52), new Color(
+                (int) (0.45 * colors[3].getRed() + 0.55 * colors[4].getRed()),
+                (int) (0.45 * colors[3].getGreen() + 0.55 * colors[4].getGreen()),
+                (int) (0.45 * colors[3].getBlue() + 0.55 * colors[4].getBlue())));
+        colorMap.put(new Color(117, 37, 57), colors[4]);
+
+        Path ingot_destination = Path.of(ingotDestinationFolder, upgrade_type + "_imbued_netherite_ingot.png");
+        BufferedImage original_image = ImageIO.read(Path.of(corruptIngotTexture).toFile());
+        BufferedImage output_image = new BufferedImage(original_image.getWidth(), original_image.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        for (int x = 0; x < original_image.getWidth(); x++) {
+            for (int y = 0; y < original_image.getHeight(); y++) {
+                Color original_color = new Color(original_image.getRGB(x, y), true);
+                Color output_color = colorMap.getOrDefault(original_color, original_color);
+                output_image.setRGB(x, y, output_color.getRGB());
+            }
+        }
+
+        ImageIO.write(output_image, "png", ingot_destination.toFile());
 
 
     }

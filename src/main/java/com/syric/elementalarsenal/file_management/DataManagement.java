@@ -14,18 +14,18 @@ public class DataManagement {
 
     public static void main(String[] args) {
 
-        for (ModuleType type : ModuleType.values()) {
-            writeModulesFile(type);
-        }
+//        for (ModuleType type : ModuleType.values()) {
+//            writeModulesFile(type);
+//        }
 
 //        writeAestheticImprovementFile(ModuleType.ADZE, UpgradeType.CORRUPT);
         writeAllImprovementFiles();
 
-        writeAllSchematics();
+//        writeAllSchematics();
 
 //        printAllImprovements();
 
-        writeAllModelFiles();
+//        writeAllModelFiles();
 
     }
 
@@ -33,11 +33,11 @@ public class DataManagement {
         for (UpgradeType upgradeType : UpgradeType.values()) {
 
             String[] suffixes = new String[] {
-//                    "both",
-//                    "tool",
-//                    "weapon",
-//                    "bow",
-//                    "shield",
+                    "both",
+                    "tool",
+                    "weapon",
+                    "bow",
+                    "shield",
                     "aesthetic"
             };
 
@@ -189,8 +189,10 @@ public class DataManagement {
 
         if (upgradeType == UpgradeType.PHANTOM) {
             ObjectNode attribute_node = mapper.createObjectNode();
-            attribute_node.put("generic.block_interaction_range", 1.5);
-            attribute_node.put("generic.entity_interaction_range", 1.5);
+            attribute_node.put("forge:reach_distance", 1.5);
+            attribute_node.put("forge:attack_range", 1.5);
+//            attribute_node.put("generic.block_interaction_range", 1.5);
+//            attribute_node.put("generic.entity_interaction_range", 1.5);
             main_node.set("attributes", attribute_node);
         }
 

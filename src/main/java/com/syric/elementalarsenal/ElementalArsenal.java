@@ -1,7 +1,7 @@
 package com.syric.elementalarsenal;
 
 import com.syric.elementalarsenal.events.AddArrowTags;
-import com.syric.elementalarsenal.events.DragonProtection;
+import com.syric.elementalarsenal.compat.IFCompat;
 import com.syric.elementalarsenal.registry.EAItems;
 import com.syric.elementalarsenal.registry.EALootModifiers;
 import com.syric.elementalarsenal.registry.EAMobEffects;
@@ -12,7 +12,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,7 +31,6 @@ public class ElementalArsenal {
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new Effects());
-//        MinecraftForge.EVENT_BUS.register(new SetEnderTags());
 
         MinecraftForge.EVENT_BUS.register(new AddArrowTags());
 
@@ -47,7 +45,7 @@ public class ElementalArsenal {
     private void doClientStuff(final FMLClientSetupEvent event) {
 
         if (ModList.get().isLoaded("iceandfire") && !ModList.get().isLoaded("amm")) {
-            DragonProtection.addBars(event);
+            IFCompat.addBars(event);
         }
 
     }

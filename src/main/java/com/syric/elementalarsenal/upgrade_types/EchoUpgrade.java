@@ -24,6 +24,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import se.mickelus.tetra.items.modular.ModularItem;
 
+import java.util.Objects;
+
 @Mod.EventBusSubscriber(
         modid = ElementalArsenal.MODID,
         bus = Mod.EventBusSubscriber.Bus.FORGE
@@ -104,8 +106,10 @@ public class EchoUpgrade {
 //            ElementalArsenal.LOGGER.debug("Final speed: " + event.getNewSpeed());
             }
 
-            event.getEntity().getMainHandItem().getOrCreateTag().putBoolean("EchoUpgradeMuffled", true);
+            event.getEntity().getMainHandItem().getOrCreateTag().putBoolean("EchoUpgradeMuffledMiner", true);
 
+        } else if (event.getEntity().getMainHandItem().getItem() instanceof ModularItem && event.getEntity().getMainHandItem().hasTag()) {
+            Objects.requireNonNull(event.getEntity().getMainHandItem().getTag()).remove("EchoUpgradeMuffledMiner");
         }
     }
 
@@ -123,7 +127,7 @@ public class EchoUpgrade {
     @SubscribeEvent
     public static void dropItem(ItemTossEvent event) {
         if (ItemIdentificationUtil.isUpgradedItem(event.getEntity().getItem(), UpgradeType.ECHO)) {
-            event.getEntity().getItem().getOrCreateTag().putBoolean("EchoUpgradeMuffled", true);
+            event.getEntity().addTag("EchoUpgradeMuffled");
         }
     }
 

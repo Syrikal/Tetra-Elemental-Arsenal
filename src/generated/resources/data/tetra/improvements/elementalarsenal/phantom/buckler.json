@@ -15,7 +15,7 @@
     "type" : "tetra:plate/buckler"
   } ],
   "attributes" : {
-    "generic.block_interaction_range" : 1.5,
-    "generic.entity_interaction_range" : 1.5
+    "forge:reach_distance" : 1.5,
+    "forge:attack_range" : 1.5
   }
 } ]

@@ -1,6 +1,7 @@
 package com.syric.elementalarsenal.upgrade_types;
 
 import com.syric.elementalarsenal.ElementalArsenal;
+import com.syric.elementalarsenal.compat.ISSCompat;
 import com.syric.elementalarsenal.enums.UpgradeType;
 import com.syric.elementalarsenal.registry.EATags;
 import com.syric.elementalarsenal.util.FindShield;
@@ -8,6 +9,7 @@ import com.syric.elementalarsenal.util.ItemIdentificationUtil;
 import com.syric.elementalarsenal.util.SendMessageUtil;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -22,9 +24,12 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.storage.ServerLevelData;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.ITagManager;
@@ -72,9 +77,7 @@ public class RadiantUpgrade {
                         boost = 0.08F;
                     }
 
-                    if (smite) {
-                        boost *= 2;
-                    }
+                    if (smite) boost *= 2;
 
                     SendMessageUtil.triggered(UpgradeType.RADIANT, event.getSource().getEntity());
                     event.setAmount(event.getAmount() * (1 + boost));
@@ -182,8 +185,10 @@ public class RadiantUpgrade {
 
             if (raining || thundering) {
 
+                SoundEvent clearSound = ModList.get().isLoaded("irons_spellbooks") ? ISSCompat.getClearSound() : SoundEvents.AMETHYST_BLOCK_CHIME;
+
                 for (int i = 0; i < 20; i++) {
-                    arrow.level().playSound(null, arrow.getOwner().getX(), arrow.getOwner().getY(), arrow.getOwner().getZ(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.WEATHER, 15.0F, 1.0F);
+                    arrow.level().playSound(null, arrow.getOwner().getX(), arrow.getOwner().getY(), arrow.getOwner().getZ(), clearSound, SoundSource.WEATHER, 15.0F, 1.0F);
                 }
 
                 arrow.kill();
@@ -228,6 +233,58 @@ public class RadiantUpgrade {
                 SendMessageUtil.triggered(UpgradeType.RADIANT, defender);
             }
         }
+    }
+
+    //When a player ticks, reduce all their effects by an additional tick
+    @SubscribeEvent
+    public static void shieldEffects(TickEvent.PlayerTickEvent event) {
+        List<MobEffectInstance> newEffects = new ArrayList<>();
+        List<MobEffectInstance> effectsForRemoval = new ArrayList<>();
+        ITagManager<MobEffect> tagManager = ForgeRegistries.MOB_EFFECTS.tags();
+        if (tagManager != null
+                && !event.player.level().isClientSide()
+                && !event.player.getActiveEffects().isEmpty()
+                && FindShield.getModularShield(event.player) != null
+                && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.player), UpgradeType.RADIANT)) {
+
+            event.player.getActiveEffects().stream()
+                    .filter(o -> isStronglyReduced(o.getEffect(), tagManager) || isWeaklyReduced(o.getEffect(), tagManager))
+                    .forEach(o -> {
+                        if (isStronglyReduced(o.getEffect(), tagManager)) {
+                            newEffects.add(new MobEffectInstance(
+                                    o.getEffect(),
+                                    o.getDuration() - 1,
+                                    o.getAmplifier(),
+                                    o.isAmbient(),
+                                    o.isVisible(),
+                                    o.showIcon()));
+                            effectsForRemoval.add(o);
+                        } else if (isWeaklyReduced(o.getEffect(), tagManager)) {
+                            newEffects.add(new MobEffectInstance(
+                                    o.getEffect(),
+                                    o.getDuration() - ((event.player.tickCount % 2 == 0) ? 1 : 0),
+                                    o.getAmplifier(),
+                                    o.isAmbient(),
+                                    o.isVisible(),
+                                    o.showIcon()));
+                            effectsForRemoval.add(o);
+                        }
+                    });
+
+            effectsForRemoval.forEach(x -> event.player.removeEffectNoUpdate(x.getEffect()));
+            newEffects.forEach(event.player::addEffect);
+
+        }
+
+    }
+
+    private static boolean isStronglyReduced(MobEffect effect, ITagManager<MobEffect> tagManager) {
+        return tagManager.getReverseTag(effect).isPresent() &&
+                tagManager.getReverseTag(effect).get().containsTag(EATags.MobEffects.RADIANT_REDUCES_STRONG);
+    }
+    private static boolean isWeaklyReduced(MobEffect effect, ITagManager<MobEffect> tagManager) {
+        return tagManager.getReverseTag(effect).isPresent() &&
+                tagManager.getReverseTag(effect).get().containsTag(EATags.MobEffects.RADIANT_REDUCES);
     }
 
 }

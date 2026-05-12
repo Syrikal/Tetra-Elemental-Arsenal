@@ -1,4 +1,4 @@
-package com.syric.elementalarsenal.events;
+package com.syric.elementalarsenal.compat;
 
 import com.github.alexthe666.iceandfire.entity.DragonType;
 import com.github.alexthe666.iceandfire.misc.IafDamageRegistry;
@@ -21,8 +21,7 @@ import se.mickelus.tetra.gui.stats.getter.TooltipGetterPercentage;
 import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 
-public class DragonProtection {
-
+public class IFCompat {
 
     //Reduces dragon damage
     public static void dragonscaleShieldCheck(LivingHurtEvent event) {
