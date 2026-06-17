@@ -11,26 +11,32 @@
   "models" : [ {
     "renderLayer" : "higher",
     "emission" : 12,
-    "location" : "tetra:item/module/elementalarsenal/ender/basic_stock"
+    "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "undrawn"
   }, {
     "renderLayer" : "higher",
     "emission" : 12,
     "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
-    "type" : "draw_0"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_0"
   }, {
     "renderLayer" : "higher",
     "emission" : 12,
     "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
-    "type" : "draw_1"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_1"
   }, {
     "renderLayer" : "higher",
     "emission" : 12,
     "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
-    "type" : "draw_2"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_2"
   }, {
     "renderLayer" : "higher",
     "emission" : 12,
     "location" : "tetra:item/module/elementalarsenal/ender/basic_stock",
-    "type" : "loaded"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "loaded"
   } ]
 } ]

@@ -42,7 +42,7 @@ import se.mickelus.tetra.items.modular.impl.ModularBladedItem;
 import se.mickelus.tetra.items.modular.impl.ModularDoubleHeadedItem;
 import se.mickelus.tetra.items.modular.impl.ModularSingleHeadedItem;
 import se.mickelus.tetra.items.modular.impl.bow.ModularBowItem;
-import se.mickelus.tetra.items.modular.impl.crossbow.ModularCrossbowItem;
+import se.mickelus.tetra.items.modular.impl.crossbow.AbstractModularCrossbowItem;
 import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 
 import java.util.Objects;
@@ -235,7 +235,7 @@ public class FeatherUpgrade {
                 && event.getItemStack().getItem() instanceof ModularItem
                 && (event.getItemStack().getItem() instanceof ModularBowItem
                     || event.getItemStack().getItem() instanceof ModularShieldItem
-                    || event.getItemStack().getItem() instanceof ModularCrossbowItem)
+                    || event.getItemStack().getItem() instanceof AbstractModularCrossbowItem)
                 && ItemIdentificationUtil.isUpgradedItem(event.getItemStack(), UpgradeType.FEATHER)) {
 
                 event.setCancellationResult(InteractionResult.SUCCESS);

@@ -7,7 +7,8 @@
   "models" : [ {
     "renderLayer" : "higher",
     "emission" : 6,
-    "location" : "tetra:item/module/elementalarsenal/feather/heater",
-    "type" : "tetra:plate/heater"
+    "texture" : "tetra:item/module/elementalarsenal/feather/heater",
+    "type" : "tetra:shield",
+    "model" : "tetra:plate/heater"
   } ]
 } ]

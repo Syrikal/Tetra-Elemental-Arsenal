@@ -7,7 +7,8 @@
   "models" : [ {
     "renderLayer" : "higher",
     "emission" : 6,
-    "location" : "tetra:item/module/elementalarsenal/phantom/tower",
-    "type" : "tetra:plate/tower"
+    "texture" : "tetra:item/module/elementalarsenal/phantom/tower",
+    "type" : "tetra:shield",
+    "model" : "tetra:plate/tower"
   } ]
 } ]

@@ -7,7 +7,8 @@
   "models" : [ {
     "renderLayer" : "higher",
     "emission" : 6,
-    "location" : "tetra:item/module/elementalarsenal/corrupt/buckler",
-    "type" : "tetra:plate/buckler"
+    "texture" : "tetra:item/module/elementalarsenal/corrupt/buckler",
+    "type" : "tetra:shield",
+    "model" : "tetra:plate/buckler"
   } ]
 } ]

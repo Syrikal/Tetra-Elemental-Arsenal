@@ -11,21 +11,26 @@
   "models" : [ {
     "renderLayer" : "high",
     "emission" : 8,
-    "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave"
+    "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave",
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "undrawn"
   }, {
     "renderLayer" : "high",
     "emission" : 8,
     "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave_0",
-    "type" : "draw_0"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_0"
   }, {
     "renderLayer" : "high",
     "emission" : 8,
     "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave_1",
-    "type" : "draw_1"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_1"
   }, {
     "renderLayer" : "high",
     "emission" : 8,
     "location" : "tetra:item/module/elementalarsenal/lightning/straight_stave_2",
-    "type" : "draw_2"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_2"
   } ]
 } ]

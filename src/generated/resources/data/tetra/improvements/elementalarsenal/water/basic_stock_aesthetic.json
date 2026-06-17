@@ -7,26 +7,32 @@
   "models" : [ {
     "renderLayer" : "highest",
     "emission" : 8,
-    "location" : "tetra:item/module/elementalarsenal/water/basic_stock"
+    "location" : "tetra:item/module/elementalarsenal/water/basic_stock",
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "undrawn"
   }, {
     "renderLayer" : "highest",
     "emission" : 8,
     "location" : "tetra:item/module/elementalarsenal/water/basic_stock",
-    "type" : "draw_0"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_0"
   }, {
     "renderLayer" : "highest",
     "emission" : 8,
     "location" : "tetra:item/module/elementalarsenal/water/basic_stock",
-    "type" : "draw_1"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_1"
   }, {
     "renderLayer" : "highest",
     "emission" : 8,
     "location" : "tetra:item/module/elementalarsenal/water/basic_stock",
-    "type" : "draw_2"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "draw_2"
   }, {
     "renderLayer" : "highest",
     "emission" : 8,
     "location" : "tetra:item/module/elementalarsenal/water/basic_stock",
-    "type" : "loaded"
+    "type" : "tetra:filtered_grid_texture",
+    "filter" : "loaded"
   } ]
 } ]

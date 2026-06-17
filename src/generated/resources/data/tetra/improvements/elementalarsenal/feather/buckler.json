@@ -11,7 +11,8 @@
   "models" : [ {
     "renderLayer" : "high",
     "emission" : 6,
-    "location" : "tetra:item/module/elementalarsenal/feather/buckler",
-    "type" : "tetra:plate/buckler"
+    "texture" : "tetra:item/module/elementalarsenal/feather/buckler",
+    "type" : "tetra:shield",
+    "model" : "tetra:plate/buckler"
   } ]
 } ]

@@ -11,7 +11,8 @@
   "models" : [ {
     "renderLayer" : "high",
     "emission" : 16,
-    "location" : "tetra:item/module/elementalarsenal/radiant/tower",
-    "type" : "tetra:plate/tower"
+    "texture" : "tetra:item/module/elementalarsenal/radiant/tower",
+    "type" : "tetra:shield",
+    "model" : "tetra:plate/tower"
   } ]
 } ]

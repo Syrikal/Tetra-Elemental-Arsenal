@@ -10,7 +10,7 @@ import se.mickelus.tetra.items.modular.impl.ModularBladedItem;
 import se.mickelus.tetra.items.modular.impl.ModularDoubleHeadedItem;
 import se.mickelus.tetra.items.modular.impl.ModularSingleHeadedItem;
 import se.mickelus.tetra.items.modular.impl.bow.ModularBowItem;
-import se.mickelus.tetra.items.modular.impl.crossbow.ModularCrossbowItem;
+import se.mickelus.tetra.items.modular.impl.crossbow.AbstractModularCrossbowItem;
 import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 import se.mickelus.tetra.module.data.EffectData;
 
@@ -92,7 +92,7 @@ public class ItemIdentificationUtil {
     }
 
     public static boolean isUpgradedRangedWeapon(ItemStack itemStack, UpgradeType upgradeType) {
-        if (itemStack.getItem() instanceof ModularBowItem || itemStack.getItem() instanceof ModularCrossbowItem) {
+        if (itemStack.getItem() instanceof ModularBowItem || itemStack.getItem() instanceof AbstractModularCrossbowItem) {
             ModularItem modularItem = (ModularItem) itemStack.getItem();
             EffectData effectData = modularItem.getEffectData(itemStack);
             List<ItemEffect> validEffects = Arrays.asList(upgradeType.base, Effects.ultimate);

@@ -12,8 +12,9 @@
   "models" : [ {
     "renderLayer" : "high",
     "emission" : 8,
-    "location" : "tetra:item/module/elementalarsenal/aetheric/buckler",
-    "type" : "tetra:plate/buckler"
+    "texture" : "tetra:item/module/elementalarsenal/aetheric/buckler",
+    "type" : "tetra:shield",
+    "model" : "tetra:plate/buckler"
   } ],
   "conditions" : [ {
     "type" : "forge:or",

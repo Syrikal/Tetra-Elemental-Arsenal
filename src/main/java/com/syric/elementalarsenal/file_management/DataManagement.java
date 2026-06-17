@@ -244,27 +244,27 @@ public class DataManagement {
         }
 
         if (moduleType == ModuleType.LONG_STAVE || moduleType == ModuleType.STRAIGHT_STAVE) {
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, ""));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_0").put("type", "draw_0"));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_1").put("type", "draw_1"));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_2").put("type", "draw_2"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:filtered_grid_texture").put("filter", "undrawn"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_0").put("type", "tetra:filtered_grid_texture").put("filter", "draw_0"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_1").put("type", "tetra:filtered_grid_texture").put("filter", "draw_1"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_2").put("type", "tetra:filtered_grid_texture").put("filter", "draw_2"));
         } else if (moduleType == ModuleType.RECURVE_STAVE) {
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, ""));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "draw_0"));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_1").put("type", "draw_1"));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_1").put("type", "draw_2"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:filtered_grid_texture").put("filter", "undrawn"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:filtered_grid_texture").put("filter", "draw_0"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_1").put("type", "tetra:filtered_grid_texture").put("filter", "draw_1"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "_1").put("type", "tetra:filtered_grid_texture").put("filter", "draw_2"));
         } else if (moduleType == ModuleType.BASIC_STOCK) {
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, ""));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "draw_0"));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "draw_1"));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "draw_2"));
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "loaded"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:filtered_grid_texture").put("filter", "undrawn"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:filtered_grid_texture").put("filter", "draw_0"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:filtered_grid_texture").put("filter", "draw_1"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:filtered_grid_texture").put("filter", "draw_2"));
+            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:filtered_grid_texture").put("filter", "loaded"));
         } else if (moduleType == ModuleType.TOWER) {
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:plate/tower"));
+            outer_array.add(shieldNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:shield").put("model", "tetra:plate/tower"));
         } else if (moduleType == ModuleType.HEATER) {
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:plate/heater"));
+            outer_array.add(shieldNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:shield").put("model", "tetra:plate/heater"));
         } else if (moduleType == ModuleType.BUCKLER) {
-            outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:plate/buckler"));
+            outer_array.add(shieldNode(mapper, layer, upgradeType, moduleType, "").put("type", "tetra:shield").put("model", "tetra:plate/buckler"));
         } else {
             outer_array.add(modelNode(mapper, layer, upgradeType, moduleType, ""));
         }
@@ -276,6 +276,11 @@ public class DataManagement {
     private static ObjectNode modelNode(ObjectMapper mapper, String layer, UpgradeType upgradeType, ModuleType moduleType, String suffix) {
         return mapper.createObjectNode().put("renderLayer", layer).put("emission", getEmissionFromType(upgradeType))
                 .put("location", "tetra:item/module/elementalarsenal/" + upgradeType.name + "/" + moduleType.id + suffix);
+    }
+
+    private static ObjectNode shieldNode(ObjectMapper mapper, String layer, UpgradeType upgradeType, ModuleType moduleType, String suffix) {
+        return mapper.createObjectNode().put("renderLayer", layer).put("emission", getEmissionFromType(upgradeType))
+                .put("texture", "tetra:item/module/elementalarsenal/" + upgradeType.name + "/" + moduleType.id + suffix);
     }
 
     private static int getEmissionFromType(UpgradeType upgradeType) {

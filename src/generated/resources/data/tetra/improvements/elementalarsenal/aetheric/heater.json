@@ -12,8 +12,9 @@
   "models" : [ {
     "renderLayer" : "high",
     "emission" : 8,
-    "location" : "tetra:item/module/elementalarsenal/aetheric/heater",
-    "type" : "tetra:plate/heater"
+    "texture" : "tetra:item/module/elementalarsenal/aetheric/heater",
+    "type" : "tetra:shield",
+    "model" : "tetra:plate/heater"
   } ],
   "conditions" : [ {
     "type" : "forge:or",
