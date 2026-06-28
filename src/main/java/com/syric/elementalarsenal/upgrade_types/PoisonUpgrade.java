@@ -40,7 +40,7 @@ public class PoisonUpgrade {
                 if (event.getEntity().hasEffect(MobEffects.POISON)) {
 //                    ElementalArsenal.LOGGER.debug("Target is poisoned, increased damage");
                     SendMessageUtil.triggered(UpgradeType.POISON, event.getSource().getEntity());
-                    event.setAmount(event.getAmount() * 1.2F);
+                    event.setAmount(event.getAmount() * 1.15F);
                 } else {
 //                    ElementalArsenal.LOGGER.debug("Target is not poisoned, applied effect");
                     event.getEntity().addEffect(new MobEffectInstance(MobEffects.POISON, 100, 1));
@@ -53,7 +53,7 @@ public class PoisonUpgrade {
                 if (event.getEntity().hasEffect(MobEffects.POISON)) {
 //                    ElementalArsenal.LOGGER.debug("Target is poisoned, increased damage");
                     SendMessageUtil.triggered(UpgradeType.POISON, event.getSource().getEntity());
-                    event.setAmount(event.getAmount() * 1.2F);
+                    event.setAmount(event.getAmount() * 1.15F);
                 } else {
 //                    ElementalArsenal.LOGGER.debug("Target is not poisoned, applied effect");
                     event.getEntity().addEffect(new MobEffectInstance(MobEffects.POISON, 100, 1));

@@ -40,7 +40,7 @@ public class WitherUpgrade {
                 if (event.getEntity().hasEffect(MobEffects.WITHER)) {
 //                    ElementalArsenal.LOGGER.debug("Target is withering, increased damage");
                     SendMessageUtil.triggered(UpgradeType.WITHER, event.getSource().getEntity());
-                    event.setAmount(event.getAmount() * 1.2F);
+                    event.setAmount(event.getAmount() * 1.15F);
                 } else {
 //                    ElementalArsenal.LOGGER.debug("Target is not withering, applied effect");
                     event.getEntity().addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1));
@@ -53,7 +53,7 @@ public class WitherUpgrade {
                 if (event.getEntity().hasEffect(MobEffects.WITHER)) {
 //                    ElementalArsenal.LOGGER.debug("Target is withering, increased damage");
                     SendMessageUtil.triggered(UpgradeType.WITHER, event.getSource().getEntity());
-                    event.setAmount(event.getAmount() * 1.2F);
+                    event.setAmount(event.getAmount() * 1.15F);
                 } else {
 //                    ElementalArsenal.LOGGER.debug("Target is not withering, applied effect");
                     event.getEntity().addEffect(new MobEffectInstance(MobEffects.WITHER, 100, 1));

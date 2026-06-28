@@ -1,5 +1,6 @@
 package com.syric.elementalarsenal;
 
+import com.syric.elementalarsenal.compat.IFCompatClient;
 import com.syric.elementalarsenal.events.AddArrowTags;
 import com.syric.elementalarsenal.compat.IFCompat;
 import com.syric.elementalarsenal.registry.EAItems;
@@ -45,7 +46,7 @@ public class ElementalArsenal {
     private void doClientStuff(final FMLClientSetupEvent event) {
 
         if (ModList.get().isLoaded("iceandfire") && !ModList.get().isLoaded("amm")) {
-            IFCompat.addBars(event);
+            IFCompatClient.addBars(event);
         }
 
     }
