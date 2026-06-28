@@ -127,9 +127,9 @@ dependencies {
     implementation fg.deobf("curse.maven:mutil-351914:7772906")
 
     //Target Dummy and Damage Numbers for testing
-    implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:6860192")
-    implementation fg.deobf("curse.maven:selene-499980:7191950")
-    implementation fg.deobf("curse.maven:retro-damage-indicators-1003431:5268035")
+    runtimeOnly fg.deobf("curse.maven:mmmmmmmmmmmm-225738:6860192")
+    runtimeOnly fg.deobf("curse.maven:selene-499980:7191950")
+    runtimeOnly fg.deobf("curse.maven:retro-damage-indicators-1003431:5268035")
 
 //    //Upgraded Netherite
     compileOnly fg.deobf("curse.maven:upgraded-netherite-400085:3973166")
@@ -137,12 +137,12 @@ dependencies {
     compileOnly fg.deobf("curse.maven:upgraded-core-566700:3969615")
 
     //Aether
-    implementation fg.deobf("maven.modrinth:aether:1.20.1-1.5.2-neoforge")
-    implementation fg.deobf("maven.modrinth:terrablender:3.0.1.10")
-    implementation fg.deobf("maven.modrinth:the-aether-redux:2.0.19-1.20.1")
-    implementation fg.deobf("maven.modrinth:ancient-aether:0.9.10")
-    implementation fg.deobf("maven.modrinth:deep-aether:1.20.1-1.1.7")
-    implementation fg.deobf("curse.maven:aetheric-tetranomicon-966902:8268320")
+    runtimeOnly fg.deobf("maven.modrinth:aether:1.20.1-1.5.2-neoforge")
+    runtimeOnly fg.deobf("maven.modrinth:terrablender:3.0.1.10")
+    runtimeOnly fg.deobf("maven.modrinth:the-aether-redux:2.0.19-1.20.1")
+    runtimeOnly fg.deobf("maven.modrinth:ancient-aether:0.9.10")
+    runtimeOnly fg.deobf("maven.modrinth:deep-aether:1.20.1-1.1.7")
+    runtimeOnly fg.deobf("curse.maven:aetheric-tetranomicon-966902:8268320")
 
 //    //BetterEnd/Fabric
 //    implementation fg.deobf("maven.modrinth:betterend:4.0.11")
@@ -152,20 +152,24 @@ dependencies {
 //    implementation fg.deobf("maven.modrinth:connector:1.0.0-beta.47+1.20.1")
 
     //Other
-    implementation fg.deobf("maven.modrinth:the-undergarden:0.8.14")
-    implementation fg.deobf("maven.modrinth:deeperdarker:1.3.3-forge+1.20.1")
-    implementation fg.deobf("curse.maven:undergarden-tetra-patch-433071:6099871")
-    implementation fg.deobf("maven.modrinth:sculk-horde:1.20.1-0.11.6")
-    implementation fg.deobf("maven.modrinth:fungal-infectionspore:MIMc2eYd")
-    implementation fg.deobf("maven.modrinth:geckolib:HVdLnQMI")
-    implementation fg.deobf("curse.maven:mofus-broken-constellation-1106143:6377645")
-    implementation fg.deobf("maven.modrinth:alexs-mobs:1.22.9")
-    implementation fg.deobf("maven.modrinth:citadel:2.6.2")
+    runtimeOnly fg.deobf("maven.modrinth:the-undergarden:0.8.14")
+    runtimeOnly fg.deobf("maven.modrinth:deeperdarker:1.3.3-forge+1.20.1")
+    runtimeOnly fg.deobf("curse.maven:undergarden-tetra-patch-433071:6099871")
+    runtimeOnly fg.deobf("maven.modrinth:sculk-horde:1.20.1-0.11.6")
+    runtimeOnly fg.deobf("maven.modrinth:fungal-infectionspore:MIMc2eYd")
+    runtimeOnly fg.deobf("maven.modrinth:geckolib:HVdLnQMI")
+    runtimeOnly fg.deobf("curse.maven:mofus-broken-constellation-1106143:6377645")
+    runtimeOnly fg.deobf("maven.modrinth:alexs-mobs:1.22.9")
+    runtimeOnly fg.deobf("maven.modrinth:citadel:2.6.2")
     implementation fg.deobf("maven.modrinth:irons-spells-n-spellbooks:1.20.1-3.15.2")
-    implementation fg.deobf("maven.modrinth:curios:5.14.1+1.20.1")
-    implementation fg.deobf("maven.modrinth:playeranimator:1.0.2-rc1+1.20-forge")
-    implementation fg.deobf("maven.modrinth:alexs-caves:2.0.2")
+    runtimeOnly fg.deobf("maven.modrinth:curios:5.14.1+1.20.1")
+    runtimeOnly fg.deobf("maven.modrinth:playeranimator:1.0.2-rc1+1.20-forge")
+    runtimeOnly fg.deobf("maven.modrinth:alexs-caves:2.0.2")
     implementation fg.deobf("maven.modrinth:ice-and-fire-dragons:2.1.13-1.20.1-beta-5")
+
+
+    runtimeOnly fg.deobf("maven.modrinth:quark:1.20.1-4.0-462")
+    runtimeOnly fg.deobf("maven.modrinth:zeta:1.20.1-1.0-31")
 
     //JEI
     implementation fg.deobf("curse.maven:jei-238222:4712868")

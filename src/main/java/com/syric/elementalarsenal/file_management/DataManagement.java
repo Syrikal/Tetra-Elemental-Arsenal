@@ -89,9 +89,7 @@ public class DataManagement {
     private static void writeAllImprovementFiles() {
         for (UpgradeType upgradeType : UpgradeType.values()) {
             for (ModuleType moduleType : ModuleType.values()) {
-                if (moduleType != ModuleType.BUTT) {
-                    writeImprovementFile(moduleType, upgradeType);
-                }
+                writeImprovementFile(moduleType, upgradeType);
                 writeAestheticImprovementFile(moduleType, upgradeType);
 //                if (moduleType.category == ModularItemCategory.DOUBLE) {
 //                    writeAestheticImprovementFile(moduleType, upgradeType);
@@ -154,14 +152,8 @@ public class DataManagement {
             effectsNode.put("aetheric_tetranomicon:aetheric", 1);
             main_node.set("conditions",
                     mapper.createArrayNode().add(mapper.createObjectNode()
-                        .put("type", "forge:or")
-                            .set("values", mapper.createArrayNode()
-                                    .add(mapper.createObjectNode()
-                                            .put("type", "forge:mod_loaded")
-                                            .put("modid", "aether_treasure_reforging"))
-                                    .add(mapper.createObjectNode()
-                                            .put("type", "forge:mod_loaded")
-                                            .put("modid", "aetheric_tetranomicon"))))
+                            .put("type", "forge:mod_loaded")
+                            .put("modid", "aetheric_tetranomicon"))
             );
         }
 

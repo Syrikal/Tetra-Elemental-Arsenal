@@ -1,0 +1,20 @@
+[ {
+  "key" : "elementalarsenal/phantom",
+  "integrity" : -1,
+  "group" : "elemental_runes",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "effects" : {
+    "elementalarsenal:phantom" : 1
+  },
+  "models" : [ {
+    "renderLayer" : "high",
+    "emission" : 6,
+    "location" : "tetra:item/module/elementalarsenal/phantom/butt"
+  } ],
+  "attributes" : {
+    "forge:reach_distance" : 1.5,
+    "forge:attack_range" : 1.5
+  }
+} ]

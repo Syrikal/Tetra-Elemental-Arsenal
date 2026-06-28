@@ -1,21 +1,20 @@
 [ {
-  "key" : "elementalarsenal/aetheric_tool",
+  "key" : "elementalarsenal/forgotten",
   "integrity" : -1,
   "group" : "elemental_runes",
   "aspects" : {
     "elemental_upgraded" : 1
   },
   "effects" : {
-    "elementalarsenal:aetheric_tool" : 1,
-    "aetheric_tetranomicon:aetheric" : 1
+    "elementalarsenal:forgotten" : 1
   },
   "models" : [ {
     "renderLayer" : "high",
     "emission" : 8,
-    "location" : "tetra:item/module/elementalarsenal/aetheric/basic_shovel"
+    "location" : "tetra:item/module/elementalarsenal/forgotten/butt"
   } ],
   "conditions" : [ {
     "type" : "forge:mod_loaded",
-    "modid" : "aetheric_tetranomicon"
+    "modid" : "undergardenpatch"
   } ]
 } ]

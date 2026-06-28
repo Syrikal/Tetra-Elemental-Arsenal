@@ -146,6 +146,7 @@ public class FrostUpgrade {
         }
     }
 
+    //TODO allow using Spore's new mob effect
     private static int getFreezeDuration(Entity target, float multiplier) {
         int existing = target.getTicksFrozen();
 

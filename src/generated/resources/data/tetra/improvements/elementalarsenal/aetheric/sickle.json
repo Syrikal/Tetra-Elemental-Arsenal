@@ -15,13 +15,7 @@
     "location" : "tetra:item/module/elementalarsenal/aetheric/sickle"
   } ],
   "conditions" : [ {
-    "type" : "forge:or",
-    "values" : [ {
-      "type" : "forge:mod_loaded",
-      "modid" : "aether_treasure_reforging"
-    }, {
-      "type" : "forge:mod_loaded",
-      "modid" : "aetheric_tetranomicon"
-    } ]
+    "type" : "forge:mod_loaded",
+    "modid" : "aetheric_tetranomicon"
   } ]
 } ]

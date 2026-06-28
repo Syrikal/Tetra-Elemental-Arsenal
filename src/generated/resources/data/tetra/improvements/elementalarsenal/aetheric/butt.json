@@ -1,18 +1,18 @@
 [ {
-  "key" : "elementalarsenal/aetheric_tool",
+  "key" : "elementalarsenal/aetheric",
   "integrity" : -1,
   "group" : "elemental_runes",
   "aspects" : {
     "elemental_upgraded" : 1
   },
   "effects" : {
-    "elementalarsenal:aetheric_tool" : 1,
+    "elementalarsenal:aetheric" : 1,
     "aetheric_tetranomicon:aetheric" : 1
   },
   "models" : [ {
     "renderLayer" : "high",
     "emission" : 8,
-    "location" : "tetra:item/module/elementalarsenal/aetheric/basic_shovel"
+    "location" : "tetra:item/module/elementalarsenal/aetheric/butt"
   } ],
   "conditions" : [ {
     "type" : "forge:mod_loaded",
