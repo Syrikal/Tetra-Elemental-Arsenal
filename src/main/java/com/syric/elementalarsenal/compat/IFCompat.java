@@ -1,6 +1,6 @@
 package com.syric.elementalarsenal.compat;
 
-import com.github.alexthe666.iceandfire.misc.IafDamageRegistry;
+import com.iafenvoy.iceandfire.registry.IafDamageTypes;
 import com.syric.elementalarsenal.enums.TEADragonType;
 import com.syric.elementalarsenal.tetra_effects.DragonProtectionStatGetter;
 import com.syric.elementalarsenal.tetra_effects.Effects;
@@ -15,9 +15,9 @@ public class IFCompat {
 
     //Reduces dragon damage
     public static void dragonscaleShieldCheck(LivingHurtEvent event) {
-        if ((event.getSource().is(IafDamageRegistry.DRAGON_FIRE_TYPE)
-                || event.getSource().is(IafDamageRegistry.DRAGON_ICE_TYPE)
-                || event.getSource().is(IafDamageRegistry.DRAGON_LIGHTNING_TYPE))
+        if ((event.getSource().is(IafDamageTypes.DRAGON_FIRE_TYPE)
+                || event.getSource().is(IafDamageTypes.DRAGON_ICE_TYPE)
+                || event.getSource().is(IafDamageTypes.DRAGON_LIGHTNING_TYPE))
                 && event.getEntity() instanceof Player player) {
             double dragonscale_protection = 0;
 
@@ -39,11 +39,11 @@ public class IFCompat {
     private static double getProtectionLevel(Player player, ItemStack stack, DamageSource source) {
         DragonProtectionStatGetter dragonProtectionStatGetter = null;
         if (stack.getItem() instanceof ModularShieldItem) {
-            if (source.is(IafDamageRegistry.DRAGON_FIRE_TYPE)) {
+            if (source.is(IafDamageTypes.DRAGON_FIRE_TYPE)) {
                 dragonProtectionStatGetter = new DragonProtectionStatGetter(TEADragonType.FIRE, Effects.FIRE_DRAGON_PROTECTION);
-            } else if (source.is(IafDamageRegistry.DRAGON_ICE_TYPE)) {
+            } else if (source.is(IafDamageTypes.DRAGON_ICE_TYPE)) {
                 dragonProtectionStatGetter = new DragonProtectionStatGetter(TEADragonType.ICE, Effects.ICE_DRAGON_PROTECTION);
-            } else if (source.is(IafDamageRegistry.DRAGON_LIGHTNING_TYPE)) {
+            } else if (source.is(IafDamageTypes.DRAGON_LIGHTNING_TYPE)) {
                 boolean poison = false;
                 if (ModList.get().isLoaded("poison_dragons")) {
                     if (PoisonDragonCompat.isPoisonDamage(source)) poison = true;

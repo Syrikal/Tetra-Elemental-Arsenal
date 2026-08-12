@@ -165,8 +165,13 @@ dependencies {
     runtimeOnly fg.deobf("maven.modrinth:curios:5.14.1+1.20.1")
     runtimeOnly fg.deobf("maven.modrinth:playeranimator:1.0.2-rc1+1.20-forge")
     runtimeOnly fg.deobf("maven.modrinth:alexs-caves:2.0.2")
-    implementation fg.deobf("maven.modrinth:ice-and-fire-dragons:2.1.13-1.20.1-beta-5")
-    implementation fg.deobf("curse.maven:poison-dragons-ice-fire-addon-1555798:8472771")
+
+    implementation fg.deobf("maven.modrinth:iceandfire-ce:Rq1ofgUQ")
+    implementation fg.deobf("maven.modrinth:uranus:2.2.6-bugfix.2")
+    implementation fg.deobf("maven.modrinth:jupiter:2.3.7-1.20.1-forge")
+    implementation fg.deobf("maven.modrinth:architectury-api:9.2.14+forge")
+
+    implementation fg.deobf("curse.maven:poison-dragons-ice-fire-addon-1555798:8472768")
 
     implementation fg.deobf("curse.maven:to-tweaks-irons-spells-1046916:7424522")
     runtimeOnly fg.deobf("curse.maven:apothic-attributes-898963:5634071")
