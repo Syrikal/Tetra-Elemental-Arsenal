@@ -14,14 +14,14 @@ public class DataManagement {
 
     public static void main(String[] args) {
 
-//        for (ModuleType type : ModuleType.values()) {
-//            writeModulesFile(type);
-//        }
+        for (ModuleType type : ModuleType.values()) {
+            writeModulesFile(type);
+        }
 
 //        writeAestheticImprovementFile(ModuleType.ADZE, UpgradeType.CORRUPT);
         writeAllImprovementFiles();
 
-//        writeAllSchematics();
+        writeAllSchematics();
 
 //        printAllImprovements();
 
@@ -78,6 +78,14 @@ public class DataManagement {
                 improvementsArray.add("tetra:elementalarsenal/irons_spells/" + school.name + "_magic_shield");
             }
         }
+
+        //Adding 'lightning alt'
+        if (moduleType != ModuleType.BUTT && moduleType.category != ModularItemCategory.SHIELD) {
+            improvementsArray.add("tetra:elementalarsenal/irons_spells/lightning_spell_power_alt");
+        } else if (moduleType.category == ModularItemCategory.SHIELD) {
+            improvementsArray.add("tetra:elementalarsenal/irons_spells/lightning_magic_shield_alt");
+        }
+
         File file = filepath.toFile();
         DefaultPrettyPrinter prettyPrinter = new DefaultPrettyPrinter();
         prettyPrinter.indentArraysWith(DefaultIndenter.SYSTEM_LINEFEED_INSTANCE);
@@ -197,6 +205,9 @@ public class DataManagement {
                         .add(1).add(10));
             } else if (upgradeType == UpgradeType.FROST) {
                 effectsNode.set("elementalarsenal:ice_dragon_protection", mapper.createArrayNode()
+                        .add(1).add(10));
+            } else if (upgradeType == UpgradeType.POISON) {
+                effectsNode.set("elementalarsenal:poison_dragon_protection", mapper.createArrayNode()
                         .add(1).add(10));
             }
         }
@@ -386,6 +397,9 @@ public class DataManagement {
                         if (!upgradeType.spell_school.isBlank()) {
                             improvements.put("elementalarsenal/" + upgradeType.spell_school + "_spell_power", 0);
                         }
+                        if (upgradeType == UpgradeType.WATER) {
+                            improvements.put("elementalarsenal/lightning_spell_power_alt", 0);
+                        }
                     }
                     case DOUBLE -> {
                         improvements.put("elementalarsenal/" + upgradeType.name, 0);
@@ -398,11 +412,17 @@ public class DataManagement {
                         if (!upgradeType.spell_school.isBlank()) {
                             improvements.put("elementalarsenal/" + upgradeType.spell_school + "_spell_power", 0);
                         }
+                        if (upgradeType == UpgradeType.WATER) {
+                            improvements.put("elementalarsenal/lightning_spell_power_alt", 0);
+                        }
                     }
                     case SHIELD -> {
                         improvements.put("elementalarsenal/" + upgradeType.name + "_shield", 0);
                         if (!upgradeType.spell_school.isBlank()) {
                             improvements.put("elementalarsenal/" + upgradeType.spell_school + "_magic_shield", 0);
+                        }
+                        if (upgradeType == UpgradeType.WATER) {
+                            improvements.put("elementalarsenal/lightning_magic_shield_alt", 0);
                         }
                     }
                     case SINGLE, SWORD -> {
@@ -413,9 +433,14 @@ public class DataManagement {
                         if (!upgradeType.spell_school.isBlank()) {
                             improvements.put("elementalarsenal/" + upgradeType.spell_school + "_spell_power", 0);
                         }
+                        if (upgradeType == UpgradeType.WATER) {
+                            improvements.put("elementalarsenal/lightning_spell_power_alt", 0);
+                        }
                     }
                 }
             }
+
+
 
             outcomeNode.set("improvements", improvements);
             outcomesArray.add(outcomeNode);
@@ -440,11 +465,18 @@ public class DataManagement {
                 .put("key", "elementalarsenal/" + school.name + keySuffix)
                 .put("group", "spell_upgrades")
                 .set("aspects", mapper.createObjectNode()
-                        .put("elemental_upgraded", 1))
-                .set("conditions", mapper.createArrayNode().add(mapper.createObjectNode()
-                        .put("type", "forge:mod_loaded")
-                        .put("modid", "irons_spellbooks")));
+                        .put("elemental_upgraded", 1));
         outer_array.add(main_node);
+
+        ArrayNode conditions_node = mapper.createArrayNode().add(mapper.createObjectNode()
+                .put("type", "forge:mod_loaded")
+                .put("modid", "irons_spellbooks"));
+        if (school == SpellSchool.AQUA) {
+            conditions_node.add(mapper.createObjectNode()
+                    .put("type", "forge:mod_loaded")
+                    .put("modid", "traveloptics"));
+        }
+        main_node.set("conditions", conditions_node);
 
         ObjectNode attributesNode = mapper.createObjectNode();
         main_node.set("attributes", attributesNode);
@@ -458,6 +490,18 @@ public class DataManagement {
                 attributesNode.put("**irons_spellbooks:spell_resist", 0.5);
                 attributesNode.put("**irons_spellbooks:mana_regen", 0.2);
                 attributesNode.put("irons_spellbooks:max_mana", 150);
+            }
+        } else if (school == SpellSchool.AQUA) {
+            if (!shield) {
+                attributesNode.put("**traveloptics:" + school.name + keySuffix, 0.15);
+                attributesNode.put("**irons_spellbooks:spell_power", 0.05);
+                attributesNode.put("**irons_spellbooks:cooldown_reduction", 0.1);
+                attributesNode.put("**irons_spellbooks:cast_time_reduction", 0.1);
+            } else {
+                attributesNode.put("**traveloptics:" + school.name + "_magic_resist", 0.4);
+                attributesNode.put("**irons_spellbooks:spell_resist", 0.1);
+                attributesNode.put("**irons_spellbooks:mana_regen", 0.1);
+                attributesNode.put("irons_spellbooks:max_mana", 50);
             }
         } else {
             if (!shield) {

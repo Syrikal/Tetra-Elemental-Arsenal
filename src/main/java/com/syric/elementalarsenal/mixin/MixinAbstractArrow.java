@@ -22,9 +22,6 @@ public abstract class MixinAbstractArrow {
     protected boolean inGround;
 
     @Shadow
-    public int shakeTime;
-
-    @Shadow
     protected abstract void tickDespawn();
 
     @Unique

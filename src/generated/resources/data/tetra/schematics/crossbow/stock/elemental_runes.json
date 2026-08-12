@@ -139,7 +139,8 @@
     },
     "improvements" : {
       "elementalarsenal/water_bow" : 0,
-      "elementalarsenal/lightning_spell_power" : 0
+      "elementalarsenal/aqua_spell_power" : 0,
+      "elementalarsenal/lightning_spell_power_alt" : 0
     }
   }, {
     "material" : {

@@ -2,7 +2,6 @@ package com.syric.elementalarsenal;
 
 import com.syric.elementalarsenal.compat.IFCompatClient;
 import com.syric.elementalarsenal.events.AddArrowTags;
-import com.syric.elementalarsenal.compat.IFCompat;
 import com.syric.elementalarsenal.registry.EAItems;
 import com.syric.elementalarsenal.registry.EALootModifiers;
 import com.syric.elementalarsenal.registry.EAMobEffects;
@@ -22,7 +21,7 @@ import org.apache.logging.log4j.Logger;
 public class ElementalArsenal {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "elementalarsenal";
-//    // Directly reference a log4j logger.
+    // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
 
     public ElementalArsenal(FMLJavaModLoadingContext context) {
@@ -45,7 +44,7 @@ public class ElementalArsenal {
 
     private void doClientStuff(final FMLClientSetupEvent event) {
 
-        if (ModList.get().isLoaded("iceandfire") && !ModList.get().isLoaded("amm")) {
+        if (ModList.get().isLoaded("iceandfire") && !ModList.get().isLoaded("dragonslayers_arsenal")) {
             IFCompatClient.addBars(event);
         }
 

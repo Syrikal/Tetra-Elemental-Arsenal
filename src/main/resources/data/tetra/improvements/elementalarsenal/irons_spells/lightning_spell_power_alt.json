@@ -1,0 +1,23 @@
+[ {
+  "key" : "elementalarsenal/lightning_spell_power_alt",
+  "group" : "spell_upgrades",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "irons_spellbooks"
+  }, {
+    "type" : "forge:not",
+    "value" : {
+      "type" : "forge:mod_loaded",
+      "modid" : "traveloptics"
+    }
+  } ],
+  "attributes" : {
+    "**irons_spellbooks:lightning_spell_power" : 0.15,
+    "**irons_spellbooks:spell_power" : 0.05,
+    "**irons_spellbooks:cooldown_reduction" : 0.1,
+    "**irons_spellbooks:cast_time_reduction" : 0.1
+  }
+} ]

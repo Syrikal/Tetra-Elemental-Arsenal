@@ -44,6 +44,8 @@
     "tetra:elementalarsenal/irons_spells/ice_magic_shield",
     "tetra:elementalarsenal/irons_spells/lightning_magic_shield",
     "tetra:elementalarsenal/irons_spells/nature_magic_shield",
-    "tetra:elementalarsenal/irons_spells/arcane_magic_shield"
+    "tetra:elementalarsenal/irons_spells/arcane_magic_shield",
+    "tetra:elementalarsenal/irons_spells/aqua_magic_shield",
+    "tetra:elementalarsenal/irons_spells/lightning_magic_shield_alt"
   ]
 }

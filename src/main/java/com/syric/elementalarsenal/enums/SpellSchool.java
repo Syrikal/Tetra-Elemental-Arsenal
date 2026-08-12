@@ -10,7 +10,8 @@ public enum SpellSchool {
     ICE("ice"),
     LIGHTNING("lightning"),
     NATURE("nature"),
-    ARCANE("arcane");
+    ARCANE("arcane"),
+    AQUA("aqua");
 
     public final String name;
     SpellSchool(String name) {

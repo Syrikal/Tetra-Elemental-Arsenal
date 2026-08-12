@@ -1,6 +1,6 @@
 package com.syric.elementalarsenal.compat;
 
-import com.github.alexthe666.iceandfire.entity.DragonType;
+import com.syric.elementalarsenal.enums.TEADragonType;
 import com.syric.elementalarsenal.tetra_effects.DragonProtectionStatGetter;
 import com.syric.elementalarsenal.tetra_effects.Effects;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,12 +18,13 @@ import se.mickelus.tetra.items.modular.impl.holo.gui.craft.HoloStatsGui;
 public class IFCompatClient {
 
     public static void addBars(FMLClientSetupEvent event) {
-        handleBars(DragonType.FIRE, "fire", Effects.FIRE_DRAGON_PROTECTION);
-        handleBars(DragonType.ICE, "ice", Effects.ICE_DRAGON_PROTECTION);
-        handleBars(DragonType.LIGHTNING, "lightning", Effects.LIGHTNING_DRAGON_PROTECTION);
+        handleBars(TEADragonType.FIRE, "fire", Effects.FIRE_DRAGON_PROTECTION);
+        handleBars(TEADragonType.ICE, "ice", Effects.ICE_DRAGON_PROTECTION);
+        handleBars(TEADragonType.LIGHTNING, "lightning", Effects.LIGHTNING_DRAGON_PROTECTION);
+        handleBars(TEADragonType.POISON, "poison", Effects.POISON_DRAGON_PROTECTION);
     }
 
-    private static void handleBars(DragonType type, String type_name, ItemEffect effect) {
+    private static void handleBars(TEADragonType type, String type_name, ItemEffect effect) {
         IStatGetter statGetter = new DragonProtectionStatGetter(type, effect);
         GuiStatBar protectionBar = new GuiStatBar(0, 0, 59,
                 "tetra.stats." + type_name + "_dragon_protection",

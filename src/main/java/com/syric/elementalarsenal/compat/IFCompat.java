@@ -1,14 +1,14 @@
 package com.syric.elementalarsenal.compat;
 
-import com.github.alexthe666.iceandfire.entity.DragonType;
 import com.github.alexthe666.iceandfire.misc.IafDamageRegistry;
-import com.syric.elementalarsenal.ElementalArsenal;
+import com.syric.elementalarsenal.enums.TEADragonType;
 import com.syric.elementalarsenal.tetra_effects.DragonProtectionStatGetter;
 import com.syric.elementalarsenal.tetra_effects.Effects;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.ModList;
 import se.mickelus.tetra.items.modular.impl.shield.ModularShieldItem;
 
 public class IFCompat {
@@ -29,7 +29,7 @@ public class IFCompat {
             }
 
             if (dragonscale_protection > 0) {
-                ElementalArsenal.LOGGER.debug("Dragonscale protection reduced damage from {} to {}", event.getAmount(), (event.getAmount() * (1 - dragonscale_protection)));
+//                ElementalArsenal.LOGGER.debug("Dragonscale protection reduced damage from {} to {}", event.getAmount(), (event.getAmount() * (1 - dragonscale_protection)));
                 event.setAmount((float) (event.getAmount() * (1 - dragonscale_protection)));
             }
         }
@@ -40,11 +40,19 @@ public class IFCompat {
         DragonProtectionStatGetter dragonProtectionStatGetter = null;
         if (stack.getItem() instanceof ModularShieldItem) {
             if (source.is(IafDamageRegistry.DRAGON_FIRE_TYPE)) {
-                dragonProtectionStatGetter = new DragonProtectionStatGetter(DragonType.FIRE, Effects.FIRE_DRAGON_PROTECTION);
+                dragonProtectionStatGetter = new DragonProtectionStatGetter(TEADragonType.FIRE, Effects.FIRE_DRAGON_PROTECTION);
             } else if (source.is(IafDamageRegistry.DRAGON_ICE_TYPE)) {
-                dragonProtectionStatGetter = new DragonProtectionStatGetter(DragonType.ICE, Effects.ICE_DRAGON_PROTECTION);
+                dragonProtectionStatGetter = new DragonProtectionStatGetter(TEADragonType.ICE, Effects.ICE_DRAGON_PROTECTION);
             } else if (source.is(IafDamageRegistry.DRAGON_LIGHTNING_TYPE)) {
-                dragonProtectionStatGetter = new DragonProtectionStatGetter(DragonType.LIGHTNING, Effects.LIGHTNING_DRAGON_PROTECTION);
+                boolean poison = false;
+                if (ModList.get().isLoaded("poison_dragons")) {
+                    if (PoisonDragonCompat.isPoisonDamage(source)) poison = true;
+                }
+                if (poison) {
+                    dragonProtectionStatGetter = new DragonProtectionStatGetter(TEADragonType.POISON, Effects.POISON_DRAGON_PROTECTION);
+                } else {
+                    dragonProtectionStatGetter = new DragonProtectionStatGetter(TEADragonType.LIGHTNING, Effects.LIGHTNING_DRAGON_PROTECTION);
+                }
             }
         }
         if (dragonProtectionStatGetter == null) {

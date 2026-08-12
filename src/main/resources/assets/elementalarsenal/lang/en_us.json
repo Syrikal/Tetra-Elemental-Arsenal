@@ -225,6 +225,10 @@
   "tetra.improvement.elementalarsenal/lightning_spell_power.description": "Increases power of lightning magic",
   "tetra.improvement.elementalarsenal/nature_spell_power.name": "Nature Magic Affinity",
   "tetra.improvement.elementalarsenal/nature_spell_power.description": "Increases power of nature magic",
+  "tetra.improvement.elementalarsenal/aqua_spell_power.name": "Aqua Magic Affinity",
+  "tetra.improvement.elementalarsenal/aqua_spell_power.description": "Increases power of aqua magic",
+  "tetra.improvement.elementalarsenal/lightning_spell_power_alt.name": "Lightning Magic Affinity",
+  "tetra.improvement.elementalarsenal/lightning_spell_power_alt.description": "Increases power of lightning magic",
   
   "tetra.improvement.elementalarsenal/arcane_magic_shield.name": "Magic Affinity",
   "tetra.improvement.elementalarsenal/arcane_magic_shield.description": "• Resists all magic\\n• Improved mana regen\\n• +100 mana",
@@ -246,6 +250,10 @@
   "tetra.improvement.elementalarsenal/lightning_magic_shield.description": "• Increases power of lightning magic\\n• Resists lightning magic",
   "tetra.improvement.elementalarsenal/nature_magic_shield.name": "Nature Magic Affinity",
   "tetra.improvement.elementalarsenal/nature_magic_shield.description": "• Increases power of nature magic\\n• Resists nature magic",
+  "tetra.improvement.elementalarsenal/aqua_magic_shield.name": "Aqua Magic Affinity",
+  "tetra.improvement.elementalarsenal/aqua_magic_shield.description": "• Increases power of aqua magic\\n• Resists aqua magic",
+  "tetra.improvement.elementalarsenal/lightning_magic_shield_alt.name": "Lightning Magic Affinity",
+  "tetra.improvement.elementalarsenal/lightning_magic_shield_alt.description": "• Increases power of lightning magic\\n• Resists lightning magic",
   
 
   "tetra/schematic/bow/stave/elemental_runes.name": "Inscribe Runes",
@@ -340,6 +348,8 @@
   "tetra.stats.ice_dragon_protection.tooltip": "Reduces damage from ice dragons' breath weapons by §e%s§r",
   "tetra.stats.lightning_dragon_protection": "Lightning Dragon Protection",
   "tetra.stats.lightning_dragon_protection.tooltip": "Reduces damage from lightning dragons' breath weapons by §e%s§r",
+  "tetra.stats.poison_dragon_protection": "Poison Dragon Protection",
+  "tetra.stats.poison_dragon_protection.tooltip": "Reduces damage from poison dragons' breath weapons by §e%s§r",
 
   "message.elementalarsenal.feather_toggled_on": "Activated skyseeker abilities",
   "message.elementalarsenal.feather_toggled_off": "Deactivated skyseeker abilities",

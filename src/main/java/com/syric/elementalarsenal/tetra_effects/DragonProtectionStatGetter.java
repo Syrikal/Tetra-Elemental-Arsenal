@@ -1,6 +1,6 @@
 package com.syric.elementalarsenal.tetra_effects;
 
-import com.github.alexthe666.iceandfire.entity.DragonType;
+import com.syric.elementalarsenal.enums.TEADragonType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import se.mickelus.mutil.util.CastOptional;
@@ -10,10 +10,10 @@ import se.mickelus.tetra.items.modular.IModularItem;
 import se.mickelus.tetra.module.ItemModuleMajor;
 
 public class DragonProtectionStatGetter implements IStatGetter {
-    protected final DragonType type;
+    protected final TEADragonType type;
     protected final ItemEffect protectionEffect;
 
-    public DragonProtectionStatGetter(DragonType type, ItemEffect protectionEffect) {
+    public DragonProtectionStatGetter(TEADragonType type, ItemEffect protectionEffect) {
         this.type = type;
         this.protectionEffect = protectionEffect;
     }

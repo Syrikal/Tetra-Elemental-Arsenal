@@ -139,7 +139,8 @@
     },
     "improvements" : {
       "elementalarsenal/water_shield" : 0,
-      "elementalarsenal/lightning_magic_shield" : 0
+      "elementalarsenal/aqua_magic_shield" : 0,
+      "elementalarsenal/lightning_magic_shield_alt" : 0
     }
   }, {
     "material" : {

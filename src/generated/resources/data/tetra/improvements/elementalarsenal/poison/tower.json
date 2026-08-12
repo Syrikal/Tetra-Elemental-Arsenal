@@ -6,7 +6,8 @@
     "elemental_upgraded" : 1
   },
   "effects" : {
-    "elementalarsenal:poison" : 1
+    "elementalarsenal:poison" : 1,
+    "elementalarsenal:poison_dragon_protection" : [ 1, 10 ]
   },
   "models" : [ {
     "renderLayer" : "high",

@@ -1,0 +1,20 @@
+[ {
+  "key" : "elementalarsenal/aqua_spell_power",
+  "group" : "spell_upgrades",
+  "aspects" : {
+    "elemental_upgraded" : 1
+  },
+  "conditions" : [ {
+    "type" : "forge:mod_loaded",
+    "modid" : "irons_spellbooks"
+  }, {
+    "type" : "forge:mod_loaded",
+    "modid" : "traveloptics"
+  } ],
+  "attributes" : {
+    "**traveloptics:aqua_spell_power" : 0.15,
+    "**irons_spellbooks:spell_power" : 0.05,
+    "**irons_spellbooks:cooldown_reduction" : 0.1,
+    "**irons_spellbooks:cast_time_reduction" : 0.1
+  }
+} ]

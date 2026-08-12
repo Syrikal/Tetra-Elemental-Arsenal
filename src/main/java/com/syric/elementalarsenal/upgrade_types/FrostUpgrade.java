@@ -1,6 +1,7 @@
 package com.syric.elementalarsenal.upgrade_types;
 
 import com.syric.elementalarsenal.ElementalArsenal;
+import com.syric.elementalarsenal.compat.SporeCompat;
 import com.syric.elementalarsenal.enums.UpgradeType;
 import com.syric.elementalarsenal.registry.EATags;
 import com.syric.elementalarsenal.util.FindShield;
@@ -26,6 +27,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.ShieldBlockEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(
@@ -52,7 +54,10 @@ public class FrostUpgrade {
                 boolean fullStrengthHit = !(event.getSource().getDirectEntity() instanceof Player) || ((Player) event.getSource().getDirectEntity()).getAttackStrengthScale(0) >= 0.95;
                 if (!event.getEntity().isBlocking() && fullStrengthHit) {
                     event.getEntity().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 0));
-                    int freezeDuration = getFreezeDuration(event.getEntity(), 1);
+                    if (ModList.get().isLoaded("spore")) {
+                        SporeCompat.frostbiteTarget(event.getEntity());
+                    }
+                    int freezeDuration = getFreezeDuration(event.getEntity(), 1F);
                     event.getEntity().setTicksFrozen(event.getEntity().getTicksFrozen() + freezeDuration);
 //                    ElementalArsenal.LOGGER.debug("Increased target's freeze duration from " + (event.getEntity().getTicksFrozen() - freezeDuration) + " to " + event.getEntity().getTicksFrozen() + " ticks (+" + freezeDuration + ")");
                 }
@@ -68,6 +73,9 @@ public class FrostUpgrade {
                 }
                 if (!event.getEntity().isBlocking() && ((Arrow) event.getSource().getDirectEntity()).isCritArrow()) {
                     event.getEntity().addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 0));
+                    if (ModList.get().isLoaded("spore")) {
+                        SporeCompat.frostbiteTarget(event.getEntity());
+                    }
                     int freezeDuration = getFreezeDuration(event.getEntity(), 2.5F);
                     event.getEntity().setTicksFrozen(event.getEntity().getTicksFrozen() + freezeDuration);
 //                    ElementalArsenal.LOGGER.debug("Increased target's freeze duration from " + (event.getEntity().getTicksFrozen() - freezeDuration) + " to " + event.getEntity().getTicksFrozen() + " ticks (+" + freezeDuration + ")");
@@ -146,7 +154,6 @@ public class FrostUpgrade {
         }
     }
 
-    //TODO allow using Spore's new mob effect
     private static int getFreezeDuration(Entity target, float multiplier) {
         int existing = target.getTicksFrozen();
 

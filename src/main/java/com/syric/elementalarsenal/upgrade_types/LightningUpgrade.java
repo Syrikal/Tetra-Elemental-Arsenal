@@ -256,8 +256,8 @@ public class LightningUpgrade {
                     arrow.addTag("LightningStrike");
                     arrow.level().playSound(null, arrow.getX(), arrow.getY(), arrow.getZ(), SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.WEATHER, 10.0F, 1.0F);
 
-                    ElementalArsenal.LOGGER.debug("ServerLevelData before: ThunderTime {}, RainTime {}, ClearTime{}, isThundering {}, isRaining {}",
-                            serverLevelData.getThunderTime(), serverLevelData.getRainTime(), serverLevelData.getClearWeatherTime(), serverLevelData.isThundering(), serverLevelData.isRaining());
+//                    ElementalArsenal.LOGGER.debug("ServerLevelData before: ThunderTime {}, RainTime {}, ClearTime{}, isThundering {}, isRaining {}",
+//                            serverLevelData.getThunderTime(), serverLevelData.getRainTime(), serverLevelData.getClearWeatherTime(), serverLevelData.isThundering(), serverLevelData.isRaining());
 
                     if (!raining) {
                         serverLevelData.setRainTime(Math.max(60, serverLevelData.getRainTime() / 2));
@@ -268,8 +268,8 @@ public class LightningUpgrade {
                         serverLevelData.setClearWeatherTime(0);
                     }
 
-                    ElementalArsenal.LOGGER.debug("ServerLevelData before: ThunderTime {}, RainTime {}, ClearTime{}, isThundering {}, isRaining {}",
-                            serverLevelData.getThunderTime(), serverLevelData.getRainTime(), serverLevelData.getClearWeatherTime(), serverLevelData.isThundering(), serverLevelData.isRaining());
+//                    ElementalArsenal.LOGGER.debug("ServerLevelData before: ThunderTime {}, RainTime {}, ClearTime{}, isThundering {}, isRaining {}",
+//                            serverLevelData.getThunderTime(), serverLevelData.getRainTime(), serverLevelData.getClearWeatherTime(), serverLevelData.isThundering(), serverLevelData.isRaining());
 
                 } else {
                     arrow.addTag("LightningStrikeFailed");

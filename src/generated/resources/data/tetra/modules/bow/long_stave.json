@@ -44,6 +44,8 @@
     "tetra:elementalarsenal/irons_spells/ice_spell_power",
     "tetra:elementalarsenal/irons_spells/lightning_spell_power",
     "tetra:elementalarsenal/irons_spells/nature_spell_power",
-    "tetra:elementalarsenal/irons_spells/arcane_spell_power"
+    "tetra:elementalarsenal/irons_spells/arcane_spell_power",
+    "tetra:elementalarsenal/irons_spells/aqua_spell_power",
+    "tetra:elementalarsenal/irons_spells/lightning_spell_power_alt"
   ]
 }

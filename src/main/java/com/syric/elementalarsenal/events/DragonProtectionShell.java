@@ -23,7 +23,7 @@ public class DragonProtectionShell {
                 && (event.getEntity().getMainHandItem().getItem() instanceof ModularShieldItem
                 || event.getEntity().getOffhandItem().getItem() instanceof  ModularShieldItem)
                 && ModList.get().isLoaded("iceandfire")
-                && !ModList.get().isLoaded("amm")) {
+                && !ModList.get().isLoaded("dragonslayers_armory")) { //Dragonslayer's Armory handles this on its own
             IFCompat.dragonscaleShieldCheck(event);
         }
     }

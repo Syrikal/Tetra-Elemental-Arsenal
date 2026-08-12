@@ -15,7 +15,7 @@ public enum UpgradeType {
     PHANTOM("phantom", Effects.phantom, Effects.phantom_tool, Effects.phantom_weapon, Effects.phantom_both, "evocation"),
     POISON("poison", Effects.poison, Effects.poison_tool, Effects.poison_weapon, Effects.poison_both, "nature"),
     RADIANT("radiant", Effects.radiant, Effects.radiant_tool, Effects.radiant_weapon, Effects.radiant_both, "holy"),
-    WATER("water", Effects.water, Effects.water_tool, Effects.water_weapon, Effects.water_both, "lightning"),
+    WATER("water", Effects.water, Effects.water_tool, Effects.water_weapon, Effects.water_both, "aqua"),
     WITHER("wither", Effects.wither, Effects.wither_tool, Effects.wither_weapon, Effects.wither_both, "blood"),
     ULTIMATE("ultimate", Effects.ultimate, Effects.ultimate_tool, Effects.ultimate_weapon, Effects.ultimate_both, ""),
     AETHERIC("aetheric", Effects.aetheric, Effects.aetheric_tool, Effects.aetheric_weapon, Effects.aetheric_both, "lightning"),

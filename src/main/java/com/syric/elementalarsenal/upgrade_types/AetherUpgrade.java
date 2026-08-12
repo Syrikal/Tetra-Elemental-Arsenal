@@ -54,7 +54,7 @@ public class AetherUpgrade {
                 && ItemIdentificationUtil.isUpgradedShield(FindShield.getModularShield(event.getEntity()), UpgradeType.AETHERIC)) {
             Entity attacker = event.getDamageSource().getDirectEntity();
             LivingEntity defender = event.getEntity();
-            ElementalArsenal.LOGGER.debug("Attacker Namespace: {}", Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(attacker.getType())).getNamespace());
+//            ElementalArsenal.LOGGER.debug("Attacker Namespace: {}", Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(attacker.getType())).getNamespace());
             if (Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.getKey(attacker.getType())).getNamespace().contains("aether") && defender.getRandom().nextFloat() < 0.5) {
                 attacker.hurt(attacker.damageSources().thorns(defender), defender.getRandom().nextFloat() * 4 + 2);
                 FindShield.getModularShield(defender).hurtAndBreak(1, defender, (x) -> {});
